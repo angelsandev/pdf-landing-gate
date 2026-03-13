@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Navbar from "../components/navigation/Navbar.astro";
 import { appData } from "../data";
 
 interface Props {
@@ -49,12 +50,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "http://localhost
 	</head>
 
 	<body class="bg-gray-50 text-gray-900 dark:bg-neutral-950 dark:text-white antialiased">
+		<Navbar></Navbar>
+		
 		<div class="mx-auto min-h-screen max-w-full px-4 lg:max-w-375 flex flex-col">
 			
 			<header class="py-6">
-				<nav class="flex justify-between items-center">
-					<span class="font-bold text-xl">PDF<span class="text-blue-600">Gate</span></span>
-				</nav>
+				<h1 class="flex justify-between items-center">
+					<span class="font-bold text-xl">Portal de descargas <span class="text-blue-600">PDF</span></span>
+				</h1>
 			</header>
 
 			<main class="grow">

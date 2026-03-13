@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.3] Menú NavBar  - 2026-3-13
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Crear barra menú Navbar, de modo `sticky`
+- **Estructura:** Crear componente `Navbar.astro`
+- **Layout.astro:** Llamada al componente `Navbar`
+
+
 ### [V0.0.2] Landing Astro PDF-Gate  - 2026-3-13
 - **Pruebas:** ✅ Todo ok. 
 - **index.ts:** Crear un `interface` donde definir cada `relatedProduct` y utilizar este tipo en el componente `RelatedProducts.astro`.
