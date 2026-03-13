@@ -12,11 +12,11 @@
 /* Custom component utilities */
 @layer components {
 	.card-base {
-		@apply rounded-2xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/ shadow-sm;
+		@apply rounded-2xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/5 shadow-sm;
 	}
 
 	.button-base {
-		@apply rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/ shadow-sm;
+		@apply rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/5 shadow-sm;
 	}
 
 	.button-primary {

@@ -1,5 +1,11 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.2] Landing Astro PDF-Gate  - 2026-3-13
+- **Pruebas:** ✅ Todo ok. 
+- **index.ts:** Crear un `interface` donde definir cada `relatedProduct` y utilizar este tipo en el componente `RelatedProducts.astro`.
+- **Hero.astro:** Crear un input para introducir el email.
+- **RelatedProducts.astro:** tipar la variable `related` ya que se importa del `index.ts`
+
 
 ### [V0.0.1] Inicio Landing Astro PDF-Gate  - 2026-3-13
 - **Pruebas:** ✅ Todo ok. 
