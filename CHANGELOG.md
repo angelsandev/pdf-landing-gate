@@ -1,5 +1,13 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.6] Pasos de la descarga - 2026-3-14
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Introducir unas `cards` que muestren los pasos a seguir para la descarga del PDF.
+- **Estructura:** Crear componente `Steps.astro` dentro de carpeta `features`.
+- **index.astro:** Llamada al componente `Steps.astro`
+
+
+
 ### [V0.0.5] Eliminar Dark mode - 2026-3-14
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Eliminar todos los estilos `dark` que existían para simular un modo oscuro.
