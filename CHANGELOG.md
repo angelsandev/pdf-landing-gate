@@ -1,5 +1,11 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.5] Eliminar Dark mode - 2026-3-14
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Eliminar todos los estilos `dark` que existían para simular un modo oscuro.
+- **Pruebas:** ✅ Se elimina de todos los compnentes y se elimina el script para manejo del modo oscuro.
+- **CSS:** Se eliminan las clases creadas en el `global.css`.
+
 ### [V0.0.4] Header y Breadcrumb - 2026-3-14
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Crear componente para Header, crear Breadcrumb con `h1` y link en el breadcrumb.

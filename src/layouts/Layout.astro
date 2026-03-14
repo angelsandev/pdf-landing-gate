@@ -5,65 +5,55 @@ import PageHeader from "../components/navigation/PageHeader.astro";
 import { appData } from "../data";
 
 interface Props {
-	title?: string;
-	description?: string;
+  title?: string;
+  description?: string;
 }
 
-const { 
-  title = appData.name, 
-  description = appData.description 
-} = Astro.props;
+const { title = appData.name, description = appData.description } = Astro.props;
 
 // Esto ayuda a que Google sepa exactamente cuál es la URL principal
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || "http://localhost:4321");
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || "http://localhost:4321",
+);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
-		
-		<title>{title}</title>
-		<meta name="description" content={description} />
-		<link rel="canonical" href={canonicalURL} />
-		
-		<script is:inline>
-			const getTheme = () => {
-				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-					return localStorage.getItem('theme');
-				}
-				return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-			};
-			
-			const theme = getTheme();
-			if (theme === 'light') {
-				document.documentElement.classList.remove('dark');
-			} else {
-				document.documentElement.classList.add('dark');
-			}
-		</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-	</head>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
 
-	<body class="bg-gray-50 text-gray-900 dark:bg-neutral-950 dark:text-white antialiased">
-		<Navbar></Navbar>
-		
-		<div class="mx-auto min-h-screen max-w-full px-4 lg:max-w-7xl flex flex-col">
-			
-			<PageHeader></PageHeader>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-			<main class="grow">
-				<slot />
-			</main>
+  <body class="bg-gray-50 text-gray-900 antialiased">
+    <Navbar />
 
-			<footer class="py-10 text-center text-sm text-gray-500 border-t border-gray-200 dark:border-white/10 mt-20">
-				&copy; {new Date().getFullYear()} - Documentación Técnica Oficial
-			</footer>
-		</div>
-	</body>
+    <div
+      class="mx-auto min-h-screen max-w-full px-4 lg:max-w-7xl flex flex-col"
+    >
+      <PageHeader />
+
+      <main class="grow mt-4">
+        <slot />
+      </main>
+
+      <footer
+        class="py-10 text-center text-sm text-gray-500 border-t border-gray-200 mt-20"
+      >
+        &copy; {new Date().getFullYear()} - Documentación Técnica Oficial
+      </footer>
+    </div>
+  </body>
 </html>

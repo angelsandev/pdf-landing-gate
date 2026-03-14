@@ -34,20 +34,15 @@ const related: RelatedProduct[] = [
 
 <section class="mb-16">
   <div class="mb-6 flex items-center justify-between">
-    <h2 class="text-2xl font-semibold text-heading">Productos Relacionados</h2>
+    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Productos Relacionados</h2>
 
-    <div
-      class="flex items-center gap-1 rounded-xl border border-gray-300 bg-white p-1 shadow-sm dark:border-white/10 dark:bg-white/4"
-    >
-      <span
-        class="px-4 py-1 text-xs font-medium text-muted uppercase tracking-wider"
-        >Catálogo 2026</span
-      >
+    <div class="flex items-center gap-1 rounded-full border border-gray-300 bg-white px-4 py-1 shadow-sm">
+      <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Catálogo 2026</span>
     </div>
   </div>
 
   <div class="relative overflow-hidden">
-    <div class="screenshots-scrollbar overflow-x-auto pb-4 custom-scroll">
+    <div class="overflow-x-auto pb-4 custom-scroll">
       <div class="flex gap-6 w-max">
         {
           related.map((item) => (
@@ -55,7 +50,7 @@ const related: RelatedProduct[] = [
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="relative shrink-0 overflow-hidden rounded-xl border border-gray-300 dark:border-white/10 shadow-lg group bg-white dark:bg-neutral-900 transition-all hover:border-blue-500"
+              class="relative shrink-0 overflow-hidden rounded-xl border border-gray-200 shadow-sm group bg-white transition-all hover:border-blue-500 hover:shadow-md"
             >
               <Image
                 src={item.src}
@@ -63,11 +58,14 @@ const related: RelatedProduct[] = [
                 width={360}
                 height={270}
                 format="webp"
-                class="rounded-t-xl object-cover aspect-4/3 w-70 md:w-90 group-hover:scale-105 transition-transform duration-500"
+                class="rounded-t-xl object-cover aspect-4/3 w-70 md:w-80 group-hover:scale-105 transition-transform duration-500"
               />
-              <div class="p-4 border-t border-gray-300 dark:border-white/5">
-                <p class="text-sm font-semibold text-heading text-center">
+              <div class="p-4 border-t border-gray-100 bg-gray-50/50">
+                <p class="text-sm font-bold text-gray-800 text-center leading-snug">
                   {item.name}
+                </p>
+                <p class="text-[10px] text-blue-600 font-semibold text-center mt-1 uppercase tracking-tighter">
+                  Ver en tienda ↗
                 </p>
               </div>
             </a>
@@ -79,13 +77,8 @@ const related: RelatedProduct[] = [
 </section>
 
 <style>
-  /* Estilizamos el scroll para que sea elegante pero ligero */
   .custom-scroll {
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
-  }
-
-  .dark .custom-scroll {
-    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+    scrollbar-color: #cbd5e1 transparent;
   }
 </style>
