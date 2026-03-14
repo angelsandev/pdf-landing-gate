@@ -1,0 +1,45 @@
+---
+// src/components/navigation/PageHeader.astro
+---
+
+<header class="py-6  mb-2">
+  <nav class="flex" aria-label="Breadcrumb">
+    <div class="flex items-center gap-0 tracking-tight">
+      
+      <a 
+        href="https://www.electricautomationnetwork.com" 
+        class="breadcrumb-item bg-[#1e293b] text-white px-6 py-2 text-xs font-bold uppercase hover:bg-blue-600 transition-colors"
+      >
+        Tienda
+      </a>
+
+      <div class="breadcrumb-last bg-blue-600 text-white px-8 py-2">
+        <h1 class="text-xs font-bold uppercase tracking-widest">
+          Portal de Descargas <span class="text-blue-200 text-[10px]">PDF</span>
+        </h1>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<style>
+  .breadcrumb-item {
+    /* Crea la punta a la derecha y el hueco a la izquierda */
+    clip-path: polygon(calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0% 100%, 0% 50%, 0% 0%);
+    padding-right: 35px; 
+  }
+
+  .breadcrumb-last {
+    /* Solo tiene el hueco a la izquierda para encajar con el anterior */
+    clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 15px 50%, 0% 0%);
+    padding-left: 30px;
+    margin-left: -12px; /* Solapa los elementos para que encajen las puntas */
+  }
+
+  /* Ajuste para que el primer elemento no tenga hueco a la izquierda */
+  a.breadcrumb-item:first-child {
+    clip-path: polygon(calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0% 100%, 0% 0%);
+    border-radius: 4px 0 0 4px;
+  }
+</style>

@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.4] Header y Breadcrumb - 2026-3-14
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Crear componente para Header, crear Breadcrumb con `h1` y link en el breadcrumb.
+- **Estructura:** Crear componente `PageHeader.astro`
+- **Layout.astro:** Llamada al componente `PageHeader`
+- **PageHeader.astro:** Crear Breadcrumb efecto `Chevron`.
+
 ### [V0.0.3] Menú NavBar  - 2026-3-13
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Crear barra menú Navbar, de modo `sticky`
