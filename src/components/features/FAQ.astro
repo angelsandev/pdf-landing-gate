@@ -1,0 +1,65 @@
+---
+// src/components/features/FAQ.astro
+import type { FAQItem } from "../../types";
+
+const faqs: FAQItem[] = [
+  {
+    question: "¿Los manuales son oficiales?",
+    answer: "Sí, todos los documentos disponibles en nuestro portal son versiones oficiales proporcionadas por los fabricantes originales (Siemens, ABB, Schneider, etc.)."
+  },
+  {
+    question: "¿Tiene algún coste la descarga?",
+    answer: "No, el acceso a la documentación técnica es totalmente gratuito para profesionales y empresas del sector de la automatización."
+  },
+  {
+    question: "¿Qué es Electric Automation Network?",
+    answer: "El portal líder en venta de productos de automatización, postventa y soporte."
+  },
+  {
+    question: "¿Qué pasa si no recibo el email?",
+    answer: "Revisa tu carpeta de correo no deseado (Spam). Si en 5 minutos no ha llegado, puedes intentar de nuevo o contactar con nuestro soporte técnico."
+  }
+];
+---
+
+<section class="mb-8">
+  <div class="mb-8 text-center md:text-left">
+    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Preguntas Frecuentes</h2>
+    <p class="text-gray-600">Resolvemos tus dudas sobre el portal de descargas.</p>
+  </div>
+
+  <div class="max-w-3xl mx-auto md:mx-0 flex flex-col gap-4">
+    {faqs.map((faq) => (
+      <details class="group card-base border-gray-200 transition-all duration-300 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer list-none outline-none">
+          <h3 class="text-heading font-semibold text-sm md:text-base pr-4">
+            {faq.question}
+          </h3>
+          <span class="relative h-5 w-5 shrink-0 transition-transform duration-300 group-open:-rotate-180">
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+            </svg>
+          </span>
+        </summary>
+        <div class="px-5 pb-5 text-body text-sm leading-relaxed border-t border-gray-100 pt-4">
+          {faq.answer}
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  /* Animación sutil de apertura */
+  details[open] div {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

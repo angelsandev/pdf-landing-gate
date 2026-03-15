@@ -6,3 +6,7 @@ export interface RelatedProduct {
   name: string;
   url: string;
 }
+export interface FAQItem {
+  question: string;
+  answer: string;
+}

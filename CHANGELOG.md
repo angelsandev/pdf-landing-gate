@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.7] FAQ section - 2026-3-14
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Introducir sección `FAQ` con preguntas frecuentes en modo acordeón.
+- **Estructura:** Crear componente `FAQ.astro` dentro de carpeta `features`.
+- **index.astro:** Llamada al componente `FAQ.astro`
+
+
 ### [V0.0.6] Pasos de la descarga - 2026-3-14
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Introducir unas `cards` que muestren los pasos a seguir para la descarga del PDF.
