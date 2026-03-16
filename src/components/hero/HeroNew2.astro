@@ -1,0 +1,143 @@
+---
+// src/components/sections/Hero.astro
+import { appData } from "../../data";
+import { Image } from "astro:assets";
+import logoImage from "../../assets/pdf-download.jpg";
+// Asumiendo que recibes estas props o las tienes definidas
+const { featuredManual, name, description, logo, downloadLinks, rating } =
+  appData;
+---
+
+<div
+  class="hero-container mb-16 flex flex-col lg:flex-row gap-10 items-center lg:items-start text-center lg:text-left bg-white p-8 rounded-3xl border border-gray-100 shadow-sm"
+>
+  <div class="shrink-0">
+    <div
+      class="group/icon rounded-2xl border border-gray-200 bg-slate-50 p-6 w-64 h-64 flex items-center justify-center shadow-inner transition-all duration-300"
+    >
+      <Image
+        src={logoImage}
+        alt={`Logo de ${name}`}
+        width={220}
+        height={220}
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+        class="h-52 w-52 rounded-xl object-contain group-hover/icon:scale-105 transition-transform duration-500"
+      />
+    </div>
+  </div>
+
+  <div class="flex flex-1 flex-col">
+    <div class="mb-6">
+      <h1
+        class="text-2xl md:text-2xl font-extrabold text-ean-text mb-3 leading-tight"
+      >
+        {featuredManual.title}
+      </h1>
+
+      <div
+        class="flex items-center gap-3 mb-4 justify-center lg:justify-start flex-wrap"
+      >
+        <div
+          class="flex items-center gap-1.5 bg-yellow-50 px-3 py-1 rounded-full border border-yellow-100"
+        >
+          <span class="text-yellow-500 text-xl">★★★★★</span>
+          <span class="text-xs font-bold text-yellow-700">
+            {rating.score}
+            <span class="text-yellow-600/50 font-normal"
+              >({rating.count} descargas)</span
+            >
+          </span>
+        </div>
+
+        <div class="flex gap-2">
+          <span
+            class="info-badge text-[10px] uppercase tracking-widest font-bold"
+            >PDF {featuredManual.size}</span
+          >
+          <span
+            class="info-badge text-[10px] uppercase tracking-widest font-bold"
+            >Actualizado: {featuredManual.releaseDate}</span
+          >
+        </div>
+      </div>
+
+      <p class="text-base md:text-lg text-body leading-relaxed max-w-2xl">
+        {description}
+      </p>
+    </div>
+
+    <!-------------------------FORMULARIO EMAIL Y BOTÓN DESCARGAS -------------------------------->
+
+    
+      <div class="flex flex-col md:flex-row gap-10 items-center md:items-start">
+      </div>
+
+      <div
+        class="w-full bg-slate-50 p-8 rounded-2xl border border-gray-200 shadow-inner"
+      >
+        <form class="flex flex-col md:flex-row items-end gap-4">
+          <div class="flex flex-col gap-2 text-left grow">
+            <label
+              for="email"
+              class="text-xs font-bold text-ean-dark ml-1 uppercase tracking-widest"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Introduce tu email para recibir el PDF"
+              class="w-full h-[76px] px-6 py-5 rounded-xl border border-gray-300 bg-white text-ean-text focus:ring-2 focus:ring-ean-blue focus:border-transparent outline-none transition-all shadow-sm text-lg"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="group button-primary w-full h-[76px] md:w-auto md:px-16 py-5 cursor-pointer transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] bg-ean-blue shadow-lg shadow-blue-200 whitespace-nowrap"
+          >
+            <span class="flex flex-col items-center">
+              <span
+                class="text-[10px] font-bold text-blue-100 uppercase tracking-widest"
+                >Acceso instantáneo</span
+              >
+              <span class="text-xl font-black tracking-wide text-white"
+                >DESCARGAR PDF</span
+              >
+            </span>
+          </button>
+        </form>
+
+        <p class="text-xs text-gray-400 mt-4 italic">
+          * Protegemos tu privacidad: Te enviamos un enlace de descarga seguro a tu email
+        </p>
+      </div>
+    
+
+
+
+
+
+
+  </div>
+</div>
+
+<style>
+  .hero-container {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

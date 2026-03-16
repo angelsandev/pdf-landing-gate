@@ -1,5 +1,10 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.0] Hero New2 section (eliminar contenedor) - 2026-3-16
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Sección de botón de descargas `Hero` más grande y llamativa.
+- **Estructura:** Crear un nuevo componente `HeroNew2` igual que HeroNew pero eliminando un contenedor que englobaba al input y boton. 
+
 ### [V0.0.9] Hero New section (email al centro) - 2026-3-16
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Sección de botón de descargas `Hero` más grande y llamativa.
