@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.9] Hero New section (email al centro) - 2026-3-16
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Sección de botón de descargas `Hero` más grande y llamativa.
+- **Estructura:** Crear un nuevo componente `HeroNew` donde se visualiza el boton mas grande y el inpunt de email mas grande.
+
+
+
 ### [V0.0.8] Colores corporativos - 2026-3-16
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Añadir variables globales para modificar colores y adaptarlos a colores corporativos.
