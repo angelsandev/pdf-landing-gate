@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Navbar from "../components/navigation/Navbar.astro";
 import PageHeader from "../components/navigation/PageHeader.astro";
 import { appData } from "../data";
+import StickyEmail from "../components/conversion/StickyEmail.astro";
 
 interface Props {
   title?: string;
@@ -53,7 +54,9 @@ const canonicalURL = new URL(
         class="py-10 text-center text-sm text-ean-dark border-t border-gray-200 mt-20"
       >
         &copy; {new Date().getFullYear()} - Documentación Técnica Oficial
+        
       </footer>
+      <StickyEmail></StickyEmail>
     </div>
   </body>
 </html>

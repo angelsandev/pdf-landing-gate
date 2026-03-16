@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.1] Sticky component para boton de descarga - 2026-3-16
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Mostrar un elemento sticky con el input y boton de descarga cuando se haga scroll.
+- **Pruebas:** ✅ Cuando se llegue al footer, este elemento desaparecerá para que se quede visible el footer.
+- **Estructura:** Crear un nuevo componente `StickyEmail` en el cual se hará visible un elemento con el input y su botón. Aparece cuando se hace scroll más de 20% y desaparece cuando llegue a 95% para no tapar el footer.
+
+
 ### [V0.1.0] Hero New2 section (eliminar contenedor) - 2026-3-16
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Sección de botón de descargas `Hero` más grande y llamativa.
