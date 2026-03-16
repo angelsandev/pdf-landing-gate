@@ -1,11 +1,20 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.1] Sticky-Typescript y separar script del HTML - 2026-3-16
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Pruebas de scroll, aparece y desaparece correcto y en el footer aparece ok.
+- **Estructura:** Transformar el script de posición del scroll a `Typescript`.
+- **Estructura:** Separar la lógica del elemento HTML de la lógica del script.
+- **Estructura:** La lógica HTML está en el component `StickyForm.astro`. Se crea una `prop` para pasarle el id al componente, indicando si `id=sticky-cta`.
+- **Estructura:** La lógica script está en el component `StickyController.astro`.
+- **Layout.astro:** Se llama a los componentes. En el footer se llama al componente pasando una prop `sticky=false`. 
+
 ### [V0.1.1] Sticky component para boton de descarga - 2026-3-16
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Mostrar un elemento sticky con el input y boton de descarga cuando se haga scroll.
 - **Pruebas:** ✅ Cuando se llegue al footer, este elemento desaparecerá para que se quede visible el footer.
 - **Estructura:** Crear un nuevo componente `StickyEmail` en el cual se hará visible un elemento con el input y su botón. Aparece cuando se hace scroll más de 20% y desaparece cuando llegue a 95% para no tapar el footer.
-
+- **Estructura:** Hacer la llamada del componente `StickyEmail` desde el `Layout.astro`.
 
 ### [V0.1.0] Hero New2 section (eliminar contenedor) - 2026-3-16
 - **Pruebas:** ✅ Todo ok.
