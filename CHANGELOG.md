@@ -1,5 +1,11 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.0.8] Colores corporativos - 2026-3-16
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Añadir variables globales para modificar colores y adaptarlos a colores corporativos.
+- **Estructura:** Se modifican colores en diferentes componentes: `Navbar`, `RelatedProducts`, `PageHeader`, `Layout`, `FAQ`, `Steps`, `Hero`
+- **CSS:** Se añaden variables de colores específicos par autilizarlos globalmente
+
 ### [V0.0.7] FAQ section - 2026-3-14
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Introducir sección `FAQ` con preguntas frecuentes en modo acordeón.

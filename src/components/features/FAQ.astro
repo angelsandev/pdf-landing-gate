@@ -22,9 +22,9 @@ const faqs: FAQItem[] = [
 ];
 ---
 
-<section class="mb-8">
+<section class="mb-16">
   <div class="mb-8 text-center md:text-left">
-    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Preguntas Frecuentes</h2>
+    <h2 class="text-2xl font-bold text-ean-text tracking-tight">Preguntas Frecuentes</h2>
     <p class="text-gray-600">Resolvemos tus dudas sobre el portal de descargas.</p>
   </div>
 
@@ -32,14 +32,14 @@ const faqs: FAQItem[] = [
     {faqs.map((faq) => (
       <details class="group card-base border-gray-200 transition-all duration-300 [&_summary::-webkit-details-marker]:hidden">
         <summary class="flex items-center justify-between p-5 cursor-pointer list-none outline-none">
-          <h3 class="text-heading font-semibold text-sm md:text-base pr-4">
+          <h3 class="text-heading font-semibold text-sm md:text-base pr-4 group-open:text-ean-blue transition-colors">
             {faq.question}
           </h3>
           <span class="relative h-5 w-5 shrink-0 transition-transform duration-300 group-open:-rotate-180">
-            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0 transition-opacity text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100 transition-opacity text-ean-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
             </svg>
           </span>
@@ -53,7 +53,13 @@ const faqs: FAQItem[] = [
 </section>
 
 <style>
-  /* Animación sutil de apertura */
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
   details[open] div {
     animation: fadeIn 0.3s ease-out;
   }
