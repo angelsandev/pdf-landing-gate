@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
-import Navbar from "../components/navigation/Navbar.astro";
-import PageHeader from "../components/navigation/PageHeader.astro";
+import Breadcrumb from "../components/navigation/Breadcrumb.astro";
+//import PageHeader from "../components/navigation/NavBarOld.astro";
+import Header from "../components/navigation/Header.astro";
 import { appData } from "../data";
 import StickyForm from '../components/conversion/StickyForm.astro';
 import StickyController from '../components/conversion/StickyController.astro';
@@ -40,12 +41,13 @@ const canonicalURL = new URL(
   </head>
 
   <body class="bg-slate-50 text-ean-text antialiased">
-    <Navbar />
+    <Header></Header>
+    <Breadcrumb />
 
     <div
       class="mx-auto min-h-screen max-w-full px-4 lg:max-w-7xl flex flex-col"
     >
-      <PageHeader />
+      <!-- <NavBarOld /> -->
 
       <main class="grow mt-4">
         <slot />

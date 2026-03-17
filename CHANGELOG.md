@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.4] Nuevo Menú Navegación - 2026-3-17
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Crear un Menú de navegación idéntico al de EAN. Probado, Idioma y Divisa exactamente igual.
+- **Estructura:** Crear todos los archivos necesarios para los menús de navegación, dentro de la carpeta `navigation`.
+- **Estructura:** Crear carpeta `utils` donde están archivos de `langauages.ts` y `currencies.ts`. Aquí se guardan los `interface` que hemos creado para tipar los idiomas y las divisas.
+
+
 ### [V0.1.3] Hero New3 section (imagen pequeña y form debajo) - 2026-3-17
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Probados todos los componentes de Hero correctos.
