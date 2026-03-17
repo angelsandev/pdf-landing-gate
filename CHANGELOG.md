@@ -1,5 +1,10 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.3] Hero New3 section (imagen pequeña y form debajo) - 2026-3-17
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Probados todos los componentes de Hero correctos.
+- **Estructura:** Crear componente `HeroNew3` y cambiar el HTML para que imagen y titulo arriba y el formulario abajo ocupando todo el ancho.
+
 ### [V0.1.2] Sticky-Typescript y separar script del HTML - 2026-3-16
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Pruebas de scroll, aparece y desaparece correcto y en el footer aparece ok.
