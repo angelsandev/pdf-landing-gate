@@ -4,8 +4,8 @@ import Breadcrumb from "../components/navigation/Breadcrumb.astro";
 //import PageHeader from "../components/navigation/NavBarOld.astro";
 import Header from "../components/navigation/Header.astro";
 import { appData } from "../data";
-import StickyForm from '../components/conversion/StickyForm.astro';
-import StickyController from '../components/conversion/StickyController.astro';
+import StickyForm from "../components/conversion/StickyForm.astro";
+import StickyController from "../components/conversion/StickyController.astro";
 
 interface Props {
   title?: string;
@@ -41,12 +41,12 @@ const canonicalURL = new URL(
   </head>
 
   <body class="bg-slate-50 text-ean-text antialiased">
-    <Header></Header>
-    <Breadcrumb />
-
     <div
       class="mx-auto min-h-screen max-w-full px-4 lg:max-w-7xl flex flex-col"
     >
+      <Header />
+      <Breadcrumb />
+
       <!-- <NavBarOld /> -->
 
       <main class="grow mt-4">
@@ -57,10 +57,10 @@ const canonicalURL = new URL(
         class="py-10 text-center text-sm text-ean-dark border-t border-gray-200 mt-20"
       >
         &copy; {new Date().getFullYear()} - Documentación Técnica Oficial
-        <StickyForm isSticky={false}></StickyForm>
+        <StickyForm isSticky={false} />
       </footer>
-      <StickyForm></StickyForm>
-      <StickyController></StickyController>
+      <StickyForm />
+      <StickyController />
     </div>
   </body>
 </html>

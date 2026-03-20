@@ -1,29 +1,35 @@
+---
+import { Image } from "astro:assets";
+import logoImage from "../../assets/logoES.webp"; // Asegúrate de que la ruta relativa sea correcta
+---
+
 <div class="bg-white py-2">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-    
-    <a href="/" class="shrink-0">
-      <img 
-        src="/src/assets/logoES.webp" 
-        alt="Electric Automation Network" 
+  <div
+    class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4"
+  >
+    <a href="https://www.electricautomationnetwork.com/es/" class="shrink-0">
+      <Image
+        src={logoImage}
+        alt="Electric Automation Network"
         class="h-14 md:h-11 w-auto object-contain"
+        loading="eager"
       />
     </a>
 
     <div class="w-full max-w-xl">
       <form class="flex h-8 group">
-        <input 
-          type="text" 
-          placeholder="Búsqueda por palabra clave, referencia o código" 
+        <input
+          type="text"
+          placeholder="Búsqueda por palabra clave, referencia o código"
           class="w-full border-2 border-ean-dark px-4 outline-none text-sm text-ean-text focus:ring-1 focus:ring-ean-dark transition-all"
         />
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           class="bg-ean-dark text-white px-6 font-bold uppercase text-sm hover:opacity-90 transition-opacity cursor-pointer"
         >
           Buscar
         </button>
       </form>
     </div>
-
   </div>
 </div>
