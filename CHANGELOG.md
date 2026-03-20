@@ -1,5 +1,9 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.5] MainHeader retocar elementos - 2026-3-20
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ `MainHeader.astro` retocar alturas y padding y añadir imagen Logo EAN exactamente igual que la pagina original.
+
 ### [V0.1.4] Nuevo Menú Navegación - 2026-3-17
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Crear un Menú de navegación idéntico al de EAN. Probado, Idioma y Divisa exactamente igual.
