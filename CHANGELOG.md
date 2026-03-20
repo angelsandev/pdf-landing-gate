@@ -1,5 +1,9 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.6] NavBar retocar elementos - 2026-3-20
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ `NavBar.astro` retocar alturas y padding, eliminar altura de textos individuales, exactamente igual que la pagina original.
+
 ### [V0.1.5] MainHeader retocar elementos - 2026-3-20
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ `MainHeader.astro` retocar alturas y padding y añadir imagen Logo EAN exactamente igual que la pagina original.
