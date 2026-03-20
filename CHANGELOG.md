@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.1.8] Footer - 2026-3-20
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Crear Footer con todos sus links, textos y traducciones.
+- **Pruebas:** ✅ Falta comprobar los textos y links de los idiomas que sean exactamente los de la web original..
+- **Estructura:** Crear `utils/navigation.ts` donde están traducciones de los elementos del footer.
+- **Footer.astro:** Importar ese `utils/navigation.ts` para cambiar automaticamente los links y tetos de los elementos del footer.
+
 ### [V0.1.7] Links en Menú - 2026-3-20
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Colocar Links y probar. Comprobar performance 100%.

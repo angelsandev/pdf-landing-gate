@@ -13,8 +13,7 @@ export const LANGUAGES: Language[] = [
   { id: 5, name: 'Italiano', iso: 'it' },
   { id: 6, name: 'Français', iso: 'fr' },
   { id: 7, name: 'Portugués', iso: 'pt' },
-  { id: 8, name: 'Русский', iso: 'ru' },
-];
+  ];
 
 export const getLanguageId = (isoCode: string): number => {
   const normalizedIsoCode = isoCode.toLowerCase();

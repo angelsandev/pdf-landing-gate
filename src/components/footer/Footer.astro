@@ -1,0 +1,91 @@
+---
+// src/components/Footer.astro
+import { FOOTER_NAVIGATION } from '../../utils/navigation';
+
+const currentIso = 'en';
+const footerData = FOOTER_NAVIGATION.find((f: any) => f.iso === currentIso) || FOOTER_NAVIGATION[0];
+---
+
+<footer class=" text-ean-dark pt-12 pb-8 mt-auto border-t border-gray-400">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <section>
+        <h4 class="text-lg font-bold mb-2 border-b border-white/10 pb-2 inline-block">
+          Información
+        </h4>
+        <ul class="space-y-1 text-xs text-ean-text">
+          {footerData.infoLinks.map((link: any) => (
+            <li>
+              <a href={link.href} class="hover:text-gray-300 transition-colors">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h4 class="text-lg font-bold mb-2 border-b border-white/10 pb-2 inline-block">
+          Mi cuenta
+        </h4>
+        <ul class="space-y-1 text-xs text-ean-text">
+          {footerData.accountLinks.map((link: any) => (
+            <li>
+              <a href={link.href} class="hover:text-gray-300 transition-colors">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h4 class="text-lg font-bold mb-2 border-b border-white/10 pb-2 inline-block">
+          Información sobre la tienda
+        </h4>
+        <ul class="space-y-1 text-xs text-ean-text">
+          <li class="flex items-start gap-3">
+            <span class="mt-1">📍</span>
+            <span>
+              Electric Automation Network S.L.<br />
+              Av. Comarques de País Valencià 123<br />
+              46930 Quart de Poblet, Spain
+            </span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="text-xl">✉️</span>
+            <a href="mailto:info@electricautomationnetwork.com" class="hover:text-gray-300 transition-colors">
+              info@electricautomationnetwork.com
+            </a>
+          </li>
+          <li class="flex items-start gap-3 pt-2">
+            <span class="text-xl">📞</span>
+            <div class="flex flex-col gap-1">
+              <a href="tel:+34960640071" class="hover:text-gray-300 transition-colors">
+                <strong class="text-ean-text">Europe:</strong> +34 960 640071
+              </a>
+              <a href="tel:+13054472905" class="hover:text-gray-300 transition-colors">
+                <strong class="text-ean-text">USA:</strong> +1 305 4472905
+              </a>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-gray-400 text-xs">
+        © {new Date().getFullYear()} Electric Automation Network. Todos los derechos reservados.
+      </div>
+      
+      <div class="flex items-center gap-4">
+        <span class="text-sm font-bold uppercase tracking-widest text-gray-400">Síganos</span>
+        <a href="https://www.youtube.com/user/ElectricAutomation" target="_blank" class="bg-white/10 p-2 rounded-full hover:bg-red-600 transition-all">
+          <span class="sr-only">Youtube</span>
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
