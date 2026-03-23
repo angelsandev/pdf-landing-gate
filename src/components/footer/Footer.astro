@@ -2,7 +2,7 @@
 // src/components/Footer.astro
 import { FOOTER_NAVIGATION } from '../../utils/navigation';
 
-const currentIso = 'en';
+const currentIso = 'es';
 const footerData = FOOTER_NAVIGATION.find((f: any) => f.iso === currentIso) || FOOTER_NAVIGATION[0];
 ---
 
@@ -12,7 +12,7 @@ const footerData = FOOTER_NAVIGATION.find((f: any) => f.iso === currentIso) || F
       
       <section>
         <h4 class="text-lg font-bold mb-2 border-b border-white/10 pb-2 inline-block">
-          Información
+          {footerData.titleInfo}
         </h4>
         <ul class="space-y-1 text-xs text-ean-text">
           {footerData.infoLinks.map((link: any) => (
@@ -27,7 +27,7 @@ const footerData = FOOTER_NAVIGATION.find((f: any) => f.iso === currentIso) || F
 
       <section>
         <h4 class="text-lg font-bold mb-2 border-b border-white/10 pb-2 inline-block">
-          Mi cuenta
+          {footerData.titleAccount}
         </h4>
         <ul class="space-y-1 text-xs text-ean-text">
           {footerData.accountLinks.map((link: any) => (
@@ -42,7 +42,7 @@ const footerData = FOOTER_NAVIGATION.find((f: any) => f.iso === currentIso) || F
 
       <section>
         <h4 class="text-lg font-bold mb-2 border-b border-white/10 pb-2 inline-block">
-          Información sobre la tienda
+          {footerData.titleLocation}
         </h4>
         <ul class="space-y-1 text-xs text-ean-text">
           <li class="flex items-start gap-3">

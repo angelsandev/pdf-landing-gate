@@ -7,6 +7,9 @@ export interface FooterLink {
 
 export interface FooterData {
   iso: string;
+  titleInfo: string;
+  titleAccount: string;
+  titleLocation: string;
   infoLinks: FooterLink[];
   accountLinks: FooterLink[];
 }
@@ -14,6 +17,9 @@ export interface FooterData {
 export const FOOTER_NAVIGATION: FooterData[] = [
   {
     iso: 'es',
+    titleInfo: 'Información',
+    titleAccount: 'Mi cuenta',
+    titleLocation: 'Información sobre la tienda',
     infoLinks: [
       { name: 'Sobre nosotros', href: 'https://www.electricautomationnetwork.com/es/sobre-nosotros' },
       { name: 'Contacto', href: 'https://www.electricautomationnetwork.com/es/contacto' },
@@ -30,6 +36,9 @@ export const FOOTER_NAVIGATION: FooterData[] = [
   },
   {
     iso: 'en',
+    titleInfo: 'Information',
+    titleAccount: 'My account',
+    titleLocation: 'Store Information',
     infoLinks: [
       { name: 'About us', href: 'https://www.electricautomationnetwork.com/en/about-us' },
       { name: 'Contact', href: 'https://www.electricautomationnetwork.com/en/contact' },
@@ -46,66 +55,78 @@ export const FOOTER_NAVIGATION: FooterData[] = [
   },
   {
     iso: 'de',
+    titleInfo: 'Informationen',
+    titleAccount: 'Ihr Kundenbereich',
+    titleLocation: 'Kontakt',
     infoLinks: [
-      { name: 'Über uns', href: 'https://www.electricautomationnetwork.com/de/uber-uns' },
-      { name: 'Kontakt', href: 'https://www.electricautomationnetwork.com/de/kontakt' },
-      { name: 'Sichere Zahlung', href: 'https://www.electricautomationnetwork.com/de/sichere-zahlung' },
-      { name: 'Häufig gestellte Fragen', href: 'https://www.electricautomationnetwork.com/de/haufig-gestellte-fragen' },
-      { name: 'Garantien', href: 'https://www.electricautomationnetwork.com/de/garantien' },
+      { name: 'Wir über uns', href: 'https://www.electricautomationnetwork.com/de/order-history' },
+      { name: 'Kontakt', href: 'https://www.electricautomationnetwork.com/de/content/kontakt' },
+      { name: 'Zahlungen', href: 'https://www.electricautomationnetwork.com/de/content/secure-payment' },
+      { name: 'Häufige Fragen', href: 'https://www.electricautomationnetwork.com/de/content/haeufige-fragen' },
+      { name: 'Garantien', href: 'https://www.electricautomationnetwork.com/de/content/garantie' },
     ],
     accountLinks: [
-      { name: 'Meine Bestellungen', href: 'https://www.electricautomationnetwork.com/de/bestellverlauf' },
-      { name: 'Meine Adressen', href: 'https://www.electricautomationnetwork.com/de/adressen' },
-      { name: 'Persönliche Daten', href: 'https://www.electricautomationnetwork.com/de/identitat' },
-      { name: 'Meine Gutscheine', href: 'https://www.electricautomationnetwork.com/de/rabatt' },
+      { name: 'Ihre Bestellungen', href: 'https://www.electricautomationnetwork.com/de/bestellverlauf' },
+      { name: 'Ihre Adressen', href: 'https://www.electricautomationnetwork.com/de/addresses' },
+      { name: 'Ihre persönlichen Daten', href: 'https://www.electricautomationnetwork.com/de/identity' },
+      { name: 'Ihre Gutscheine', href: 'https://www.electricautomationnetwork.com/de/discount' },
     ]
   },
   {
     iso: 'it',
+    titleInfo: 'Informazioni',
+    titleAccount: 'Il mio account',
+    titleLocation: 'Informazioni negozio',
     infoLinks: [
-      { name: 'Chi siamo', href: 'https://www.electricautomationnetwork.com/it/chi-siamo' },
-      { name: 'Contatto', href: 'https://www.electricautomationnetwork.com/it/contatto' },
-      { name: 'Pagamento sicuro', href: 'https://www.electricautomationnetwork.com/it/pagamento-sicuro' },
-      { name: 'Domande frequenti', href: 'https://www.electricautomationnetwork.com/it/domande-frequenti' },
-      { name: 'Garanzie', href: 'https://www.electricautomationnetwork.com/it/garanzie' },
+      { name: 'Riguardo a noi', href: 'https://www.electricautomationnetwork.com/it/content/riguardo-a-noi' },
+      { name: 'Contatti', href: 'https://www.electricautomationnetwork.com/it/content/contatti' },
+      { name: 'Pagamento sicuro', href: 'https://www.electricautomationnetwork.com/it/content/pagamento-sicuro' },
+      { name: 'Domande Frequenti', href: 'https://www.electricautomationnetwork.com/it/content/domande-frequenti' },
+      { name: 'Garanzia', href: 'https://www.electricautomationnetwork.com/it/content/garanzia' },
     ],
     accountLinks: [
-      { name: 'I miei acquisti', href: 'https://www.electricautomationnetwork.com/it/storico-ordine' },
-      { name: 'I miei indirizzi', href: 'https://www.electricautomationnetwork.com/it/indirizzi' },
-      { name: 'Dati personali', href: 'https://www.electricautomationnetwork.com/it/identita' },
-      { name: 'I miei buoni', href: 'https://www.electricautomationnetwork.com/it/sconto' },
+      { name: 'I miei ordini', href: 'https://www.electricautomationnetwork.com/it/order-history' },
+      { name: 'I miei indirizzi', href: 'https://www.electricautomationnetwork.com/it/addresses' },
+      { name: 'Le mie informazioni personali', href: 'https://www.electricautomationnetwork.com/it/identity' },
+      { name: 'I miei buoni', href: 'https://www.electricautomationnetwork.com/it/discount' },
     ]
   },
   {
     iso: 'fr',
+    titleInfo: 'Informations',
+    titleAccount: 'Mon compte',
+    titleLocation: 'Informations sur votre boutique',
     infoLinks: [
-      { name: 'À propos de nous', href: 'https://www.electricautomationnetwork.com/fr/a-propos-de-nous' },
-      { name: 'Contact', href: 'https://www.electricautomationnetwork.com/fr/contact' },
-      { name: 'Paiement sécurisé', href: 'https://www.electricautomationnetwork.com/fr/paiement-securise' },
-      { name: 'Questions fréquentes', href: 'https://www.electricautomationnetwork.com/fr/questions-frequentes' },
-      { name: 'Garanties', href: 'https://www.electricautomationnetwork.com/fr/garanties' },
+      { name: 'Sour nous', href: 'https://www.electricautomationnetwork.com/fr/content/sour-nous' },
+      { name: 'Contact', href: 'https://www.electricautomationnetwork.com/fr/content/contact' },
+      { name: 'Paiement fiable.', href: 'https://www.electricautomationnetwork.com/fr/content/paiement-fiable' },
+      { name: 'Questions courantes', href: 'https://www.electricautomationnetwork.com/fr/content/questions-courantes' },
+      { name: 'Garanties', href: 'https://www.electricautomationnetwork.com/fr/content/garanties' },
     ],
     accountLinks: [
-      { name: 'Mes achats', href: 'https://www.electricautomationnetwork.com/fr/historique-des-commandes' },
-      { name: 'Mes adresses', href: 'https://www.electricautomationnetwork.com/fr/adresses' },
-      { name: 'Mes données personnelles', href: 'https://www.electricautomationnetwork.com/fr/identite' },
-      { name: 'Mes bons de réduction', href: 'https://www.electricautomationnetwork.com/fr/bons-de-reduction' },
+      { name: 'Mes commandes', href: 'https://www.electricautomationnetwork.com/fr/order-history' },
+      { name: 'Mes adresses', href: 'https://www.electricautomationnetwork.com/fr/addresses' },
+      { name: 'Mes informations personnelles', href: 'https://www.electricautomationnetwork.com/fr/identity' },
+      { name: 'Mes bons de réduction', href: 'https://www.electricautomationnetwork.com/fr/discount' },
     ]
   },
   {
     iso: 'pt',
+    titleInfo: 'Informação',
+    titleAccount: 'A minha conta',
+    titleLocation: 'Informação da Loja',
     infoLinks: [
-      { name: 'Sobre nós', href: 'https://www.electricautomationnetwork.com/pt/sobre-nos' },
-      { name: 'Contato', href: 'https://www.electricautomationnetwork.com/pt/contato' },
-      { name: 'Pagamento seguro', href: 'https://www.electricautomationnetwork.com/pt/pagamento-seguro' },
-      { name: 'Perguntas frequentes', href: 'https://www.electricautomationnetwork.com/pt/perguntas-frequentes' },
-      { name: 'Garantias', href: 'https://www.electricautomationnetwork.com/pt/garantias' },
+      { name: 'Acerca de nós', href: 'https://www.electricautomationnetwork.com/pt/content/acerca-de-nos' },
+      { name: 'Contacto', href: 'https://www.electricautomationnetwork.com/pt/content/contacto' },
+      { name: 'Pagamento seguro', href: 'https://www.electricautomationnetwork.com/pt/content/secure-payment' },
+      { name: 'Perguntas frequentes', href: 'https://www.electricautomationnetwork.com/pt/content/perguntas-frequentes' },
+      { name: 'Garantias', href: 'https://www.electricautomationnetwork.com/pt/content/garantias' },
     ],
     accountLinks: [
-      { name: 'Minhas compras', href: 'https://www.electricautomationnetwork.com/pt/historico-de-pedidos' },
-      { name: 'Meus endereços', href: 'https://www.electricautomationnetwork.com/pt/enderecos' },
-      { name: 'Dados pessoais', href: 'https://www.electricautomationnetwork.com/pt/identidade' },
-      { name: 'Meus vales', href: 'https://www.electricautomationnetwork.com/pt/desconto' },
+      { name: 'As minhas encomendas', href: 'https://www.electricautomationnetwork.com/pt/order-history' },
+      { name: 'Os meus endereços', href: 'https://www.electricautomationnetwork.com/pt/addresses' },
+      { name: 'Os meus dados pessoais', href: 'https://www.electricautomationnetwork.com/pt/identity' },
+      { name: 'Os meus vales de desconto', href: 'https://www.electricautomationnetwork.com/pt/discount' },
     ]
   }
 ];
