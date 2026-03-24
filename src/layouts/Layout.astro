@@ -43,10 +43,11 @@ const canonicalURL = new URL(
   </head>
 
   <body class="bg-slate-50 text-ean-text antialiased">
-    <div
-      class="mx-auto min-h-screen max-w-full px-4 lg:max-w-8xl flex flex-col"
+    <Header lang={lang}/>
+    
+      <div
+      class="mx-auto max-w-full px-4 lg:max-w-8xl"
     >
-      <Header lang={lang}/>
       <Breadcrumb lang={lang}/>
 
       <!-- <NavBarOld /> -->
@@ -60,6 +61,6 @@ const canonicalURL = new URL(
 
       <StickyForm />
       <StickyController />
-    </div>
+      </div>
   </body>
 </html>

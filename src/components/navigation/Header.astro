@@ -1,16 +1,18 @@
 ---
-import TopBar from './TopBar.astro';
-import MainHeader from './MainHeader.astro';
-import Navbar from './NavBar.astro';
+import TopBar from "./TopBar.astro";
+import MainHeader from "./MainHeader.astro";
+import Navbar from "./NavBar.astro";
 
 interface Props {
   lang?: string;
 }
-const {lang='es'} = Astro.props;
+const { lang = "es" } = Astro.props;
 ---
 
-<header id="header" >
-  <TopBar lang={lang}/>
-  <MainHeader lang={lang}/>
-  <Navbar lang={lang}/>
+<TopBar lang={lang} />
+
+<header class="sticky top-0 z-100 bg-white w-full block shadow-sm">
+  <MainHeader lang={lang} />
 </header>
+
+<Navbar lang={lang} />

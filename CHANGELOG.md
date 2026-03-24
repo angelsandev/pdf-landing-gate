@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.2.3] Solucionar sticky header - 2026-3-24
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ No funcionaba el sistema `sticky` para el `MainHeader`.
+- **Pruebas:**  Eliminar la propiedad sticky de dentro del `Mainheader` y sacar esa propiedad al `Header.astro`. Se ha probado d emuchas formas, y el problemas está al utilizar la etiqueta HTML `<header>`. Se consigue el funcionamiento sticky usando `header` unicamente para el componente `MainHeader.astro`.
+
+
+
 ### [V0.2.2] Update Componentes Nav - 2026-3-24
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Adaptar los estilos idénticos que en la web de `Desarrollo`, según componentes nuevos.
