@@ -1,5 +1,11 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.2.1] Cambio Logo por idioma - 2026-3-24
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Modificar el Logo según el idioma seleccionado.
+- **MainHeader.astro:** Añadir lógica para imortar todos los logos, crear mapa y seleccionar el logo dependiendo del idioma. 
+
+
 ### [V0.2.0] Traducciones Nav Bar - 2026-3-24
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Crear lógica para cambiar idioma automaticamente mediante el Dropdown seleccionando idioma.

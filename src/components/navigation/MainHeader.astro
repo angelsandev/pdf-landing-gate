@@ -1,6 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import logoImage from "../../assets/logoES.webp"; // Asegúrate de que la ruta relativa sea correcta
+import logoES from "../../assets/logoES.webp";
+import logoEN from "../../assets/logoEN.webp";
+import logoDE from "../../assets/logoDE.webp";
+import logoIT from "../../assets/logoIT.webp";
+import logoFR from "../../assets/logoFR.webp";
+import logoPT from "../../assets/logoPT.webp"; 
+
 import { useTranslations } from "../../utils/i18n";
 
 interface Props {
@@ -8,15 +14,26 @@ interface Props {
 }
 const {lang='es'}= Astro.props;
 const t = useTranslations(lang);
+
+const logos = {
+  es: logoES,
+  en: logoEN,
+  de: logoDE,
+  it: logoIT,
+  fr: logoFR,
+  pt: logoPT,
+};
+
+const currentLogo = (logos as any)[lang] || logoES;
 ---
 
 <div class="bg-white py-2">
   <div
     class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4"
   >
-    <a href="https://www.electricautomationnetwork.com/${lang}/" class="shrink-0">
+    <a href=`https://www.electricautomationnetwork.com/${lang}/` class="shrink-0">
       <Image
-        src={logoImage}
+        src={currentLogo}
         alt="Electric Automation Network"
         class="h-14 md:h-11 w-auto object-contain"
         loading="eager"
