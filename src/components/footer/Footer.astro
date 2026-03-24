@@ -1,9 +1,11 @@
 ---
 // src/components/Footer.astro
 import { FOOTER_NAVIGATION } from '../../utils/navigation';
+import { useTranslations } from "../../utils/i18n";
 
-const currentIso = 'es';
-const footerData = FOOTER_NAVIGATION.find((f: any) => f.iso === currentIso) || FOOTER_NAVIGATION[0];
+//const currentIso = 'es';
+const { lang = 'es' } = Astro.props;
+const footerData = FOOTER_NAVIGATION.find((f: any) => f.iso === lang) || FOOTER_NAVIGATION[0];
 ---
 
 <footer class=" text-ean-dark pt-12 pb-8 mt-auto border-t border-gray-400">

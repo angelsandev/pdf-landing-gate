@@ -2,10 +2,15 @@
 import TopBar from './TopBar.astro';
 import MainHeader from './MainHeader.astro';
 import Navbar from './NavBar.astro';
+
+interface Props {
+  lang?: string;
+}
+const {lang} = Astro.props;
 ---
 
 <header id="header" class="w-full border-t border-ean-dark shadow-sm">
-  <TopBar />
-  <MainHeader />
-  <Navbar />
+  <TopBar lang={lang}/>
+  <MainHeader lang={lang}/>
+  <Navbar lang={lang}/>
 </header>

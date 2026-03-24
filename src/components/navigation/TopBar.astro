@@ -2,13 +2,20 @@
 // src/components/navigation/TopBar.astro
 import { LANGUAGES } from "../../utils/languages";
 import { CURRENCIES } from "../../utils/currencies";
+import { useTranslations } from "../../utils/i18n";
+
+interface Props {
+  lang?: string;
+}
+const { lang= 'es' } = Astro.props; 
+const t = useTranslations(lang);
+
 // Por ahora simulamos que el idioma actual es español
-// En el futuro, esto vendrá de Astro.url o de la configuración
-const currentIso = "es";
+//const currentIso = "es";
 const currentCurrencyIso = "EUR";
 
 const currentLanguage =
-  LANGUAGES.find((l) => l.iso === currentIso) || LANGUAGES[0];
+  LANGUAGES.find((l) => l.iso === lang) || LANGUAGES[0];
 const currentCurrency =
   CURRENCIES.find((c) => c.iso === currentCurrencyIso) || CURRENCIES[0];
 ---
@@ -62,12 +69,12 @@ const currentCurrency =
           class="absolute right-0 top-full w-32 bg-white text-ean-text shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-gray-100 py-1"
         >
           {
-            LANGUAGES.map((lang) => (
+            LANGUAGES.map((item) => (
               <a
-                href="#"
-                class={`block px-4 py-2 hover:bg-ean-dark hover:text-white transition-colors ${lang.iso === currentIso ? "bg-ean-dark text-white font-bold" : ""}`}
+                href={`/${item.iso}/`}
+                class={`block px-4 py-2 hover:bg-ean-dark hover:text-white transition-colors ${item.iso === lang ? "bg-ean-dark text-white font-bold" : ""}`}
               >
-                {lang.name}
+                {item.name}
               </a>
             ))
           }
@@ -81,7 +88,7 @@ const currentCurrency =
           class="flex items-center gap-1 px-3 h-full hover:bg-ean-dark transition-colors cursor-pointer"
         >
           <span
-            >Divisa: <strong class="font-bold text-white ml-1"
+            >{t('nav.currency')} <strong class="font-bold text-white ml-1"
               >{currentCurrency.iso}</strong
             ></span
           >
@@ -119,10 +126,10 @@ const currentCurrency =
       <span class="text-white/20 select-none">|</span>
 
       <a
-        href="https://www.electricautomationnetwork.com/es/mi-cuenta"
+        href="https://www.electricautomationnetwork.com/${lang}/mi-cuenta"
         class="px-4 h-full flex items-center hover:bg-ean-dark transition-colors font-bold tracking-tight"
       >
-        Iniciar sesión
+        {t('nav.login')}
       </a>
     </div>
   </div>

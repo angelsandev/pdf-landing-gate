@@ -1,0 +1,37 @@
+---
+// src/pages/[locale]/index.astro
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/hero/Hero.astro";
+import Steps from '../../components/features/Steps.astro';
+import RelatedProducts from "../../components/related/RelatedProducts.astro";
+import FAQ from '../../components/features/FAQ.astro';
+import HeroNew from "../../components/hero/HeroNew.astro";
+import HeroNew2 from "../../components/hero/HeroNew2.astro";
+import HeroNew3 from "../../components/hero/HeroNew3.astro";
+
+// Generar las rutas
+export function getStaticPaths() {
+  return [
+    { params: { locale: 'es' } },
+    { params: { locale: 'en' } },
+    { params: { locale: 'de' } },
+    { params: { locale: 'it' } },
+    { params: { locale: 'fr' } },
+    { params: { locale: 'pt' } },
+  ];
+}
+
+const { locale } = Astro.params;
+---
+
+<Layout title="Descarga de PDFs" lang={locale}>
+	<!-- 
+	<Hero />
+	<HeroNew ></HeroNew>
+	<HeroNew2 ></HeroNew2>
+	-->
+	<HeroNew3 ></HeroNew3>
+	<RelatedProducts></RelatedProducts>
+	<!-- <Steps />-->
+	<FAQ locale={locale}></FAQ>
+</Layout>

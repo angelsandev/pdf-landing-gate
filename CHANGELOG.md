@@ -1,5 +1,15 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.2.0] Traducciones Nav Bar - 2026-3-24
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Crear lógica para cambiar idioma automaticamente mediante el Dropdown seleccionando idioma.
+- **Pruebas:** ✅ Probado `TopBar` `NavBar` y `MainHeader`, con todos los enlaces exactamente igual que en la web
+- **Estructura:** Modificar `astro.config.ts` para indicar que la uRL de la web incorporará el `es, en, it.....`
+- **i18n.ts:** Archivo donde están las traducciones del menú de navegación `TopBar` y la función para acceder a estas traducciones.
+- **Props:** Añadir props a todos los archivos de navegación para que coja la variable `lang`.
+- **navData.ts:** Archivo donde están las traducciones del menú de navegación `NavBar`.
+
+
 ### [V0.1.9] Traducciones Footer - 2026-3-23
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Comprobar todas las traducciones de textos y links en Footer.

@@ -1,3 +1,55 @@
+---
+import { NAV_LINKS } from "../../utils/navData";
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentNav = NAV_LINKS.find(item => item.iso === lang) || NAV_LINKS[0];
+
+---
+
+<nav class="nav-ean">
+  <div class="container mx-auto px-4">
+    <ul class="flex flex-wrap items-center text-white text-[14px] tracking-wide">
+      
+      {currentNav.links.map((link, index) => (
+        <>
+          <li class="transition-all duration-200">
+            <a href={link.href} class="px-5 py-1.5 block hover:underline underline-offset-4 decoration-1">
+              {/* Lógica de la estrella para el último link */}
+              {index === currentNav.links.length - 1 ? (
+                <span class="flex items-center gap-1.5">
+                  <span class="text-yellow-400 text-lg leading-none">★</span>
+                  <span>{link.name}</span>
+                </span>
+              ) : (
+                link.name
+              )}
+            </a>
+          </li>
+          
+          {/* Separador visual solo después del segundo elemento (Categorías) */}
+          {index === 1 && (
+            <>
+              <div class="grow" />
+              <li class="hidden md:block border-r border-white/10 h-4 mx-2"></li>
+            </>
+          )}
+        </>
+      ))}
+      
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+<!-- 
 <nav class="nav-ean">
   <div class="container mx-auto px-4">
     <ul class="flex flex-wrap items-center text-white text-[14px] tracking-wide">
@@ -29,3 +81,4 @@
     </ul>
   </div>
 </nav>
+-->

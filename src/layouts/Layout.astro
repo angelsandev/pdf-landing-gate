@@ -11,9 +11,10 @@ import Footer from "../components/footer/Footer.astro";
 interface Props {
   title?: string;
   description?: string;
+  lang?: string; // El signo ? significa que es opcional
 }
 
-const { title = appData.name, description = appData.description } = Astro.props;
+const { title = appData.name, description = appData.description, lang = 'es' } = Astro.props;
 
 // Esto ayuda a que Google sepa exactamente cuál es la URL principal
 const canonicalURL = new URL(
@@ -23,7 +24,7 @@ const canonicalURL = new URL(
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,8 +46,8 @@ const canonicalURL = new URL(
     <div
       class="mx-auto min-h-screen max-w-full px-4 lg:max-w-8xl flex flex-col"
     >
-      <Header />
-      <Breadcrumb />
+      <Header lang={lang}/>
+      <Breadcrumb lang={lang}/>
 
       <!-- <NavBarOld /> -->
 
@@ -54,7 +55,7 @@ const canonicalURL = new URL(
         <slot />
       </main>
 
-      <Footer></Footer>
+      <Footer lang={lang}></Footer>
 
 
       <StickyForm />
