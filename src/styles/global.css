@@ -5,7 +5,7 @@
     --breakpoint-xs: 410px;
     
     /* Colores corporativos extraídos de la web oficial */
-    --color-ean-dark: #2e2e2e; /*#1e293b;  /* Azul marino profundo del Nav */
+    --color-ean-dark: #1f2937; /*#2e2e2e; /*#1e293b;  /* Azul marino profundo del Nav */
     --color-ean-blue: #428bca;  /* Azul brillante de botones y enlaces */
     --color-ean-text: #2e2e2e;  /* Gris oscuro de los textos importantes */
 }

@@ -15,6 +15,7 @@ export const NAV_LINKS: NavData[] = [
     iso: 'es',
     links: [
       { name: 'Inicio', href: 'https://www.electricautomationnetwork.com/es/' },
+      { name: 'Marcas', href: 'https://www.electricautomationnetwork.com/es/marcas' },
       { name: 'Categorías', href: 'https://www.electricautomationnetwork.com/es/c' },
       { name: 'Preguntas frecuentes', href: 'https://www.electricautomationnetwork.com/es/content/preguntas-frecuentes' },
       { name: 'Contactar', href: 'https://www.electricautomationnetwork.com/es/contactanos' },
@@ -26,6 +27,7 @@ export const NAV_LINKS: NavData[] = [
     iso: 'en',
     links: [
       { name: 'Home', href: 'https://www.electricautomationnetwork.com/en/' },
+      { name: 'Brands', href: 'https://www.electricautomationnetwork.com/en/marcas' },
       { name: 'Categories', href: 'https://www.electricautomationnetwork.com/en/c' },
       { name: 'FAQ', href: 'https://www.electricautomationnetwork.com/en/content/faq' },
       { name: 'Contact us', href: 'https://www.electricautomationnetwork.com/en/contact-us' },
@@ -37,6 +39,7 @@ export const NAV_LINKS: NavData[] = [
     iso: 'de',
     links: [
       { name: 'Anfang', href: 'https://www.electricautomationnetwork.com/de/' },
+      { name: 'Marke', href: 'https://www.electricautomationnetwork.com/de/marcas' },
       { name: 'Kategorien', href: 'https://www.electricautomationnetwork.com/de/c' },
       { name: 'Häufigsten Fragen', href: 'https://www.electricautomationnetwork.com/de/content/haeufige-fragen' },
       { name: 'Kontaktiere uns', href: 'https://www.electricautomationnetwork.com/de/contact-us' },
@@ -48,6 +51,7 @@ export const NAV_LINKS: NavData[] = [
     iso: 'it',
     links: [
       { name: 'Home', href: 'https://www.electricautomationnetwork.com/it/' },
+      { name: 'Marche', href: 'https://www.electricautomationnetwork.com/it/marcas' },
       { name: 'Categorie', href: 'https://www.electricautomationnetwork.com/it/c' },
       { name: 'Domandi Frequenti', href: 'https://www.electricautomationnetwork.com/it/content/domande-frequenti' },
       { name: 'Contattaci', href: 'https://www.electricautomationnetwork.com/it/contact-us' },
@@ -59,6 +63,7 @@ export const NAV_LINKS: NavData[] = [
     iso: 'fr',
     links: [
       { name: "Page d'accueil", href: 'https://www.electricautomationnetwork.com/fr/' },
+      { name: 'Marques', href: 'https://www.electricautomationnetwork.com/fr/marcas' },
       { name: 'Catégories', href: 'https://www.electricautomationnetwork.com/fr/c' },
       { name: 'Questions courantes', href: 'https://www.electricautomationnetwork.com/fr/content/questions-courantes' },
       { name: 'Contactez nous', href: 'https://www.electricautomationnetwork.com/fr/contact-us' },
@@ -70,6 +75,7 @@ export const NAV_LINKS: NavData[] = [
     iso: 'pt',
     links: [
       { name: 'Início', href: 'https://www.electricautomationnetwork.com/pt/' },
+      { name: 'Marcas', href: 'https://www.electricautomationnetwork.com/pt/marcas' },
       { name: 'Categorias', href: 'https://www.electricautomationnetwork.com/pt/c' },
       { name: 'Perguntas frequentes', href: 'https://www.electricautomationnetwork.com/pt/content/perguntas-frequentes' },
       { name: 'Contate-nos', href: 'https://www.electricautomationnetwork.com/pt/contact-us' },

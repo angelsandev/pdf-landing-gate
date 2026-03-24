@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import logoES from "../../assets/logoES.webp";
+import logoEN from "../../assets/logoEN.webp";
+import logoDE from "../../assets/logoDE.webp";
+import logoIT from "../../assets/logoIT.webp";
+import logoFR from "../../assets/logoFR.webp";
+import logoPT from "../../assets/logoPT.webp"; 
+
+import { useTranslations } from "../../utils/i18n";
+
+interface Props {
+  lang?: string;
+}
+const {lang='es'}= Astro.props;
+const t = useTranslations(lang);
+
+const logos = {
+  es: logoES,
+  en: logoEN,
+  de: logoDE,
+  it: logoIT,
+  fr: logoFR,
+  pt: logoPT,
+};
+
+const currentLogo = (logos as any)[lang] || logoES;
+---
+
+<div class="bg-white py-2">
+  <div
+    class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4"
+  >
+    <a href=`https://www.electricautomationnetwork.com/${lang}/` class="shrink-0">
+      <Image
+        src={currentLogo}
+        alt="Electric Automation Network"
+        class="h-14 md:h-11 w-auto object-contain"
+        loading="eager"
+      />
+    </a>
+
+    <div class="w-full max-w-xl">
+      <form class="flex h-8 group">
+        <input
+          type="text"
+          placeholder={t('search.placeholder')}
+          class="w-full border-2 border-ean-dark px-4 outline-none text-sm text-ean-text focus:ring-1 focus:ring-ean-dark transition-all"
+        />
+        <button
+          type="submit"
+          aria-label={t('search.button')}
+          class="bg-ean-dark text-white px-6 font-bold uppercase text-sm hover:opacity-90 transition-opacity cursor-pointer"
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            class="w-5 h-5" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="2.5" 
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+            />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

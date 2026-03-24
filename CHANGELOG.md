@@ -1,5 +1,17 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.2.2] Update Componentes Nav - 2026-3-24
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Adaptar los estilos idénticos que en la web de `Desarrollo`, según componentes nuevos.
+- **TopBar:** ✅
+- **NavBar:** ✅
+- **MainHeader:** ✅
+- **Breadcrumb:** ✅ Añadir nuevos textos traducidos a `i18n.ts` para los Breadcrumbs e importar esas traducciones en el archivo `Breadcrumb.astro`.
+- **Header.astro:** ✅
+
+
+
+
 ### [V0.2.1] Cambio Logo por idioma - 2026-3-24
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Modificar el Logo según el idioma seleccionado.

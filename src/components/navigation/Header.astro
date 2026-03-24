@@ -6,10 +6,10 @@ import Navbar from './NavBar.astro';
 interface Props {
   lang?: string;
 }
-const {lang} = Astro.props;
+const {lang='es'} = Astro.props;
 ---
 
-<header id="header" class="w-full border-t border-ean-dark shadow-sm">
+<header id="header" >
   <TopBar lang={lang}/>
   <MainHeader lang={lang}/>
   <Navbar lang={lang}/>

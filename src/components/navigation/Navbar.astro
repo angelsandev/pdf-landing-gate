@@ -5,80 +5,32 @@ interface Props {
   lang?: string;
 }
 
-const { lang = 'es' } = Astro.props;
-const currentNav = NAV_LINKS.find(item => item.iso === lang) || NAV_LINKS[0];
-
+const { lang = "es" } = Astro.props;
+const currentNav = NAV_LINKS.find((item) => item.iso === lang) || NAV_LINKS[0];
 ---
 
-<nav class="nav-ean">
-  <div class="container mx-auto px-4">
-    <ul class="flex flex-wrap items-center text-white text-[14px] tracking-wide">
-      
-      {currentNav.links.map((link, index) => (
-        <>
-          <li class="transition-all duration-200">
-            <a href={link.href} class="px-5 py-1.5 block hover:underline underline-offset-4 decoration-1">
-              {/* Lógica de la estrella para el último link */}
-              {index === currentNav.links.length - 1 ? (
-                <span class="flex items-center gap-1.5">
-                  <span class="text-yellow-400 text-lg leading-none">★</span>
-                  <span>{link.name}</span>
-                </span>
-              ) : (
-                link.name
-              )}
-            </a>
-          </li>
-          
-          {/* Separador visual solo después del segundo elemento (Categorías) */}
-          {index === 1 && (
-            <>
-              <div class="grow" />
-              <li class="hidden md:block border-r border-white/10 h-4 mx-2"></li>
-            </>
-          )}
-        </>
-      ))}
-      
-    </ul>
+<div class="px-5 bg-white hidden lg:block">
+  <div
+    class="bg-ean-dark text-white flex items-center justify-between text-sm font-medium py-2 px-2 rounded-md"
+  >
+    <div class="flex">
+      {
+        currentNav.links.slice(0, 3).map((link, index) => (
+          <a href={link.href} class={`${index === 0 ? "mr-7 ml-5" : "mr-7"}`}>
+            {link.name}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="flex">
+      {
+        currentNav.links.slice(3).map((link) => (
+          <a href={link.href} class="mr-5">
+            {link.name}
+          </a>
+        ))
+      }
+    </div>
   </div>
-</nav>
-
-
-
-
-
-
-<!-- 
-<nav class="nav-ean">
-  <div class="container mx-auto px-4">
-    <ul class="flex flex-wrap items-center text-white text-[14px] tracking-wide">
-      
-      <li class=" transition-all duration-200">
-        <a href="https://www.electricautomationnetwork.com/es/" class="px-5 py-1.5 block hover:underline underline-offset-4 decoration-1">Inicio</a>
-      </li>
-      <li class=" transition-all duration-200 border-r border-white/5">
-        <a href="https://www.electricautomationnetwork.com/es/c" class="px-5 py-1.5 block hover:underline underline-offset-4 decoration-1">Categorías</a>
-      </li>
-
-      <div class="grow"></div>
-
-      <li class=" transition-all duration-200 hidden md:block">
-        <a href="https://www.electricautomationnetwork.com/es/content/preguntas-frecuentes" class="px-4 py-1.5 block hover:underline underline-offset-4 decoration-1">Preguntas frecuentes</a>
-      </li>
-      <li class=" transition-all duration-200">
-        <a href="https://www.electricautomationnetwork.com/es/contactanos" class="px-4 py-1.5 block hover:underline underline-offset-4 decoration-1">Contactar</a>
-      </li>
-      <li class=" transition-all duration-200 hidden sm:block">
-        <a href="https://www.electricautomationnetwork.com/es/content/como-comprar" class="px-4 py-1.5 block hover:underline underline-offset-4 decoration-1">Cómo comprar</a>
-      </li>
-      <li class=" transition-all duration-200 flex items-center">
-        <a href="https://www.electricautomationnetwork.com/es/comentarios-de-nuestros-clientes" class="px-4 py-1.5 flex items-center gap-1.5 ">
-          <span class="text-yellow-400 text-lg leading-none">★</span>
-          <span class="hover:underline underline-offset-4 decoration-1"> Comentarios</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
--->
+</div>

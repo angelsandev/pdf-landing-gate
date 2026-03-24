@@ -1,5 +1,12 @@
 ---
-// src/components/navigation/PageHeader.astro
+// src/components/navigation/Breadcrumb.astro
+import { useTranslations } from "../../utils/i18n";
+
+interface Props {
+  lang?: string;
+}
+const {lang='es'} = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <header class="py-6 mb-2">
@@ -7,15 +14,15 @@
     <div class="flex items-center gap-0 tracking-tight">
       
       <a 
-        href="https://www.electricautomationnetwork.com" 
+        href={`https://www.electricautomationnetwork.com/${lang}/`} 
         class="breadcrumb-item bg-ean-dark text-white px-6 py-2 text-xs font-bold uppercase hover:bg-ean-blue transition-colors"
       >
-        Tienda
+        {t('breadcrumb.home')}
       </a>
 
       <div class="breadcrumb-last bg-ean-blue text-white px-8 py-2">
         <h1 class="text-xs font-bold uppercase tracking-widest">
-          Portal de Descargas PDF
+          {t('breadcrumb.page')}
         </h1>
       </div>
 
