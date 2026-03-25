@@ -1,5 +1,14 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.2.4] Dropdown script y Nombres componentes de Nav - 2026-3-25
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Modificar los nombres de los componentes de Navegación para ser idénticos a la web en Desarrollo.
+- **Pruebas:** ✅ Añadir script para activar y desactivar Dropdown de Divisa y Idioma. Antes no funcionaban en pantallas pequeñas.
+- **TopNav.astro:** Añadir un indice `z-110` al dropdown de Idioma y Divisa, ya que se quedaban por debajo del elemento sticky del MainNav.
+- **Estructura:** Crear carpeta `OLD` donde guardar todos los componentes viejos de momento como copia de seguridad.
+- **TopNav.astro:** Se añade script para captar el `target` y activar y desactivar los dropdown cuando se hace clic en botón y fuera de él.
+
+
 ### [V0.2.3] Solucionar sticky header - 2026-3-24
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ No funcionaba el sistema `sticky` para el `MainHeader`.

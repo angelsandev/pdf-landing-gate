@@ -1,7 +1,7 @@
 ---
-import TopBar from "./TopBar.astro";
-import MainHeader from "./MainHeader.astro";
-import Navbar from "./NavBar.astro";
+import TopNav from "./TopNav.astro";
+import MainNav from "./MainNav.astro";
+import MenuNav from "./MenuNav.astro";
 
 interface Props {
   lang?: string;
@@ -9,10 +9,10 @@ interface Props {
 const { lang = "es" } = Astro.props;
 ---
 
-<TopBar lang={lang} />
+<TopNav lang={lang} />
 
-<header class="sticky top-0 z-100 bg-white w-full block shadow-sm">
-  <MainHeader lang={lang} />
+<header class="sticky top-0 z-50 bg-white w-full block shadow-sm">
+  <MainNav lang={lang} />
 </header>
 
-<Navbar lang={lang} />
+<MenuNav lang={lang} />
