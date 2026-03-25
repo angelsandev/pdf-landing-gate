@@ -1,5 +1,11 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.2.5] Update Footer - 2026-3-25
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Modificar el Footer para dejarlo igual que la web de Desarrollo.
+- **Footer.astro:** Colocar los estilos de Tailwind exactamente igual que en la web de desarrollo. Modificar alguna altura de texto. Implementar la lógica para acceder a las traducciones.
+
+
 ### [V0.2.4] Dropdown script y Nombres componentes de Nav - 2026-3-25
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Modificar los nombres de los componentes de Navegación para ser idénticos a la web en Desarrollo.
