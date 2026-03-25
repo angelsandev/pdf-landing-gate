@@ -14,5 +14,8 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: true           // Esto hace que la URL sea siempre /es/, /en/, etc.
     }
+  },
+  devToolbar: {
+    enabled: false
   }
-  });
+});

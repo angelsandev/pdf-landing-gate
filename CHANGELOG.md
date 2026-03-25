@@ -1,5 +1,10 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.2.6] Eliminar DevToolBar - 2026-3-25
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Eliminar la barra de configuración de Astro que aparece por defecto abajo del todo.
+- **astro.config.mjs:** Modificar el `defineConfig` para inhabilitar el `DevToolBar`.
+
 ### [V0.2.5] Update Footer - 2026-3-25
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Modificar el Footer para dejarlo igual que la web de Desarrollo.
