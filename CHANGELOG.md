@@ -1,5 +1,10 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.2.7] Related Products igual que Products Box - 2026-3-25
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Añadir el `slider` de productos relacionados igual que en web de Desarrollo. Productos colocados manualmente para pruebas.
+- **RelatedProducts.astro:** Añadir todos los estilos idénticos a la web de Desarrollo.
+
 ### [V0.2.6] Eliminar DevToolBar - 2026-3-25
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Eliminar la barra de configuración de Astro que aparece por defecto abajo del todo.

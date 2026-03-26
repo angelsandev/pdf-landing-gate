@@ -1,0 +1,84 @@
+---
+// src/components/related/RelatedProducts.astro
+import { Image } from "astro:assets";
+import type {RelatedProduct} from "../../types";
+
+import producto1 from "../../assets/products/s7-1200-cpu-1214c.jpg";
+import producto2 from "../../assets/products/siemens-simatic-hmi-tp400-basic.jpg";
+import producto3 from "../../assets/products/siemens-simatic-s7-1200-cpu.jpg";
+import producto4 from "../../assets/products/siemens-simatic-hmi-ktp700f-mobile.jpg";
+
+const related: RelatedProduct[] = [
+  {
+    src: producto1,
+    name: "PLC S7-1200 CPU 1214C",
+    url: "https://www.electricautomationnetwork.com/es/siemens/6es7214-1bg40-0xb0-siemens-simatic-s7-1200-cpu-1214c-cpu-compacta-ac-dc-rele-e-s-integradas-14-di-24-v-d",
+  },
+  {
+    src: producto2,
+    name: "HMI KTP400 Basic",
+    url: "https://www.electricautomationnetwork.com/es/siemens/6av2143-6db00-0aa0-siemens-simatic-hmi-tp400-basic-keyless-basic-panel-diseno-neutro-mando-tactil-pantal",
+  },
+  {
+    src: producto3,
+    name: "PLC S7-1200 CPU 1211C",
+    url: "https://www.electricautomationnetwork.com/es/siemens/6es7211-1ae40-0xb0-siemens-simatic-s7-1200-cpu-1211c-cpu-compacta-dc-dc-dc-e-s-integradas-6-di-24-v-dc-4",
+  },
+  {
+    src: producto4,
+    name: "HMI KTP700f",
+    url: "https://www.electricautomationnetwork.com/es/siemens/6av2145-6gb06-0aa0-siemens-simatic-hmi-ktp700f-mobile-arctic-ampliacion-de-rango-de-temperatura-de-empleo",
+  },
+];
+---
+
+<section class="mb-16">
+  <div class="mb-6 flex items-center justify-between">
+    <h2 class="text-2xl font-bold text-ean-text tracking-tight">Productos Relacionados</h2>
+
+    <div class="flex items-center gap-1 rounded-full border border-gray-300 bg-white px-4 py-1 shadow-sm">
+      <span class="text-[10px] font-bold text-ean-text uppercase tracking-widest">Catálogo 2026</span>
+    </div>
+  </div>
+
+  <div class="relative overflow-hidden">
+    <div class="overflow-x-auto pb-4 custom-scroll">
+      <div class="flex gap-6 w-max">
+        {
+          related.map((item) => (
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative shrink-0 overflow-hidden rounded-xl border border-gray-200 shadow-sm group bg-white transition-all hover:border-ean-blue hover:shadow-md"
+            >
+              <Image
+                src={item.src}
+                alt={item.name}
+                width={360}
+                height={270}
+                format="webp"
+                class="rounded-t-xl object-cover aspect-4/3 w-70 md:w-80 group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="p-4 border-t border-gray-100 bg-gray-50/50">
+                <p class="text-sm font-bold text-ean-text text-center leading-snug">
+                  {item.name}
+                </p>
+                <p class="text-[10px] text-ean-blue font-semibold text-center mt-1 uppercase tracking-tighter">
+                  Ver en tienda ↗
+                </p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .custom-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+  }
+</style>
