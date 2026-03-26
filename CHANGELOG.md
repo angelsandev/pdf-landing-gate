@@ -1,5 +1,11 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.2.9] Script slider - 2026-3-26
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Probar slider con las flechas derecha e izquierda y ver desplazamientos. También responsive.
+- **RelatedProducts.astro:** Añadir `script` para capturar eventos de los botones e interactuar el slider.
+
+
 ### [V0.2.8] Related Products añadir productos - 2026-3-26
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Probar a visualizar todos los productos de la lista en el slider. Cambio de idioma automatico para el título del slider.
