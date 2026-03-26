@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.2.8] Related Products añadir productos - 2026-3-26
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Probar a visualizar todos los productos de la lista en el slider. Cambio de idioma automatico para el título del slider.
+- **dataProducts.ts:** Añadir archivo de lista de productos con datos aleatorios para mostrar en el slider.
+- **RelatedProducts.astro:** Importaciones de idiomas y lista de productos. Utilizar Props para idiomas.
+- **index.astro:** Pasar parámetros `props` del padre al hijo para usar el idioma en `RelatedProducts.astro`.
+
 ### [V0.2.7] Related Products igual que Products Box - 2026-3-25
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Añadir el `slider` de productos relacionados igual que en web de Desarrollo. Productos colocados manualmente para pruebas.

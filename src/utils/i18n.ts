@@ -9,6 +9,7 @@ export const ui = {
     'search.button': 'Buscar',
     'breadcrumb.home': 'Tienda',
     'breadcrumb.page': 'Portal de Descargas PDF',
+    'box_products_best_sellers': "Más Vendidos",
     'footer.info': 'Información',
     'footer.account': 'Mi cuenta',
     'faq.title': 'Preguntas Frecuentes',
@@ -20,6 +21,7 @@ export const ui = {
     'search.button': 'Search',
     'breadcrumb.home': 'Store',
     'breadcrumb.page': 'PDF Download Portal',
+    'box_products_best_sellers': "Best Sellers",
     'footer.info': 'Information',
     'footer.account': 'My account',
     'faq.title': 'Frequently Asked Questions',
@@ -31,6 +33,7 @@ export const ui = {
     'search.button': 'Suche',
     'breadcrumb.home': 'Shop',
     'breadcrumb.page': 'PDF-Download-Portal',
+    'box_products_best_sellers': "Bestseller",
     'footer.info': 'Informationen',
     'footer.account': 'Mein Konto',
     'faq.title': 'Häufig gestellte Fragen',
@@ -42,6 +45,7 @@ export const ui = {
     'search.button': 'Ricerca',
     'breadcrumb.home': 'Negozio',
     'breadcrumb.page': 'Portale di download PDF',
+    'box_products_best_sellers': "Più venduti",
     'footer.info': 'Informazione',
     'footer.account': 'Il mio account',
   },
@@ -52,6 +56,7 @@ export const ui = {
     'search.button': 'Rechercher',
     'breadcrumb.home': 'Boutique',
     'breadcrumb.page': 'Portail de téléchargement PDF',
+    'box_products_best_sellers': "Les plus vendus",
     'footer.info': 'Informations',
     'footer.account': 'Mon compte',
   },
@@ -62,6 +67,7 @@ export const ui = {
     'search.button': 'Pesquisar',
     'breadcrumb.home': 'Loja',
     'breadcrumb.page': 'Portal de downloads de PDF',
+    'box_products_best_sellers': "Mais vendidos",
     'footer.info': 'Informação',
     'footer.account': 'Minha conta',
   },
@@ -71,10 +77,10 @@ export const ui = {
 
 export function useTranslations(lang: string) {
   return function t(key: string) {
-    // 1. Elegimos el idioma (o español si no existe)
+    // Elegir idioma (español si no existe)
     const translations = (ui as any)[lang] || ui['es'];
     
-    // 2. Devolvemos el texto de esa clave (o el de español si falta en ese idioma)
+    // Devolver texto de esa clave (o el de español si falta en ese idioma)
     return translations[key] || (ui['es'] as any)[key];
   }
 }
