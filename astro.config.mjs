@@ -8,8 +8,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     build: {
-      cssMinify: 'lightningcss', // Más rápido y mejor que el estándar para Tailwind 4
-      minify: 'terser',          // Terser es más lento pero falla menos que esbuild en minificación
+      cssCodeSplit: false, // Esto fuerza a que todo el CSS sea una sola pieza
+      chunkSizeWarningLimit: 1000,
     }
   },
 

@@ -1,5 +1,9 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.3.4] Problemas Performance - 2026-3-27
+- **Pruebas:** ✅ Todo ok.
+- **astro.config.mjs:** Modificar el `defineConfig` para añadir compresión y minificación
+
 ### [V0.3.3] Problemas Performance - 2026-3-27
 - **Pruebas:** ✅ Todo ok.
 - **astro.config.mjs:** Modificar el `defineConfig` para añadir compresión y minificación y llamada a VERCEL.
