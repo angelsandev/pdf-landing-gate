@@ -22,7 +22,8 @@ const { title = appData.name, description = appData.description, lang = 'es' } =
 // Esto ayuda a que Google sepa exactamente cuál es la URL principal
 const canonicalURL = new URL(
   Astro.url.pathname,
-  Astro.site || "http://localhost:4321",
+  //Astro.site || "http://localhost:4321",
+  "https://pdf-landing-gate.vercel.app"     // Despliegue en servidor de VERCEL
 );
 ---
 

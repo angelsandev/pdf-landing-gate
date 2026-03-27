@@ -1,5 +1,13 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.3.2] Performance y redirección URL - 2026-3-27
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Problema con el Performance que no cargaba el LCP. Debido a que en la URL no se cargaba inicialmente el `/es`.
+- **Estructura:** Crear un `index.astro` dentro de `pages` y fuera de `[locale]` para indicar la redirección de la URL a `/es`.
+- **Layout.astro:** Modificar la URL canonical para que ahora apunte a la URL del servidor de `VERCEL`.
+- **Estructura:** Se ha desplegado la aplicación en `VERCEL` para comprobar cómo trabaja en un servidor de vercel. Se enlaza con el repositorio de Github automaticamente.
+
+
 ### [V0.3.1] Performance y mejora en imágenes - 2026-3-27
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Problema con el Performance y las imágenes, ya que vienen del servidor de EAN y esto es un problema.
