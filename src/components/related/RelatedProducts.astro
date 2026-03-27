@@ -16,9 +16,9 @@ const t = useTranslations(lang);
 
 <div class="md:px-5 pb-4 mt-5 md:mt-0">
   <div class="flex flex-row items-center justify-start space-x-4">
-    <p class="text-lg md:text-2xl text-center font-semibold text-gray-800 pl-2 md:pl-10">
+    <h2 class="text-lg md:text-2xl text-center font-semibold text-gray-800 pl-2 md:pl-10">
       {t("box_products_best_sellers")}
-    </p>
+    </h2>
   </div>
 
   <!------------------------------BOTONES DEL SLIDER------------------------------ -->
@@ -34,7 +34,9 @@ const t = useTranslations(lang);
       transition-all duration-200 ease-in-out
       hover:scale-110
       text-gray-700 hover:text-blue-600 hover:border-blue-300 cursor-pointer
-      group-hover:visible"
+      group-hover:visible
+      "
+      aria-label="Anterior producto"
     >
       <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
         ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg
@@ -53,6 +55,7 @@ const t = useTranslations(lang);
       text-gray-700 hover:text-blue-600 hover:border-blue-300 cursor-pointer
       hover:scale-110
       group-hover:visible"
+      aria-label="Siguiente producto"
     >
       <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
         ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg
@@ -77,6 +80,7 @@ const t = useTranslations(lang);
                   height={70}
                   format="webp"
                   quality="high"
+                  loading="lazy"
                   class="object-contain "
                   style="width: 70px; height: 70px;"
                 />
@@ -84,7 +88,7 @@ const t = useTranslations(lang);
 
               <div class="space-y-1 relative px-1 py-1 ">
                 <a href={`/${lang}${item.slug}`} class="font-bold text-xs">
-                  <h3 class="text-center text-blue-600 font-bold">{item.referencia.slice(0, 15)}</h3>
+                  <span class="text-center text-blue-600 font-bold">{item.referencia.slice(0, 15)}</span>
                   <p class="text-base text-center font-medium text-gray-800">{item.price}€</p>
                   <h3 class="font-medium text-center text-gray-800 min-h-15 leading-none">{item.name.slice(0, 41)}</h3>
                 </a>

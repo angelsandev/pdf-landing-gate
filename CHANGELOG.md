@@ -1,5 +1,13 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.3.1] Performance y mejora en imágenes - 2026-3-27
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Problema con el Performance y las imágenes, ya que vienen del servidor de EAN y esto es un problema.
+- **astro.config.mjs:** Modificar el `defineConfig` para añadir compresión y aceptar que las imágenes vienen de un servidor externo EAN.
+- **Layout.astro:** Corregir y eliminar la importacion de funtes de `Googleapis` que no se utilizaban.
+- **Hero.astro:** Modificar opacidades que no le gustan a las métricas de Lighthouse.
+- **global.css:** Eliminar estilos para `body`.
+
 ### [V0.3.0] Update Hero traducciones idiomas - 2026-3-26
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Probar textos en email, placeholder y botón de descarga todo ok en los idiomas.

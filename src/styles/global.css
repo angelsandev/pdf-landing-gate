@@ -3,11 +3,14 @@
 
 @theme {
     --breakpoint-xs: 410px;
-    
+
     /* Colores corporativos extraídos de la web oficial */
-    --color-ean-dark: #1f2937; /*#2e2e2e; /*#1e293b;  /* Azul marino profundo del Nav */
-    --color-ean-blue: #428bca;  /* Azul brillante de botones y enlaces */
-    --color-ean-text: #2e2e2e;  /* Gris oscuro de los textos importantes */
+    --color-ean-dark: #1f2937;
+    /*#2e2e2e; /*#1e293b;  /* Azul marino profundo del Nav */
+    --color-ean-blue: #428bca;
+    /* Azul brillante de botones y enlaces */
+    --color-ean-text: #2e2e2e;
+    /* Gris oscuro de los textos importantes */
 }
 
 /* Custom component utilities */
@@ -44,8 +47,8 @@
     .info-badge {
         @apply flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gray-100 border border-gray-200;
     }
+
     .nav-ean {
         @apply bg-ean-dark text-white border-b border-white/10;
     }
 }
-
