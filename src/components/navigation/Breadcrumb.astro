@@ -16,14 +16,15 @@ const t = useTranslations(lang);
       <a 
         href={`https://www.electricautomationnetwork.com/${lang}/`} 
         class="breadcrumb-item bg-ean-dark text-white px-6 py-2 text-xs font-bold uppercase hover:bg-slate-900 transition-colors"
-      >
+        aria-label={t('breadcrumb.home')}
+        >
         {t('breadcrumb.home')}
       </a>
 
       <div class="breadcrumb-last bg-ean-dark text-white px-8 py-2">
-        <h1 class="text-xs font-bold uppercase tracking-widest">
+        <p class="text-xs font-bold uppercase tracking-widest">
           {t('breadcrumb.page')}
-        </h1>
+        </p>
       </div>
 
     </div>

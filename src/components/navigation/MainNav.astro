@@ -28,7 +28,7 @@ const currentLogo = (logos as any)[lang] || logoES;
 ---
 
 <div class="bg-white">
-  <div class="px-5 hidden lg:block">
+  <div class="px-5 lg:block">
     <div class="flex justify-between items-center p-2">
       
       <div class="flex items-center">
@@ -37,6 +37,7 @@ const currentLogo = (logos as any)[lang] || logoES;
             src={currentLogo}
             alt="Electric Automation Network"
             loading="eager"
+            fetchpriority="high"
             class="object-contain max-w-87.75 max-h-12.5"
           />
         </a>
