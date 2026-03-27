@@ -5,9 +5,7 @@ import Hero from "../../components/hero/Hero.astro";
 import Steps from '../../components/features/Steps.astro';
 import RelatedProducts from "../../components/related/RelatedProducts.astro";
 import FAQ from '../../components/features/FAQ.astro';
-import HeroNew from "../../components/hero/HeroNew.astro";
-import HeroNew2 from "../../components/hero/HeroNew2.astro";
-import HeroNew3 from "../../components/hero/HeroNew3.astro";
+
 
 // Generar las rutas
 export function getStaticPaths() {
@@ -25,12 +23,13 @@ const { locale } = Astro.params;
 ---
 
 <Layout title="Descarga de PDFs" lang={locale}>
+	
+	<Hero lang={locale}/>
 	<!-- 
-	<Hero />
 	<HeroNew ></HeroNew>
 	<HeroNew2 ></HeroNew2>
-	-->
 	<HeroNew3 ></HeroNew3>
+	-->
 	<RelatedProducts lang={locale}></RelatedProducts>
 	<!-- <Steps />-->
 	<!-- <FAQ locale={locale}></FAQ>-->

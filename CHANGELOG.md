@@ -1,5 +1,13 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.3.0] Update Hero traducciones idiomas - 2026-3-26
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Probar textos en email, placeholder y botón de descarga todo ok en los idiomas.
+- **i18n.ts:** Añadir nuevas traducciones.
+- **index.astro:** Pasar parámetros `props` del padre al hijo para usar el idioma en `Hero.astro`.
+- **Hero.astro:** Definir props, importar traducciones...
+
+
 ### [V0.2.9] Script slider - 2026-3-26
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Probar slider con las flechas derecha e izquierda y ver desplazamientos. También responsive.
