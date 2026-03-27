@@ -1,5 +1,10 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.3.3] Problemas Performance - 2026-3-27
+- **Pruebas:** ✅ Todo ok.
+- **astro.config.mjs:** Modificar el `defineConfig` para añadir compresión y minificación y llamada a VERCEL.
+- **Estructura:** Asignar usuario `angelsandev` para que aparezca el nombre en los commits.
+
 ### [V0.3.2] Performance y redirección URL - 2026-3-27
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Problema con el Performance que no cargaba el LCP. Debido a que en la URL no se cargaba inicialmente el `/es`.
