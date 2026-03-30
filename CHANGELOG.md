@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.3.8] Aria-label update accesibility - 2026-3-30
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** Añadir `aria-label` en botones, forms, etc... con traducciones automáticas.
+- **MainNav.astro:** Añadir todos los `aria-label` necesarios, con traducciones automáticas (no todos) que cogen de `i18n.ts`.
+- **RelatedProducts.astro:** Añadir todos los `aria-label` para los botones, con traducciones automáticas que cogen de `i18n.ts`.
+- **StickyForm.astro:** Añadir todos los `aria-label` para los botones, con traducciones automáticas que cogen de `i18n.ts`. Añadir las props para `lang` y para `isSticky`.
+
 ### [V0.3.7] Traducciones container PDF - 2026-3-30
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Cambio correcto de idiomas en el container del PDF. Se utilizan traducciones de `i18n.ts`.

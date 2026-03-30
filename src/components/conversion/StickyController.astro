@@ -5,19 +5,17 @@
 ---
 
 <script>
-  const stickyCta = document.getElementById(
-    "sticky-cta",
-  ) as HTMLDivElement | null;
+  const stickyCta = document.getElementById("sticky-cta") as HTMLDivElement | null;
   let isScrolling = false;
 
   const updateSticky = () => {
     if (!stickyCta) return;
     const scrollY: number = window.scrollY;
-    const height: number =
-      document.documentElement.scrollHeight - window.innerHeight; // Cuánto puedo bajar en total
+    const height: number = document.documentElement.scrollHeight - window.innerHeight; // Cuánto puedo bajar en total
     const percent: number = height > 0 ? (scrollY / height) * 100 : 0;
 
-    if (percent > 20 && percent < 95) { // Si el scroll entre 20% y 95%
+    if (percent > 20 && percent < 95) {
+      // Si el scroll entre 20% y 95%
       stickyCta.classList.remove("translate-y-full");
       stickyCta.classList.add("translate-y-0");
     } else {
@@ -28,11 +26,12 @@
     isScrolling = false;
   };
 
-
   window.addEventListener("scroll", () => {
-    if (!isScrolling) {
-      window.requestAnimationFrame(updateSticky);
-      isScrolling = true;
-    }
-  }, { passive: true }); // passive=> mejora el rendimiento
+      if (!isScrolling) {
+        window.requestAnimationFrame(updateSticky);
+        isScrolling = true;
+      }
+    },
+    { passive: true },
+  ); // passive=> mejora el rendimiento
 </script>
