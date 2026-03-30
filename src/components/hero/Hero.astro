@@ -1,6 +1,6 @@
 ---
 // src/components/sections/Hero.astro
-import { appData } from "../../data";
+//import { appData } from "../../data";
 import { Image } from "astro:assets";
 import logoImage from "../../assets/pdf-download.jpg";
 import { useTranslations } from "../../utils/i18n";
@@ -11,7 +11,7 @@ interface Props {
 const { lang = "es" } = Astro.props;
 const t = useTranslations(lang);
 
-const { featuredManual, name, description, logo, downloadLinks, rating } = appData;
+//const { featuredManual, name, description, logo, downloadLinks, rating } = appData;
 ---
 
 <div class="hero-container mb-16 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col gap-8">
@@ -23,7 +23,7 @@ const { featuredManual, name, description, logo, downloadLinks, rating } = appDa
         <Image
           id="lcp-image"
           src={logoImage}
-          alt={`Logo de ${name}`}
+          alt={`Logo de ${t("pdf_name")}`}
           width={120}
           height={120}
           format="webp"
@@ -37,26 +37,26 @@ const { featuredManual, name, description, logo, downloadLinks, rating } = appDa
     <div class="flex-1 text-center md:text-left">
       
       <h1 id="main-h1" style="view-transition-name: main-title; contain: paint;" class="text-2xl font-extrabold text-ean-text mb-3 leading-tight">
-        {featuredManual.title}
+        {t("pdf_title")}
       </h1>
 
       <div class="flex items-center gap-3 mb-4 justify-center md:justify-start flex-wrap">
         <div class="flex items-center gap-1.5 bg-yellow-50 px-3 py-1 rounded-full border border-yellow-100">
           <span class="text-yellow-500 text-xl" aria-hidden="true">★★★★★</span>
           <span class="text-xs font-bold text-yellow-700">
-            {rating.score}
-            <span class="text-yellow-700 font-normal">({rating.count} descargas)</span>
+            
+            <span class="text-yellow-700 font-normal">({t("pdf_rating_count")})</span>
           </span>
         </div>
 
         <div class="flex gap-2">
-          <span class="info-badge text-[10px] uppercase tracking-widest font-bold">PDF {featuredManual.size}</span>
-          <span class="info-badge text-[10px] uppercase tracking-widest font-bold">Actualizado: {featuredManual.releaseDate}</span>
+          <span class="info-badge text-[10px] uppercase tracking-widest font-bold">PDF {t("pdf_size")}</span>
+          <span class="info-badge text-[10px] uppercase tracking-widest font-bold">{t("pdf_release_date")}</span>
         </div>
       </div>
 
       <p class="text-base md:text-lg text-body leading-relaxed max-w-3xl">
-        {description}
+        {t("pdf_description")}
       </p>
     </div>
   </div>

@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.3.7] Traducciones container PDF - 2026-3-30
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Cambio correcto de idiomas en el container del PDF. Se utilizan traducciones de `i18n.ts`.
+- **data.ts:** Eliminar elementos que no se utilizaban.
+- **i18n.ts:** Añadir traducciones para textos del Hero.astro y utilizar dichos textos, en lugar de usar los de data.ts
+- **TopNav.astro:** Eliminar `hidden` ya que impedía ver este menú en dispositivos móviles. 
+
 ### [V0.3.6] Problemas Performance - 2026-3-30
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Corregir error NO LCP al ejecutar el performance de Lighthouse para obtener el rendimiento.

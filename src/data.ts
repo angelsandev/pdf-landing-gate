@@ -14,7 +14,7 @@ export const appData = {
         score: "",
         count: "2.5K",
     },
-//    ageRating: "5+",
+
 
     // Enlaces 
     downloadLinks: {
@@ -32,9 +32,4 @@ export const appData = {
         thumbnail: "/assets/Descarga de PDF.webp" // La imagen que se verá en la landing
     },
 
-    // Enlaces de redes sociales
-    socialLinks: [
-        { name: "LinkedIn", url: "https://linkedin.com/in/tecnoplc" },
-        { name: "Web", url: "https://www.tecnoplc.com" }
-    ]
 } as const;
