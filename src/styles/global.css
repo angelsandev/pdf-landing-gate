@@ -4,7 +4,7 @@
 @theme {
   --breakpoint-xs: 410px;
   --color-ean-dark: #1f2937;
-  --color-ean-blue: #428bca;
+  --color-ean-blue: #3370a5; /*#428bca;*/
   --color-ean-text: #2e2e2e;
 }
 

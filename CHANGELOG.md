@@ -1,5 +1,11 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.3.9] Colores botones - 2026-3-30
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Modificar el color azul para corregir problema accesibilidad, ahora 100%.
+- **global.css:** Cambiar azul `#428bca` por este: `#3370a5`.
+- **StickyForm.astro:** Modificar alineación del container para mostrar el correo y botón más centrados.
+
 ### [V0.3.8] Aria-label update accesibility - 2026-3-30
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** Añadir `aria-label` en botones, forms, etc... con traducciones automáticas.
