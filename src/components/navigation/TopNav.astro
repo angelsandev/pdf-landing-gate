@@ -18,7 +18,7 @@ const currentLanguage = LANGUAGES.find((l) => l.iso === lang) || LANGUAGES[0];
 const currentCurrency = CURRENCIES.find((c) => c.iso === currentCurrencyIso) || CURRENCIES[0];
 ---
 
-<div class="nav-ean text-[11px]">
+<div class="nav-ean text-[11px] hidden lg:block">
   <div class="md:px-5 py-0 flex justify-end lg:justify-between items-center h-7">
     <div class="hidden lg:flex items-center text-white text-xs">
       <span class="mr-4">info@electricautomationnetwork.com</span>

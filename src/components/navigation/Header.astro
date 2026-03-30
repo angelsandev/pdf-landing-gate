@@ -9,10 +9,10 @@ interface Props {
 const { lang = "es" } = Astro.props;
 ---
 
-<TopNav lang={lang} />
+<TopNav lang={lang} /> 
 
-<header class="sticky top-0 z-50 bg-white w-full block shadow-sm">
-  <MainNav lang={lang} />
+<header class="relative md:sticky top-0 z-50 bg-white w-full block shadow-sm">
+   <MainNav lang={lang} />
 </header>
 
-<MenuNav lang={lang} />
+ <MenuNav lang={lang} />

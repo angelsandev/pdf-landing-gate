@@ -34,8 +34,7 @@ const t = useTranslations(lang);
       transition-all duration-200 ease-in-out
       hover:scale-110
       text-gray-700 hover:text-blue-600 hover:border-blue-300 cursor-pointer
-      group-hover:visible
-      "
+      group-hover:visible"
       aria-label="Anterior producto"
     >
       <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -65,14 +64,14 @@ const t = useTranslations(lang);
     <!------------------------------CONTAINER DE PRODUCTOS CON SCROLL------------------------------ -->
     <div
       id="product-scroll"
-      class="flex overflow-x-auto space-x-3 md:space-x-2 p-1 scroll-smooth mx-6 md:mx-8 scrollbar-hide -webkit-scrollbar-hide"
-      style="scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x mandatory; content-visibility: auto; contain-intrinsic-size: 200px;"
+      class="opacity-0 invisible md:opacity-100 md:visible flex overflow-x-auto space-x-3 md:space-x-2 p-1 scroll-smooth mx-6 md:mx-8 scrollbar-hide -webkit-scrollbar-hide"
+      style="content-visibility: hidden; scrollbar-width: none; -ms-overflow-style: none; scroll-snap-type: x mandatory;"
     >
       {
         product.map((item: any) => (
           <div class="shrink-0 scroll-snap-align-start" style="scroll-snap-align: start;">
             <div class="w-30 hover:border-gray-300 hover:scale-105 transition-transform rounded-lg relative">
-              <a href={`/${lang}${item.slug}`} class="font-base text-xl mt-2 flex justify-center">
+              <a href={`/${lang}${item.slug}`} class="font-base text-xl mt-2 flex justify-center" aria-label={`Ver detalles de ${item.name}`}>
                 <Image
                   src={item.img}
                   alt={item.name}
@@ -124,9 +123,19 @@ const t = useTranslations(lang);
         behavior: "smooth",
       });
     });
+
+    if (container) {
+      // Hacer visible el componente slider
+      container.style.contentVisibility = "visible";
+      container.classList.remove("opacity-0", "invisible");
+    }
   };
-  document.addEventListener("astro:page-load", checkScrollability);
-  checkScrollability();
+  //document.addEventListener("astro:page-load", checkScrollability);
+  //checkScrollability();
+  // Retardo para hacer visible el componente después de la carga total de la página
+  window.addEventListener("load", () => {
+    setTimeout(checkScrollability, 1000);
+  });
 </script>
 
 <style>
@@ -134,6 +143,6 @@ const t = useTranslations(lang);
     display: none;
   }
   #product-scroll {
-  min-height: 200px; /* Ajuste según la altura real de las tarjetas */
-}
+    min-height: 200px; /* Ajuste según la altura real de las tarjetas */
+  }
 </style>

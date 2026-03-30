@@ -38,7 +38,8 @@ const currentLogo = (logos as any)[lang] || logoES;
             alt="Electric Automation Network"
             loading="eager"
             fetchpriority="high"
-            class="object-contain max-w-87.75 max-h-12.5"
+            decoding="sync"
+            class="object-contain max-w-37.5 md:max-w-87.75 h-auto"
           />
         </a>
       </div>
@@ -46,7 +47,7 @@ const currentLogo = (logos as any)[lang] || logoES;
       <form 
         action={`https://www.electricautomationnetwork.com/${lang}/buscador`} 
         method="post" 
-        class="flex w-full max-w-100 xl:max-w-150"
+        class="hidden md:flex w-full max-w-100 xl:max-w-150"
       >
         <input
           type="text"

@@ -1,9 +1,21 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.3.6] Problemas Performance - 2026-3-30
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Corregir error NO LCP al ejecutar el performance de Lighthouse para obtener el rendimiento.
+- **Pruebas:** ✅ Problema principal: se ejecutaba el script del `RelatedProducts` al inicio, por tanto, se estaban cargando todas las imagenes del slider y esto hacía que `lighthouse` no detectara el LCP. Solución: colocar retardo para iniciar el script.
+- **Header.astro:** Añadir `relative md:sticky`.
+- **TopNav.astro:** añadir hidden lg:block
+- **MainNav.astro:** añadir class="hidden md:flex
+- **Header.astro:** añadir relative md:sticky
+- **Hero.astro:** astro añadir texto más grande para que se reconozca en LCP en el `<h1>`: `text-3xl md:text-5xl`. Antes solo tenia `text-2xl`
+- **RelatedProducts.astro:** Colocar retardo para ejecutar el script del slider, para esperar a que se cargue toda la página primero.
+- **RelatedProducts.astro:** Colocar `style=invisible` al contenedor del slider para no cargarlo al inicio. Se carga después del retardo.
+
 ### [V0.3.5] Problemas Performance - 2026-3-27
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ 
-- **MainNav:** Quitar hidden para que el logo sea visible en móvil + añadir aria-label al buscador.
+- **MainNav:** Quitar `hidden` para que el logo sea visible en móvil + añadir aria-label al buscador.
 - **Hero:** Mantener fetchpriority="high" en la imagen y asegurar que el h1 sea el único de la página.
 - **Breadcrumb:** Cambiar h1 por p
 - **RelatedProducts.astro:** Al usar content-visibility: auto, el navegador ignora la complejidad de los 291 elementos del DOM

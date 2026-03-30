@@ -17,13 +17,13 @@ interface Props {
   lang?: string; // El signo ? significa que es opcional
 }
 
-const { title = appData.name, description = appData.description, lang = 'es' } = Astro.props;
+const { title = appData.name, description = appData.description, lang = "es" } = Astro.props;
 
 // Esto ayuda a que Google sepa exactamente cuál es la URL principal
 const canonicalURL = new URL(
   Astro.url.pathname,
   //Astro.site || "http://localhost:4321",
-  "https://pdf-landing-gate.vercel.app"     // Despliegue en servidor de VERCEL
+  "https://pdf-landing-gate.vercel.app", // Despliegue en servidor de VERCEL
 );
 ---
 
@@ -33,21 +33,17 @@ const canonicalURL = new URL(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-
+    
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-
-    
   </head>
 
   <body class="bg-slate-50 text-ean-text antialiased">
-    <Header lang={lang}/>
-    
-      <div
-      class="mx-auto max-w-full px-4 lg:max-w-8xl"
-    >
-      <Breadcrumb lang={lang}/>
+    <Header lang={lang} />
+
+    <div class="mx-auto max-w-full px-4 lg:max-w-8xl">
+      <Breadcrumb lang={lang} />
 
       <!-- <NavBarOld /> -->
 
@@ -55,12 +51,12 @@ const canonicalURL = new URL(
         <slot />
       </main>
 
-      <Footer lang={lang}></Footer>
+      <Footer lang={lang} />
 
-<!-- 
+      
       <StickyForm />
       <StickyController />
-      -->
-      </div>
+      
+    </div>
   </body>
 </html>
