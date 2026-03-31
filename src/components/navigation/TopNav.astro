@@ -12,10 +12,10 @@ const t = useTranslations(lang);
 
 // Por ahora simulamos que el idioma actual es español
 //const currentIso = "es";
-const currentCurrencyIso = "EUR";
+//const currentCurrencyIso = "EUR";
 
 const currentLanguage = LANGUAGES.find((l) => l.iso === lang) || LANGUAGES[0];
-const currentCurrency = CURRENCIES.find((c) => c.iso === currentCurrencyIso) || CURRENCIES[0];
+//const currentCurrency = CURRENCIES.find((c) => c.iso === currentCurrencyIso) || CURRENCIES[0];
 ---
 
 <div class="nav-ean text-[11px] lg:block">
@@ -65,24 +65,26 @@ const currentCurrency = CURRENCIES.find((c) => c.iso === currentCurrencyIso) || 
         <button
           class="dropdown-btn inline-flex items-center font-medium px-4 text-white text-sm cursor-pointer hover:bg-gray-700 h-full transition-colors"
         >
-          <span class="mr-1">{t("nav.currency")} {currentCurrency.name}</span>
+          <span class="mr-1">{t("nav.currency")} <span id="current-currency-text">EUR</span></span>
           <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
             ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg
           >
         </button>
 
         <div
+          id="currency-list"
           class="dropdown-menu absolute right-0 top-full p-2 bg-white rounded-md shadow-xl opacity-0 invisible scale-95
                 transition-all duration-200 z-110 w-max min-w-37.5 max-h-80 overflow-y-auto"
         >
           {
             CURRENCIES.filter((c) => c.active).map((curr) => (
-              <a
-                href="#"
-                class={`block px-4 py-2 text-sm hover:bg-gray-100 rounded ${curr.iso === currentCurrencyIso ? "bg-gray-700 text-white" : "text-gray-700"}`}
+              <button
+                data-iso={curr.iso}
+                data-currency-obj={JSON.stringify(curr)}
+                class="currency-item block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 rounded text-gray-700 cursor-pointer"
               >
                 {curr.name} ({curr.iso})
-              </a>
+              </button>
             ))
           }
         </div>
@@ -93,6 +95,8 @@ const currentCurrency = CURRENCIES.find((c) => c.iso === currentCurrencyIso) || 
 
 <!----------------SCRIPT PARA MOSTRAR EL DROPDOWN Y ESCONDER EL OTRO---------------- -->
 <script>
+  import { $currencyStore, updateCurrency } from "../../store/currencyStore";
+  // SCRIPT PARA MOSTRAR EL DROPDOWN Y ESCONDER EL OTRO
   const controlDropdowns = () => {
     document.addEventListener("click", (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -110,8 +114,48 @@ const currentCurrency = CURRENCIES.find((c) => c.iso === currentCurrencyIso) || 
         currentMenu?.classList.toggle("is-active");
       }
     });
+
+    // SCRIPT PARA LA DIVISA
+    const currencyButtons = document.querySelectorAll<HTMLButtonElement>(".currency-item");
+
+    currencyButtons.forEach((btn) => {
+      // Detectar clics en botones de divisas
+      btn.addEventListener("click", () => {
+        const data = btn.getAttribute("data-currency-obj");
+        if (data) {
+          updateCurrency(JSON.parse(data));                               // Actualizar localstorage
+          const allMenus = document.querySelectorAll<HTMLElement>(".dropdown-menu");
+          allMenus.forEach((menu) => menu.classList.remove("is-active")); // Cerrar menú al hacer clic
+        }
+      });
+    });
+
+    // subscribe=> detecta cambios en el localstore y ejecuta la función
+    $currencyStore.subscribe((localStore: any) => {
+      // curr=> valor actual del localstore
+      currencyButtons.forEach((btn) => {
+        const btnIso = btn.getAttribute("data-iso");
+
+        if (btnIso === localStore.iso) {
+          // Si divisa del botón === divisa del localstorage
+          btn.classList.add("bg-gray-700", "text-white"); // fondo oscuro y texto blanco
+          btn.classList.remove("text-gray-700");
+        } else {
+          btn.classList.remove("bg-gray-700", "text-white"); // texto gris y sin fondo
+          btn.classList.add("text-gray-700");
+        }
+      });
+
+      // Texto del botón principal (el que abre el menú)
+      const mainText = document.getElementById("current-currency-text");
+      if (mainText) {
+        mainText.textContent = localStore.name;
+      }
+    });
   };
   controlDropdowns();
+
+  // SCRIPT PARA LA DIVISA
 </script>
 
 <style>

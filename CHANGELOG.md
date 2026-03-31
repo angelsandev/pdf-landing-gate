@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.4.0] Lógica de Divisas cambio localstorage - 2026-3-31
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Funciona todo, al seleccionar la nueva divisa, se cierra el dropdown.
+- **Pruebas:** Instalar librería para control de localstorage: `npm install nanostores @nanostores/persistent`. Es igual que `zustand` en React.
+- **TopNav.astro:** Modificar HTML y añadir script para el cambio automático de divisa.
+- **Estructura:** Crear `/store/currencyStore` para el control del localstorage.
+
 ### [V0.3.9] Colores botones - 2026-3-30
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Modificar el color azul para corregir problema accesibilidad, ahora 100%.
