@@ -1,5 +1,14 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.4.2] Readme y eliminar addData - 2026-3-31
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Todo probado. El title cambia de idioma también.
+- **Estructura:** Eliminar `appData.ts` ya que todas las traducciones del interior se han pasado a `i18n.ts`.
+- **Layout.astro:** Importar traducciones y utilizar los textos de `i18n.ts`. Borrar la llamada a `appData`.
+- **Layout.astro:** Borrar la prop `title` que se la pasábamos al llamar al `Layout` y por eso no se traducía.
+- **README.md:** Crear un readme con instrucciones de funcionamiento.
+
+
 ### [V0.4.1] Lógica de Divisas cambio localstorage - 2026-3-31
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Crear archivo en utils para formatear el precio. Ahora, en cada componente solo debemos utilizar las clases y atributos para mostrar el precio según el localstorage. Todo ok. Performance 100%.
