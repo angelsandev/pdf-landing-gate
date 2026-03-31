@@ -33,10 +33,11 @@ const { isSticky = true } = Astro.props;
     </div>
 -->
 
-    <form class="flex flex-1 w-full max-w-2xl gap-2" aria-label={t("search.placeholder")} role="form">
+    <form class="download-form flex flex-1 w-full max-w-2xl gap-2" aria-label={t("search.placeholder")} role="form">
       <input
         type="email"
-        placeholder={t("pdf_form_email")}
+        name="email"
+        placeholder={t("pdf_form_email_placeholder")}
         class="flex-1 px-4 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-ean-blue outline-none text-sm"
         aria-label={t("search.placeholder")}
         required

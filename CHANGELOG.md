@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.4.3] Forms unificar clases - 2026-3-31
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Unificar clases de los forms para envío del email al backend. Tanto en Hero como en StickyForm deben tener la misma clase.
+- **Hero.astro:** Añadir clase `download-form` al `form`.
+- **StickyForm.astro:** Añadir clase `download-form` al `form`.
+- **Layout.astro:** Colocqr la prop del idioma en la llamada a `StickyForm`.
+
 ### [V0.4.2] Readme y eliminar addData - 2026-3-31
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Todo probado. El title cambia de idioma también.
