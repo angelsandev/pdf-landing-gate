@@ -89,7 +89,7 @@ const t = useTranslations(lang);
               <div class="space-y-1 relative px-1 py-1 ">
                 <a href={`/${lang}${item.slug}`} class="font-bold text-xs">
                   <span class="text-center text-blue-600 font-bold">{item.referencia.slice(0, 15)}</span>
-                  <p class="text-base text-center font-medium text-gray-800">{item.price}€</p>
+                  <p class="product-price-display text-base text-center font-medium text-gray-800" data-base-price={item.price}>{item.price}€</p>
                   <h3 class="font-medium text-center text-gray-800 min-h-15 leading-none">{item.name.slice(0, 41)}</h3>
                 </a>
               </div>

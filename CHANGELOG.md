@@ -1,5 +1,16 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.4.1] Lógica de Divisas cambio localstorage - 2026-3-31
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Crear archivo en utils para formatear el precio. Ahora, en cada componente solo debemos utilizar las clases y atributos para mostrar el precio según el localstorage. Todo ok. Performance 100%.
+- **TopNav.astro:** Mejoras en script, tipado para Typescript, buenas prácticas...
+- **Estructura:** Crear `/utils/cart.ts` para formatear los precios.
+- **Estructura:** Crear `/utils/priceFormatter.ts` para crear script que sirva para utilizarlo en cualquier componente. Escucha el localStorage y formatea el precio correctamente.
+- **RelatedProducts.astro:** Añadir clase  `product-price-display` y atributo `data-base-price`.
+- **Layout.astro:** Llamar a la función de formatear precios, en un script, al cargar la página.
+- **currencyStore.ts:** Añadir elementos `decimal` y `thousands`.
+
+
 ### [V0.4.0] Lógica de Divisas cambio localstorage - 2026-3-31
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Funciona todo, al seleccionar la nueva divisa, se cierra el dropdown.

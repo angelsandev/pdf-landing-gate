@@ -58,5 +58,14 @@ const canonicalURL = new URL(
       <StickyController />
       
     </div>
+<script>
+      // Importamos el inicializador que creamos en el paso anterior
+      import { initPriceObserver } from "../utils/priceFormatter";
+
+      // Lo ejecutamos al cargar la página
+      initPriceObserver();
+
+    </script>
+
   </body>
 </html>

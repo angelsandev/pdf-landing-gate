@@ -95,13 +95,17 @@ const currentLanguage = LANGUAGES.find((l) => l.iso === lang) || LANGUAGES[0];
 
 <!----------------SCRIPT PARA MOSTRAR EL DROPDOWN Y ESCONDER EL OTRO---------------- -->
 <script>
-  import { $currencyStore, updateCurrency } from "../../store/currencyStore";
+  import { $currencyStore, updateCurrency, type ICurrency } from "../../store/currencyStore";
+
+  const allMenus = document.querySelectorAll<HTMLElement>(".dropdown-menu");
+  const currencyButtons = document.querySelectorAll<HTMLButtonElement>(".currency-item");
+  const mainText = document.getElementById("current-currency-text");
+
   // SCRIPT PARA MOSTRAR EL DROPDOWN Y ESCONDER EL OTRO
   const controlDropdowns = () => {
     document.addEventListener("click", (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const currentContainer = target.closest<HTMLElement>(".dropdown-container");
-      const allMenus = document.querySelectorAll<HTMLElement>(".dropdown-menu");
       const button = target.closest<HTMLElement>(".dropdown-btn");
 
       if (!currentContainer) {
@@ -116,29 +120,33 @@ const currentLanguage = LANGUAGES.find((l) => l.iso === lang) || LANGUAGES[0];
     });
 
     // SCRIPT PARA LA DIVISA
-    const currencyButtons = document.querySelectorAll<HTMLButtonElement>(".currency-item");
 
     currencyButtons.forEach((btn) => {
       // Detectar clics en botones de divisas
       btn.addEventListener("click", () => {
         const data = btn.getAttribute("data-currency-obj");
         if (data) {
-          updateCurrency(JSON.parse(data));                               // Actualizar localstorage
-          const allMenus = document.querySelectorAll<HTMLElement>(".dropdown-menu");
-          allMenus.forEach((menu) => menu.classList.remove("is-active")); // Cerrar menú al hacer clic
+          try {
+            const currencyObj: ICurrency = JSON.parse(data);
+            updateCurrency(currencyObj); // Actualizar localstorage
+
+            allMenus.forEach((menu) => menu.classList.remove("is-active")); // Cerrar menú al hacer clic
+          } catch (error) {
+            console.error("Error al parsear la divisa:", error);
+          }
         }
       });
     });
 
     // subscribe=> detecta cambios en el localstore y ejecuta la función
-    $currencyStore.subscribe((localStore: any) => {
-      // curr=> valor actual del localstore
+    $currencyStore.subscribe((localStore: ICurrency) => {       // localStore=> valor actual del localstore
+      
       currencyButtons.forEach((btn) => {
         const btnIso = btn.getAttribute("data-iso");
 
-        if (btnIso === localStore.iso) {
-          // Si divisa del botón === divisa del localstorage
-          btn.classList.add("bg-gray-700", "text-white"); // fondo oscuro y texto blanco
+        if (btnIso === localStore.iso) {                    // Si divisa del botón === divisa del localstorage
+          
+          btn.classList.add("bg-gray-700", "text-white");   // fondo oscuro y texto blanco
           btn.classList.remove("text-gray-700");
         } else {
           btn.classList.remove("bg-gray-700", "text-white"); // texto gris y sin fondo
@@ -147,7 +155,7 @@ const currentLanguage = LANGUAGES.find((l) => l.iso === lang) || LANGUAGES[0];
       });
 
       // Texto del botón principal (el que abre el menú)
-      const mainText = document.getElementById("current-currency-text");
+
       if (mainText) {
         mainText.textContent = localStore.name;
       }

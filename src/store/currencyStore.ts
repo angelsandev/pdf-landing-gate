@@ -7,6 +7,8 @@ export interface ICurrency {
     iso: string;
     sign: string;
     position: 'prefix' | 'suffix';
+    decimal?: string;    
+    thousands?: string;
 }
 
 // Crear el store persistente (se guarda en 'cartCurrency')
