@@ -5,6 +5,7 @@ import Hero from "../../components/hero/Hero.astro";
 import Steps from '../../components/features/Steps.astro';
 import RelatedProducts from "../../components/related/RelatedProducts.astro";
 import FAQ from '../../components/features/FAQ.astro';
+import OTPModal from '../../components/auth/OTPModal.astro';
 
 
 // Generar las rutas
@@ -30,6 +31,7 @@ const { locale } = Astro.params;
 	<HeroNew2 ></HeroNew2>
 	<HeroNew3 ></HeroNew3>
 	-->
+	<OTPModal></OTPModal>
 	<RelatedProducts lang={locale}></RelatedProducts>
 	<!-- <Steps />-->
 	<!-- <FAQ locale={locale}></FAQ>-->

@@ -51,6 +51,32 @@ El flujo principal de conversión (descarga del PDF) está centralizado en el co
 
 ---
 
+## 🚀 Estrategia de Verificación y Descarga (OTP = One Time Password)
+
+Para optimizar el flujo de captación de leads y asegurar la validez de los datos, se ha implementado un sistema de verificación por pasos (One-Time Password) integrando **Astro Endpoints**. Este enfoque permite centralizar la lógica del servidor sin depender de servicios externos como FastAPI durante el despliegue inicial.
+
+### 📋 Flujo Lógico del Sistema
+
+1.  **Captura de Lead (Frontend):**
+    El usuario introduce su dirección de correo electrónico en el componente *Hero* y solicita la descarga del archivo PDF.
+
+2.  **Generación y Envío (API Astro Server):**
+    * El servidor genera de forma automática un código de verificación aleatorio de 6 dígitos.
+    * Dicho código se almacena temporalmente en el estado del servidor o base de datos para su posterior validación.
+    * Se realiza el envío de un correo electrónico al usuario utilizando **Mailtrap** (o proveedor compatible), notificándole su código único.
+
+3.  **Interfaz de Verificación (UI):**
+    Tras recibir la confirmación de envío por parte de la API, la interfaz bloquea la descarga directa y despliega un **Modal de Verificación**.
+
+4.  **Validación de Identidad (Frontend):**
+    El usuario debe introducir los 6 dígitos recibidos en su bandeja de entrada dentro de los campos específicos del modal.
+
+5.  **Confirmación y Entrega (API Astro):**
+    El servidor valida si el código introducido coincide con el generado originalmente. En caso de éxito, la API autoriza la transacción y entrega el enlace final para la descarga del recurso PDF.
+
+---
+
+
 ## 📂 Estructura de Carpetas
 
 ```text
@@ -65,6 +91,9 @@ El flujo principal de conversión (descarga del PDF) está centralizado en el co
   ├── layouts/         # Layout principal con scripts globales
   ├── pages/
   │   └── [locale]/    # Páginas dinámicas por idioma
+  │   └── api/                
+  │       ├── send-otp.ts
+  │       └── verify-otp.ts
   ├── store/           # Nanostores (currencyStore.ts)
   └── utils/           # i18n.ts, cart.ts, priceFormatter.ts
 ```
@@ -79,6 +108,8 @@ Para mantener el control de las funcionalidades personalizadas, estas son las de
 | **`@nanostores/persistent`** | Permite que la divisa se guarde en el `localStorage` de forma automática. |
 | **`@astrojs/tailwind`** | Integración oficial para usar clases de Tailwind CSS en componentes `.astro`. |
 | **`@astrojs/check`** | Motor de validación para que TypeScript revise archivos `.astro` además de los `.ts`. |
+| **`@types/nodemailer`** | para comunicarnos con el servidor de correos (Mailtrap/Resend) `npm install nodemailer npm install @types/nodemailer -D`. |
+
 
 ---
 

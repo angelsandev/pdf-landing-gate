@@ -5,21 +5,16 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server', // Para usar Endpoints de API
+  adapter: vercel(),
+
   vite: {
     plugins: [tailwindcss()],
     build: {
       cssCodeSplit: false, // Esto fuerza a que todo el CSS sea una sola pieza
       chunkSizeWarningLimit: 1000,
     },
-    server: {
-      proxy: {
-        "/api": {
-          target: "http://localhost:8000",
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ""),
-        }
-      }
-    }
+    
   },
   
 
@@ -47,5 +42,5 @@ export default defineConfig({
     assets: '_assets',
   },
 
-  adapter: vercel()
+  
 });

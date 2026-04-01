@@ -1,0 +1,112 @@
+---
+// No hay lógica de servidor, solo el MODAL
+// La lógica y envío de OTP se ejecuta en el endpoint src/pages/api/send-otp.ts
+---
+
+<div id="otp-modal" class="fixed inset-0 z-50 items-center justify-center bg-black/50 backdrop-blur-sm hidden">
+  <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-sm w-full text-center">
+    
+    <!-- Icono email con una llave -->
+    <div class="relative mx-auto flex items-center justify-center h-32 mb-6 w-fit">
+      <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-lg">
+        <rect width="120" height="80" rx="10" fill="#FFB038"></rect>
+        <path d="M0 10C0 4.47715 4.47715 0 10 0H110C115.523 0 120 4.47715 120 10V15L60 45L0 15V10Z" fill="#FFD285"></path>
+        <rect x="70" y="50" width="40" height="12" rx="4" fill="white" fill-opacity="0.9"></rect>
+        <circle cx="76" cy="56" r="1.5" fill="#555"></circle>
+        <circle cx="82" cy="56" r="1.5" fill="#555"></circle>
+        <circle cx="88" cy="56" r="1.5" fill="#555"></circle>
+        <circle cx="94" cy="56" r="1.5" fill="#555"></circle>
+        <circle cx="100" cy="56" r="1.5" fill="#555"></circle>
+        <circle cx="106" cy="56" r="1.5" fill="#555"></circle>
+      </svg>
+
+      <div class="absolute -left-4 top-1/2 -translate-y-1/2 z-10 rotate-320">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 text-red-600 drop-shadow-sm">
+          <path
+            d="M18 1.5c-2.484 0-4.5 2.015-4.5 4.5 0 .713.167 1.387.464 1.984l-9.05 9.05a1.125 1.125 0 00-.33.795v2.846c0 .621.504 1.125 1.125 1.125h2.846a1.125 1.125 0 00.795-.33l1.104-1.104h1.5a1.125 1.125 0 001.125-1.125v-1.5h1.5a1.125 1.125 0 001.125-1.125v-1.104l1.231-1.231A4.484 4.484 0 0018 10.5c2.484 0 4.5-2.015 4.5-4.5S20.484 1.5 18 1.5zm0 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Icono de una llave
+    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-6">
+      <svg class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"
+        ></path>
+      </svg>
+    </div>
+-->
+
+    <h2 class="text-2xl font-bold text-gray-800 mb-2">Verify Your Email Address</h2>
+    <p class="text-gray-500 mb-8">Hemos enviado un código a tu correo. Por favor, introdúcelo debajo.</p>
+
+    <div class="flex justify-between gap-2 mb-8" id="otp-inputs">
+      <input
+        type="text"
+        maxlength="1"
+        class="w-12 h-12 text-center text-xl font-bold border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-all"
+      />
+      <input
+        type="text"
+        maxlength="1"
+        class="w-12 h-12 text-center text-xl font-bold border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-all"
+      />
+      <input
+        type="text"
+        maxlength="1"
+        class="w-12 h-12 text-center text-xl font-bold border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-all"
+      />
+      <input
+        type="text"
+        maxlength="1"
+        class="w-12 h-12 text-center text-xl font-bold border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-all"
+      />
+      <input
+        type="text"
+        maxlength="1"
+        class="w-12 h-12 text-center text-xl font-bold border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-all"
+      />
+      <input
+        type="text"
+        maxlength="1"
+        class="w-12 h-12 text-center text-xl font-bold border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-all"
+      />
+    </div>
+
+    <button id="verify-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors mb-4">
+      Verify Email
+    </button>
+
+    <button id="resend-link" class="text-blue-600 hover:underline text-sm font-medium"> Resend Code </button>
+  </div>
+</div>
+
+<script>
+  ////////////////////////////////////////////////////////////////////////
+  // Lógica para saltar de un input a otro automáticamente
+  ////////////////////////////////////////////////////////////////////////
+
+  const inputs = document.querySelectorAll<HTMLInputElement>("#otp-inputs input");
+
+  inputs.forEach((input, index) => {
+    input.addEventListener("input", (event: Event) => {
+      const target = event.target as HTMLInputElement;
+      // Si el usuario escribe algo y hay un siguiente input, salta a él
+      if (target.value && index < inputs.length - 1) {
+        (inputs[index + 1] as HTMLInputElement).focus();
+      }
+    });
+
+    input.addEventListener("keydown", (event: KeyboardEvent) => {
+      
+      // Si pulsa "Borrar" y el campo está vacío, vuelve al anterior
+      if (event.key === "Backspace" && !input.value && index > 0) {
+        (inputs[index - 1] as HTMLInputElement).focus();
+      }
+    });
+  });
+</script>

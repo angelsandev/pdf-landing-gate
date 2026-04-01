@@ -1,5 +1,16 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.4.5] API Astro  - 2026-4-01
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Crear API Astro para poder enviar emails con Mailtrap. Probado a enviar email manualmente desde consola.
+- **astro.config.mjs:** Eliminar `proxy` porque ya no se comunica con backend. Añadir `output: server` par autilizar endpoints de la API.
+- **Estructura:** Añadir `pages/api/` y dentro: `send-otp.ts` y `verify-otp.ts` para envio y verificacion emails.
+- **Estructura:** Añadir `/components/auth/OTPModal.astro` para crear el modal y la logica par aintroducir los numeros del codigo.
+- **send-otp:** Lógica para envío de emails y configuración Mailtrap.
+- **.env:** Para guardar usuario y contraseña de Mailtrap.
+- **OTPModal.astro:** Crear modal con `svg` de prueba y campos para introducir el codigo. Crer script que permite el cambio del foco en estos campos donde se introduce el codigo. 
+
+
 ### [V0.4.4] Backend connection - 2026-4-01
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ❌ Pruebas para introducir email y generar script para poder enviar un endpoint con el valor del email al backend. Evidentemente, da error ya que el backend no está implementado.
