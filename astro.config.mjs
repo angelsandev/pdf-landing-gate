@@ -10,8 +10,18 @@ export default defineConfig({
     build: {
       cssCodeSplit: false, // Esto fuerza a que todo el CSS sea una sola pieza
       chunkSizeWarningLimit: 1000,
+    },
+    server: {
+      proxy: {
+        "/api": {
+          target: "http://localhost:8000",
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ""),
+        }
+      }
     }
   },
+  
 
   image: {
       domains: ['www.electricautomationnetwork.com'], // Para mejorar Performance: "Use efficient cache"

@@ -4,7 +4,8 @@
 @theme {
   --breakpoint-xs: 410px;
   --color-ean-dark: #1f2937;
-  --color-ean-blue: #3370a5; /*#428bca;*/
+  --color-ean-blue: #3370a5;
+  /*#428bca;*/
   --color-ean-text: #2e2e2e;
 }
 
@@ -12,21 +13,40 @@
   .card-base {
     @apply rounded-2xl border border-gray-200 bg-white shadow-sm;
   }
+
   .button-base {
     @apply rounded-xl border border-gray-200 bg-white shadow-sm;
   }
+
   .button-primary {
     @apply rounded-xl bg-ean-blue hover:bg-blue-700 text-white font-bold shadow-md transition-all duration-200 flex items-center justify-center text-center;
+
   }
+
+  button:disabled {
+    @apply opacity-50 cursor-not-allowed shadow-none;
+  }
+
   .store-button {
     @apply relative overflow-hidden rounded-xl border border-gray-300 bg-white hover:bg-gray-50 transition-all duration-200 flex items-center gap-2 md:gap-2.5 px-2.5 md:px-4 py-2 md:py-3 h-10 md:h-12;
   }
-  .text-heading { @apply text-ean-text; }
-  .text-body { @apply text-gray-600; }
-  .text-muted { @apply text-gray-500; }
+
+  .text-heading {
+    @apply text-ean-text;
+  }
+
+  .text-body {
+    @apply text-gray-600;
+  }
+
+  .text-muted {
+    @apply text-gray-500;
+  }
+
   .info-badge {
     @apply flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gray-100 border border-gray-200;
   }
+
   .nav-ean {
     @apply bg-ean-dark text-white border-b border-white/10;
   }

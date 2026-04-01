@@ -2,7 +2,7 @@ import { $currencyStore, type ICurrency } from '../store/currencyStore';
 import { formatPriceWithCurrency } from './cart';
 
 export const initPriceObserver = (): void => {
-  // subscribe=> detecta cambios en el localstore y ejecuta la función
+  // subscribe=> detecta cambios en el localstorage y ejecuta la función
   $currencyStore.subscribe((localStore: ICurrency): void => {
     // Buscamos todos los precios que tengan esta clase
     const priceElements = document.querySelectorAll<HTMLElement>('.product-price-display');

@@ -95,3 +95,9 @@ const t = useTranslations(lang);
     </p>
   </div>
 </div>
+
+<script>
+  import { initDownloadEmail } from "../../utils/downloadEmail";
+
+  initDownloadEmail(); // Se ejecuta 1 sola vez al cargar el componente
+</script>

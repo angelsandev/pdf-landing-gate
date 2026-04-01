@@ -52,3 +52,9 @@ const { isSticky = true } = Astro.props;
     </form>
   </div>
 </div>
+
+<script>
+  import { initDownloadEmail } from "../../utils/downloadEmail";
+
+  initDownloadEmail(); // Se ejecuta 1 sola vez al cargar el componente
+</script>

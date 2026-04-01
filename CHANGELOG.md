@@ -1,5 +1,15 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.4.4] Backend connection - 2026-4-01
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ❌ Pruebas para introducir email y generar script para poder enviar un endpoint con el valor del email al backend. Evidentemente, da error ya que el backend no está implementado.
+- **Estructura:** Añadir carpeta `services` y dentro `api.ts y downloadService.ts` para preparar la conexión con el backend.
+- **Estructura:** Añadir `/utils/downloadEmail.ts` con el script para obtener el email y enviar a backend.
+- **astro.config.mjs:** Añadir `proxy` para conexión con backend. 
+- **Hero.astro:** Llamar al script que recoge el email.
+- **StickyForm.astro:** Llamar al script que recoge el email.
+- **global.css:** Añadir estilo a botón cuando está `disabled`. Para que esté sombreado cuando lo pulsas, indicando que se está enviando.
+
 ### [V0.4.3] Forms unificar clases - 2026-3-31
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Unificar clases de los forms para envío del email al backend. Tanto en Hero como en StickyForm deben tener la misma clase.
