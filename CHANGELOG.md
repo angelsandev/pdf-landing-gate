@@ -1,7 +1,14 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
-### [V0.4.5] API Astro  - 2026-4-01
+### [V0.4.6] Lógica abrir Modal  - 2026-4-07
 - **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Abrir el modal cuando se pulsa el botón de descarga: desde el `Hero` y desde el `StickyForm`.
+- **Hero.astro:** Crear evento personalizado para abrir el modal cuando se pulsa botón de descarga.
+- **StickyForm.astro:** Crear evento personalizado para abrir el modal cuando se pulsa botón de descarga.
+- **OTPModal.astro:** Escuchar el evento para abrir el Modal.
+
+### [V0.4.5] API Astro  - 2026-4-02
+- **Pruebas:** ✅ Todo ok. 100% Performance en Vercel.
 - **Pruebas:** ✅ Crear API Astro para poder enviar emails con Mailtrap. Probado a enviar email manualmente desde consola.
 - **astro.config.mjs:** Eliminar `proxy` porque ya no se comunica con backend. Añadir `output: server` par autilizar endpoints de la API.
 - **Estructura:** Añadir `pages/api/` y dentro: `send-otp.ts` y `verify-otp.ts` para envio y verificacion emails.

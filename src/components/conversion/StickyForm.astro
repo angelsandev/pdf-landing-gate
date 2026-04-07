@@ -43,7 +43,8 @@ const { isSticky = true } = Astro.props;
         required
       />
       <button
-        type="submit"
+        type="submit" 
+        id="sticky-download"
         aria-label={t("pdf_form_download")}
         class="bg-ean-blue text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap"
       >
@@ -57,4 +58,19 @@ const { isSticky = true } = Astro.props;
   import { initDownloadEmail } from "../../utils/downloadEmail";
 
   initDownloadEmail(); // Se ejecuta 1 sola vez al cargar el componente
+
+  ////////////////////////////////////////////////////////////////////////
+  // Lógica para crear evento personalizado => abrir el Modal 
+  ////////////////////////////////////////////////////////////////////////
+
+  const downLoadBtn = document.getElementById("sticky-download") as HTMLButtonElement;
+  downLoadBtn.addEventListener("click", (event: Event) => {
+    event.preventDefault();
+
+    const EVENT_NAME = "open-otp-modal";
+    const openEvent = new CustomEvent(EVENT_NAME);          // Crear evento personalizado
+    window.dispatchEvent(openEvent);
+  });
+</script>
+
 </script>
