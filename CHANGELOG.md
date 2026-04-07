@@ -1,7 +1,15 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.4.8] Unificar Envío Emails  - 2026-4-07
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** Unificar código envío de emails de `Hero.astro` y `StickyForm.astro` para evitar código duplicado. Probado en formulario de Hero y StickyForm.
+- **Pruebas:** Crear una función en `utils` con el código común y en los componentes simplemente llamar a esta función.
+- **Estructura:** Crear `utils/otpTrigger.ts` para que coja todos los `forms` con clase llamada `download-form`.
+- **optTrigger.ts:** Crear variable para evitar llamar 2 veces a la función ya que Mailtrap solo coge 1 petición cada 5 segundos.  
+
+
 ### [V0.4.7] Test Enviar Email  - 2026-4-07
-- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Todo ok. 100% Performance
 - **Pruebas:** ✅ Prodabo desde `Hero.astro` y se envía el correo correcto con código a Mailtrap.
 - **Hero.astro:** Crear script para enviar email, con `fetch` para llamar a la API de envio de email.
 

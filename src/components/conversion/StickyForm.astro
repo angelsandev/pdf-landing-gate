@@ -19,7 +19,6 @@ const { isSticky = true } = Astro.props;
     ? "fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-gray-200 p-4 z-100 translate-y-full transition-transform duration-500 shadow-[0_-10px_25px_-5px_rgba(0,0,0,0.1)]"
     : "relative w-full bg-white/95 backdrop-blur-md border-t border-gray-200 p-4 z-100 translate-y-full transition-transform duration-500 shadow-[0_-10px_25px_-5px_rgba(0,0,0,0.1)]"}
 >
-
   <div class="max-w-7xl mx-auto flex items-center justify-center">
     <!--
 <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -43,7 +42,7 @@ const { isSticky = true } = Astro.props;
         required
       />
       <button
-        type="submit" 
+        type="submit"
         id="sticky-download"
         aria-label={t("pdf_form_download")}
         class="bg-ean-blue text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap"
@@ -55,22 +54,8 @@ const { isSticky = true } = Astro.props;
 </div>
 
 <script>
-  import { initDownloadEmail } from "../../utils/downloadEmail";
-
-  initDownloadEmail(); // Se ejecuta 1 sola vez al cargar el componente
-
-  ////////////////////////////////////////////////////////////////////////
-  // Lógica para crear evento personalizado => abrir el Modal 
-  ////////////////////////////////////////////////////////////////////////
-
-  const downLoadBtn = document.getElementById("sticky-download") as HTMLButtonElement;
-  downLoadBtn.addEventListener("click", (event: Event) => {
-    event.preventDefault();
-
-    const EVENT_NAME = "open-otp-modal";
-    const openEvent = new CustomEvent(EVENT_NAME);          // Crear evento personalizado
-    window.dispatchEvent(openEvent);
-  });
-</script>
-
+  //import { initDownloadEmail } from "../../utils/downloadEmail";
+  //initDownloadEmail(); // Se ejecuta 1 sola vez al cargar el componente
+  import { initOTPTriggers } from "../../utils/otpTrigger";
+  initOTPTriggers();
 </script>
