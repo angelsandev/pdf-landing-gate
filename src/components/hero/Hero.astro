@@ -98,20 +98,53 @@ const t = useTranslations(lang);
 <script>
   import { initDownloadEmail } from "../../utils/downloadEmail";
 
-
   initDownloadEmail(); // Se ejecuta 1 sola vez al cargar el componente
 
-
   ////////////////////////////////////////////////////////////////////////
-  // Lógica para crear evento personalizado => abrir el Modal 
+  // Lógica para crear evento personalizado => abrir el Modal
   ////////////////////////////////////////////////////////////////////////
 
   const downLoadBtn = document.getElementById("hero-download") as HTMLButtonElement;
-  downLoadBtn.addEventListener("click", (event: Event) => {
+  const emailInput = document.getElementById("email") as HTMLInputElement;
+
+  downLoadBtn.addEventListener("click", async (event: Event) => {
     event.preventDefault();
 
-    const EVENT_NAME = "open-otp-modal";
-    const openEvent = new CustomEvent(EVENT_NAME);          // Crear evento personalizado
-    window.dispatchEvent(openEvent);
+    const email = emailInput?.value;
+    const locale = document.documentElement.lang || "es";
+
+    if (!email || !email.includes("@")) {
+      alert("Please enter a valid email");
+      return;
+    }
+
+    try {
+      interface ApiResponse {
+        success: boolean;
+        message: string;
+      }
+      
+      // Llamar a la API
+      const response = await fetch("/api/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, locale }),
+      });
+
+      const data: ApiResponse = await response.json();
+
+      if (response.ok) {
+        console.log("API Response:", data);
+
+        const EVENT_NAME = "open-otp-modal";
+        const openEvent = new CustomEvent(EVENT_NAME); // Crear evento personalizado
+        window.dispatchEvent(openEvent);
+      } else {
+        alert("Error sending OTP: " + data.message);
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      alert("Connection error");
+    }
   });
 </script>

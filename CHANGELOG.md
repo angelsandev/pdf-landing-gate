@@ -1,7 +1,13 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
-### [V0.4.6] Lógica abrir Modal  - 2026-4-07
+### [V0.4.7] Test Enviar Email  - 2026-4-07
 - **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Prodabo desde `Hero.astro` y se envía el correo correcto con código a Mailtrap.
+- **Hero.astro:** Crear script para enviar email, con `fetch` para llamar a la API de envio de email.
+
+
+### [V0.4.6] Lógica abrir Modal  - 2026-4-07
+- **Pruebas:** ✅ Todo ok. 100% Performance.
 - **Pruebas:** ✅ Abrir el modal cuando se pulsa el botón de descarga: desde el `Hero` y desde el `StickyForm`.
 - **Hero.astro:** Crear evento personalizado para abrir el modal cuando se pulsa botón de descarga.
 - **StickyForm.astro:** Crear evento personalizado para abrir el modal cuando se pulsa botón de descarga.
