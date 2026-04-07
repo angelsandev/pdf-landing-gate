@@ -1,7 +1,14 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
-### [V0.4.8] Unificar Envío Emails  - 2026-4-07
+### [V0.4.9] Borrar Form automáticamente  - 2026-4-07
 - **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Cuando aparezca el Modal, se debe borrar el email de los formularios para que, cuando vuelva el usuario, los vea vacíos.
+- **optTrigger.ts:** Hacer reset al `form` para que el email desaparezca del formulario.
+- **OTPModal.astro:** Aumentar el z-index a `z-120` para que el modal esté por encima del stickyForm que estaba a `z-100`
+
+
+### [V0.4.8] Unificar Envío Emails  - 2026-4-07
+- **Pruebas:** ✅ Todo ok. 100% Performance
 - **Pruebas:** Unificar código envío de emails de `Hero.astro` y `StickyForm.astro` para evitar código duplicado. Probado en formulario de Hero y StickyForm.
 - **Pruebas:** Crear una función en `utils` con el código común y en los componentes simplemente llamar a esta función.
 - **Estructura:** Crear `utils/otpTrigger.ts` para que coja todos los `forms` con clase llamada `download-form`.

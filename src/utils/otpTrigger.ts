@@ -60,7 +60,7 @@ export function initOTPTriggers() {
 
                 if (response.ok) {
                     console.log("API Response:", data);
-
+                    form.reset();                           // Limpiar los form después de enviar
                     const EVENT_NAME = "open-otp-modal";
                     const openEvent = new CustomEvent(EVENT_NAME); // Crear evento personalizado
                     window.dispatchEvent(openEvent);
