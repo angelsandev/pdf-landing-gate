@@ -3,9 +3,12 @@
 // La lógica y envío de OTP se ejecuta en el endpoint src/pages/api/send-otp.ts
 ---
 
+
+
+<!-----------------------Imagen del sobre con código de contraseña----------------------------> 
 <div id="otp-modal" class="fixed inset-0 z-120 items-center justify-center bg-black/50 backdrop-blur-sm hidden">
   <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-sm w-full text-center">
-    <!-- Icono email con una llave -->
+    
     <div class="relative mx-auto flex items-center justify-center h-32 mb-6 w-fit">
       <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-lg">
         <rect width="120" height="80" rx="10" fill="#FFB038"></rect>
@@ -19,13 +22,7 @@
         <circle cx="106" cy="56" r="1.5" fill="#555"></circle>
       </svg>
 
-      <div class="absolute -left-4 top-1/2 -translate-y-1/2 z-10 rotate-320">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 text-red-600 drop-shadow-sm">
-          <path
-            d="M18 1.5c-2.484 0-4.5 2.015-4.5 4.5 0 .713.167 1.387.464 1.984l-9.05 9.05a1.125 1.125 0 00-.33.795v2.846c0 .621.504 1.125 1.125 1.125h2.846a1.125 1.125 0 00.795-.33l1.104-1.104h1.5a1.125 1.125 0 001.125-1.125v-1.5h1.5a1.125 1.125 0 001.125-1.125v-1.104l1.231-1.231A4.484 4.484 0 0018 10.5c2.484 0 4.5-2.015 4.5-4.5S20.484 1.5 18 1.5zm0 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"
-          ></path>
-        </svg>
-      </div>
+      
     </div>
 
     <!-- Icono de una llave

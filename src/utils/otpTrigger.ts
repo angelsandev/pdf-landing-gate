@@ -1,4 +1,5 @@
 // src/utils/otpTrigger.ts
+import { isValidEmail } from "./validators";
 
 interface ApiResponse {
     success: boolean;
@@ -24,6 +25,7 @@ export function initOTPTriggers() {
     forms.forEach((form) => {
         const emailInput = form.querySelector<HTMLInputElement>('input[type="email"]');
         const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+        const errorSpan = form.querySelector<HTMLSpanElement>('.email-error');
 
         let isSubmit = false;                               // Evitar múltiples envíos mientras se procesa la solicitud    
 
@@ -33,18 +35,48 @@ export function initOTPTriggers() {
             if (isSubmit) return;
             if (!emailInput || !submitBtn) return;
 
-            const email = emailInput.value;
+            const email = emailInput.value.trim();
             const locale = document.documentElement.lang || "es";
+            const originalPlaceholder = emailInput.placeholder;
 
-            if (!email || !email.includes("@")) {
-                alert("Please enter a valid email");
+            // Validación de EMAIL
+            emailInput.classList.remove('border-red-500', 'placeholder-red-500', 'animate-shake');
+
+            // VALIDACIÓN
+            if (!isValidEmail(email)) {
+                emailInput.value = ""; // Vaciar el input para que se vea el placeholder
+                emailInput.placeholder = "Email no válido (ej: usuario@servidor.com)"; // Cambia placeholder
+
+                emailInput.classList.remove('focus:ring-ean-blue', 'border-gray-300');
+                emailInput.classList.add('border-red-500', 'focus:ring-red-500', 'placeholder-red-500', 'animate-shake');
+
+                emailInput.focus();
+
+                // Restaurar el placeholder original cuando el usuario vuelva a escribir
+                emailInput.addEventListener('input', () => {
+                    emailInput.placeholder = originalPlaceholder;
+                    emailInput.classList.remove('border-red-500', 'focus:ring-red-500', 'placeholder-red-500', 'animate-shake');
+                    emailInput.classList.add('focus:ring-ean-blue', 'border-gray-300');
+                }, { once: true });
+
                 return;
             }
 
-            // Feedback visual: deshabilitar el botón mientras carga
-            //const originalText = submitBtn.textContent;
 
-            //submitBtn.textContent = "...";
+            /*
+            if (errorSpan) errorSpan.classList.add('hidden');
+
+            // Llamada a función de validación de email
+            if (!isValidEmail(email)) {
+                emailInput.classList.add('border-red-500', 'animate-shake');
+                if (errorSpan) {
+                    errorSpan.textContent = "Email no válido (ej: usuario@servidor.com)";
+                    errorSpan.classList.remove('hidden');
+                }
+                emailInput.focus();
+                return; 
+            }
+*/
 
             try {
                 isSubmit = true;

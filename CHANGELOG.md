@@ -1,5 +1,13 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.5.0] Validación Email regex  - 2026-4-07
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Validación del email con `regex`. Se cambia el foco a color rojo y aparece texto en rojo.
+- **OTPModal.astro:** Modificar dibujo `svg` eliminando la llave.
+- **optTrigger.ts:** Añadir lógica para añadir texto y foco de input en rojo.
+- **optTrigger.ts:** Se modifica el `placeholder` mediante `JavaScript`.
+
+
 ### [V0.4.9] Borrar Form automáticamente  - 2026-4-07
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Cuando aparezca el Modal, se debe borrar el email de los formularios para que, cuando vuelva el usuario, los vea vacíos.
