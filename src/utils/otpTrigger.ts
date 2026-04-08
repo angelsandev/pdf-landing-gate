@@ -25,19 +25,22 @@ export function initOTPTriggers() {
     forms.forEach((form) => {
         const emailInput = form.querySelector<HTMLInputElement>('input[type="email"]');
         const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-        const errorSpan = form.querySelector<HTMLSpanElement>('.email-error');
 
+        if (!emailInput || !submitBtn) return;
+        const ORIGINAL_PLACEHOLDER = emailInput.placeholder;
         let isSubmit = false;                               // Evitar múltiples envíos mientras se procesa la solicitud    
+
+
 
         form.addEventListener("submit", async (event: Event) => {
             event.preventDefault();
 
             if (isSubmit) return;
-            if (!emailInput || !submitBtn) return;
+
 
             const email = emailInput.value.trim();
             const locale = document.documentElement.lang || "es";
-            const originalPlaceholder = emailInput.placeholder;
+
 
             // Validación de EMAIL
             emailInput.classList.remove('border-red-500', 'placeholder-red-500', 'animate-shake');
@@ -54,29 +57,13 @@ export function initOTPTriggers() {
 
                 // Restaurar el placeholder original cuando el usuario vuelva a escribir
                 emailInput.addEventListener('input', () => {
-                    emailInput.placeholder = originalPlaceholder;
+                    emailInput.placeholder = ORIGINAL_PLACEHOLDER;
                     emailInput.classList.remove('border-red-500', 'focus:ring-red-500', 'placeholder-red-500', 'animate-shake');
                     emailInput.classList.add('focus:ring-ean-blue', 'border-gray-300');
                 }, { once: true });
 
                 return;
             }
-
-
-            /*
-            if (errorSpan) errorSpan.classList.add('hidden');
-
-            // Llamada a función de validación de email
-            if (!isValidEmail(email)) {
-                emailInput.classList.add('border-red-500', 'animate-shake');
-                if (errorSpan) {
-                    errorSpan.textContent = "Email no válido (ej: usuario@servidor.com)";
-                    errorSpan.classList.remove('hidden');
-                }
-                emailInput.focus();
-                return; 
-            }
-*/
 
             try {
                 isSubmit = true;

@@ -1,5 +1,11 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.5.1] Validación Email en StickyForm - 2026-4-08
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Validación del email con `regex` en el `StickyForm`.
+- **StickyForm.astro:** Colocar atributo `novalidate` en el `form` para que la validación la hagamos por JavaScript.
+
+
 ### [V0.5.0] Validación Email regex  - 2026-4-07
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Validación del email con `regex`. Se cambia el foco a color rojo y aparece texto en rojo.
