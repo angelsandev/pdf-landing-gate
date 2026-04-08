@@ -2,7 +2,7 @@ export const prerender = false; // Forzamos a que se ejecute en el servidor (SSR
 import type { APIRoute } from 'astro';
 import { record } from 'astro:schema';
 import nodemailer from 'nodemailer';
-
+import redis from '../../lib/redis';
 
 // Diccionario rápido de mensajes (luego moverlo a i18n)
 const messages: Record<string, { subject: string; body: string }> = {
@@ -37,6 +37,13 @@ export const POST: APIRoute = async ({ request }) => {
 
         // Generar el OTP (6 dígitos aleatorios)
         const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
+
+        // GUARDAR EN REDIS (Expiración en 5 minutos = 300 segundos)
+        // Usamos una clave tipo "otp:usuario@email.com" para identificarlo
+        await redis.set(`otp:${email}`, otpCode, {
+            ex: 300
+        });
+
 
         // Configurar Mailtrap 
         const transporter = nodemailer.createTransport({

@@ -1,5 +1,18 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.5.4] REDIS para guardar códigos y Verify Email en Modal - 2026-4-08
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Comprobado envío de código a email, se guarda tb en Redis. Se introduce código en Modal y se verifica correctamente. Aparecen `Alerts` de Windows.
+- **.env:** Añadir variables de entorno creadas en `Upstash` donde he creado una base de datos `REDIS`.
+- **send-otp.ts:** Añadir lógica para guardar email y código en `REDIS`, con expiración a los `300` segundos.
+- **verify-otp.ts:** Añadir lógica para coger el código de `REDIS` y compararlo.
+- **verify-otp.ts:** Convertir código introducido y código guardado a `String` para que la comparación sea correcta, sino, no los compara bien.
+- **Estructura:** Crear `/src/lib/redis.ts` donde se crear un nuevo cliente de `Redis`, una instancia de Redis.
+- **Estructura:** Instalar el cliente de Redis Upstash con `npm`
+- **Estructura:** Crear una Base de datos Redis en la plataforma `Upstash`.
+
+
+
 ### [V0.5.3] Verify Email en Modal - 2026-4-08
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Comprobación con un código provisional `123456` para comprobar el funcionamiento.

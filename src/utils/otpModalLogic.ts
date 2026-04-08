@@ -112,7 +112,10 @@ export function initOTPModal() {
             const response = await fetch("/api/verify-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: currentEmail, code }),
+                body: JSON.stringify({ 
+                    email: currentEmail, 
+                    code: code 
+                }),
             });
 
             const data = await response.json();

@@ -164,6 +164,71 @@ El proyecto utiliza un sistema de internacionalización basado en diccionarios e
 
 
 
+## 🗄️ Infraestructura de Datos (Caché y Verificación)
+
+Para gestionar la validación de identidades (OTP) de forma segura en un entorno **Serverless**, hemos implementado una capa de persistencia volátil utilizando **Redis**.
+
+### ⚠️ El desafío de Vercel y Serverless
+Al desplegar en **Vercel**, no podemos utilizar bases de datos tradicionales en memoria (como un `Map` global de JS) ni contenedores **Docker** con Redis local, ya que las funciones Serverless son efímeras y pierden su estado entre ejecuciones. 
+
+**Solución:** Hemos optado por **Upstash Redis**, una base de datos Redis *serverless* que permite conexiones rápidas mediante HTTP, ideal para la arquitectura de Vercel.
+
+### 🛠️ Configuración de Redis
+
+- **Cliente:** `@upstash/redis` (Optimizado para latencia en Edge/Serverless).
+- **Ubicación del Cliente:** `src/lib/redis.ts`.
+- **Lógica de Expiración:** Los códigos OTP tienen un **TTL (Time To Live) de 5 minutos** (300 segundos), gestionado automáticamente por Redis para garantizar la seguridad y limpieza de datos.
+
+### 📦 Instalación y Dependencias
+
+Para manejar la persistencia y el envío de correos, se han añadido las siguientes librerías:
+
+| Librería | comando | Propósito |
+| :--- | :--- | :--- |
+| **`@upstash/redis`** | `npm install @upstash/redis` | Cliente Redis para entornos Serverless (HTTP). |
+| **`nodemailer`** | `npm install nodemailer` | Motor de envío de correos electrónicos. |
+
+### ⚙️ Variables de Entorno (.env)
+
+Es necesario configurar las siguientes claves en Upstash y Mailtrap para que el sistema de descarga funcione:
+
+```env
+# Upstash Redis
+UPSTASH_REDIS_REST_URL=[https://tu-base-de-datos.upstash.io](https://tu-base-de-datos.upstash.io)
+UPSTASH_REDIS_REST_TOKEN=tu_token_aqui
+
+# Mailtrap (Envío de Emails)
+MAILTRAP_USER=tu_usuario
+MAILTRAP_PASS=tu_password
+```
+
+---
+## 🚀 Estrategia de Verificación y Descarga (OTP)
+
+Para optimizar la captación de leads de alta calidad y asegurar la validez de los datos, se ha implementado un flujo de verificación de identidad mediante **One-Time Password (OTP)**. Este sistema garantiza que solo los usuarios con correos electrónicos reales puedan acceder a la documentación técnica.
+
+### 📋 Flujo Lógico del Sistema
+
+El proceso se divide en cinco etapas clave coordinadas entre el cliente y el servidor:
+
+1.  **Generación (API Astro):** Al solicitar el PDF desde el Hero, el endpoint `/api/send-otp.ts` intercepta la petición y genera de forma segura un código aleatorio de 6 dígitos.
+
+2.  **Almacenamiento en Redis (Persistencia Volátil):** Se guarda la relación `email -> código` en **Upstash Redis**. Se aplica un **TTL (Time To Live) de 5 minutos**, asegurando que el código expire automáticamente si no se utiliza, liberando memoria y aumentando la seguridad.
+
+3.  **Notificación (Email Delivery):** El servidor utiliza **Nodemailer** para enviar un correo electrónico maquetado al usuario a través de **Mailtrap**. El mensaje contiene el código único necesario para desbloquear la descarga.
+
+4.  **Validación de Identidad (API Astro):** Cuando el usuario introduce los dígitos en el modal, el endpoint `/api/verify-otp.ts` realiza la comprobación:
+    - **Si el código coincide:** Se elimina la clave de Redis inmediatamente (**seguridad de un solo uso**) y se devuelve una respuesta de éxito.
+    - **Si el código es incorrecto o ha expirado:** Se devuelve un error `400 Bad Request` con un mensaje descriptivo.
+
+5.  **Entrega del Recurso:** Tras recibir la validación positiva, la interfaz del cliente autoriza la descarga automática del recurso PDF almacenado en la carpeta `/public/`.
+
+---
+
+
+
+
+
 
 ## 👀 Want to learn more?
 
