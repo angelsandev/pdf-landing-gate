@@ -79,9 +79,10 @@ export function initOTPTriggers() {
 
                 if (response.ok) {
                     console.log("API Response:", data);
+                    const emailSent = email;                // Guardar el email para usarlo en el Modal para reenviar
                     form.reset();                           // Limpiar los form después de enviar
                     const EVENT_NAME = "open-otp-modal";
-                    const openEvent = new CustomEvent(EVENT_NAME); // Crear evento personalizado
+                    const openEvent = new CustomEvent(EVENT_NAME, {detail: {email: emailSent}}); // Crear evento personalizado, le enviamos el email tb
                     window.dispatchEvent(openEvent);
                 } else {
                     alert("Error: " + data.message);

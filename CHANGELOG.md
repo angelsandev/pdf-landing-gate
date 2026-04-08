@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.5.2] Resend Email en Modal - 2026-4-08
+- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Probado reenvío de email desde Modal. Aparece mensaje opaco con la cuenta atrás para próximo envío permitido, para que no pulsen varias veces y se colapse.
+- **OTPModal.astro:** Borrar todo el código script y hacer la llamada a la función de `otpModalLogic`.
+- **optTrigger.ts:** Guardar el emil introducido para enviarlo al Modal y utilizarlo en el Modal para `Reenviar código`.
+- **Estructura:** Crear `/utils/otpModalLogic.ts` para englobar toda la lógica del Modal, reenvío de código, etc...
+
 ### [V0.5.1] Validación Email en StickyForm - 2026-4-08
 - **Pruebas:** ✅ Todo ok.
 - **Pruebas:** ✅ Validación del email con `regex` en el `StickyForm`.
