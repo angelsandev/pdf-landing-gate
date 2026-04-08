@@ -3,10 +3,14 @@
 export function initOTPModal() {
 
     const inputs = document.querySelectorAll<HTMLInputElement>("#otp-inputs input");
-    const otpModal = document.getElementById("otp-modal") as HTMLDivElement;
-    const resendBtn = document.getElementById("resend-link") as HTMLButtonElement;
-    const verifyBtn = document.getElementById("verify-btn") as HTMLButtonElement;
-    let currentEmail = ""; // Variable para guardar el email recibido del evento
+    const otpModal = document.getElementById("otp-modal") as HTMLDivElement | null;
+    const resendBtn = document.getElementById("resend-link") as HTMLButtonElement | null;
+    const verifyBtn = document.getElementById("verify-btn") as HTMLButtonElement | null;
+    let currentEmail: string = ""; // Variable para guardar el email recibido del evento
+
+    // Guard Clause: Comprobaciones de Seguridad.
+    if (inputs.length === 0) return;
+    if (!otpModal || !verifyBtn) return;
 
     ////////////////////////////////////////////////////////////////////////
     // Lógica para saltar de un input a otro automáticamente
@@ -112,9 +116,9 @@ export function initOTPModal() {
             const response = await fetch("/api/verify-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ 
-                    email: currentEmail, 
-                    code: code 
+                body: JSON.stringify({
+                    email: currentEmail,
+                    code: code
                 }),
             });
 
@@ -124,15 +128,21 @@ export function initOTPModal() {
                 console.log("Verificación CORRECTA:", data);
                 alert("¡Código correcto! Ahora empezará la descarga.");
 
-                
-                
-                // Aquí IRÁ LA LÓGICA PARA LA DESCARGA DEL PDF
-                
-                
-                
+
+
+                // LÓGICA PARA LA DESCARGA DEL PDF
+                const pdfUrl = "/pdfs/guia-tecnica.pdf";    // ruta 
+                const link = document.createElement("a");
+                link.href = pdfUrl;
+                link.download = "Guia_Tecnica_EAN.pdf";     // Nombre con el que se guardará el archivo
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+
                 // CERRAR el modal
-                otpModal.classList.add("hidden");
-                otpModal.classList.remove("flex");
+                otpModal?.classList.add("hidden");
+                otpModal?.classList.remove("flex");
 
             } else {
                 // Si el código no es correcto, saldrá este error

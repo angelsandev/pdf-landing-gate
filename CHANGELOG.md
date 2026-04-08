@@ -1,7 +1,15 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
-### [V0.5.4] REDIS para guardar códigos y Verify Email en Modal - 2026-4-08
+### [V0.5.5] Descarga del PDF - 2026-4-08
 - **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Se descarga correctamente el pdf asignado. Hay un pdf asignado por defecto , solo se ha puesto una ruta, para probar.
+- **optModalLogic.ts:** Implementar lógica para descarga del PDF que accede a la ruta `/public/pdfs/...`.
+- **optModalLogic.ts:** Guard Clause, comprobaciones de seguridad.
+
+
+
+### [V0.5.4] REDIS para guardar códigos y Verify Email en Modal - 2026-4-08
+- **Pruebas:** ✅ Todo ok. 100% Performance 
 - **Pruebas:** ✅ Comprobado envío de código a email, se guarda tb en Redis. Se introduce código en Modal y se verifica correctamente. Aparecen `Alerts` de Windows.
 - **.env:** Añadir variables de entorno creadas en `Upstash` donde he creado una base de datos `REDIS`.
 - **send-otp.ts:** Añadir lógica para guardar email y código en `REDIS`, con expiración a los `300` segundos.
@@ -14,7 +22,7 @@
 
 
 ### [V0.5.3] Verify Email en Modal - 2026-4-08
-- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Todo ok. 100% Performance
 - **Pruebas:** ✅ Comprobación con un código provisional `123456` para comprobar el funcionamiento.
 - **verify-otp.ts:** Lógica para comparar el código recibido en el email.
 - **optModalLogic.ts:** Conectar el botón `Verify` con la API de verificar: `/api/verify-otp`. Lógica para hacer el `fetch` a esa API.

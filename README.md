@@ -225,8 +225,31 @@ El proceso se divide en cinco etapas clave coordinadas entre el cliente y el ser
 
 ---
 
+### 📁 Entrega del Recurso (Asset Delivery)
 
+Una vez que el servidor valida el OTP mediante el endpoint `/api/verify-otp`, el cliente ejecuta una **descarga programática**:
+- Se crea un elemento `<a>` efímero en el DOM.
+- Se asigna el atributo `download` para forzar la bajada del archivo en lugar de su apertura en el navegador.
+- El recurso se sirve desde la carpeta estática `/public/pdfs/`, aprovechando el caché de borde (Edge Caching) de Vercel para una entrega instantánea.
+- Solo hay disponible una única ruta de descarga para pruebas: `/pdf/guia-tecnica.pdf`. 
 
+> **NOTA** Para Producción habría que modificar esta ruta de descarga para obtener el archivo correctamente de la BBDD. Revisar `optModalLogic.ts`.
+
+---
+
+### 🛠️ Calidad de Código y Tipado (TypeScript)
+
+Para garantizar la robustez del lado del cliente y facilitar el mantenimiento del proyecto, se han aplicado patrones de diseño y técnicas de tipado estricto en la lógica de los modales y formularios:
+
+| Término Técnico | Implementación en el Proyecto |
+| :--- | :--- |
+| **Guard Clauses** | Uso de comprobaciones preventivas (`if (!element) return;`) que detienen la ejecución si un componente del DOM no está presente, eliminando errores de tiempo de ejecución y asegurando la integridad del flujo. |
+| **Event Listeners** | Implementación de escuchadores de eventos asíncronos para gestionar la interacción del usuario (verificación de OTP, reenvío de códigos y control de navegación entre inputs). |
+| **DOM Queries** | Empleo de métodos optimizados como `getElementById` y `querySelectorAll<T>` para la selección precisa de elementos, aprovechando los genéricos de TypeScript para definir el tipo de nodo desde la captura. |
+| **Type Assertion** | Uso de aserciones de tipo (`as HTMLDivElement`) para informar al compilador sobre la naturaleza específica de los elementos de la interfaz, permitiendo el acceso seguro a propiedades exclusivas de cada etiqueta. |
+| **Custom Events** | Comunicación desacoplada mediante `CustomEvent`, permitiendo que componentes independientes (como el Hero y el Modal) se comuniquen sin crear dependencias rígidas. |
+
+---
 
 
 
