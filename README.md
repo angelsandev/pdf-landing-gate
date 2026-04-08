@@ -44,10 +44,9 @@ El flujo principal de conversión (descarga del PDF) está centralizado en el co
 - **Ubicación:** `src/components/features/Hero.astro` (y sus variantes `HeroNew`, `HeroNew3`).
 - **Funcionamiento:** 1. El usuario introduce su correo electrónico en el campo `<input type="email">`.
     2. Al hacer clic en el botón de descarga, se debe capturar el valor del input.
-    3. **Pendiente de implementación:** Este valor debe enviarse mediante una petición `fetch o axios` (POST) a un endpoint del backend.
-    4. **Backend:** El servidor se encargará de validar el email, gestionar el envío del archivo mediante un servicio de correo y devolver la respuesta de éxito o error.
+    3. Este valor debe enviarse mediante una petición `fetch o axios` (POST) a un endpoint de `Astro`.
+    4. **Backend-Astro:** El servidor se encargará de validar el email, gestionar el envío del archivo mediante un servicio de correo *Mailtrap* y devolver la respuesta de éxito o error.
 
-> **Nota técnica:** Actualmente el formulario está preparado a nivel de UI/UX. Para la fase de producción, se requiere conectar el evento `submit` del formulario con la API correspondiente.
 
 ---
 

@@ -1,20 +1,26 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.5.3] Verify Email en Modal - 2026-4-08
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Comprobación con un código provisional `123456` para comprobar el funcionamiento.
+- **verify-otp.ts:** Lógica para comparar el código recibido en el email.
+- **optModalLogic.ts:** Conectar el botón `Verify` con la API de verificar: `/api/verify-otp`. Lógica para hacer el `fetch` a esa API.
+
 ### [V0.5.2] Resend Email en Modal - 2026-4-08
-- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Todo ok. 100% Performance
 - **Pruebas:** ✅ Probado reenvío de email desde Modal. Aparece mensaje opaco con la cuenta atrás para próximo envío permitido, para que no pulsen varias veces y se colapse.
 - **OTPModal.astro:** Borrar todo el código script y hacer la llamada a la función de `otpModalLogic`.
 - **optTrigger.ts:** Guardar el emil introducido para enviarlo al Modal y utilizarlo en el Modal para `Reenviar código`.
 - **Estructura:** Crear `/utils/otpModalLogic.ts` para englobar toda la lógica del Modal, reenvío de código, etc...
 
 ### [V0.5.1] Validación Email en StickyForm - 2026-4-08
-- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Todo ok. 100% Performance
 - **Pruebas:** ✅ Validación del email con `regex` en el `StickyForm`.
 - **StickyForm.astro:** Colocar atributo `novalidate` en el `form` para que la validación la hagamos por JavaScript.
 
 
 ### [V0.5.0] Validación Email regex  - 2026-4-07
-- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Todo ok. 100% Performance
 - **Pruebas:** ✅ Validación del email con `regex`. Se cambia el foco a color rojo y aparece texto en rojo.
 - **OTPModal.astro:** Modificar dibujo `svg` eliminando la llave.
 - **optTrigger.ts:** Añadir lógica para añadir texto y foco de input en rojo.
@@ -22,7 +28,7 @@
 
 
 ### [V0.4.9] Borrar Form automáticamente  - 2026-4-07
-- **Pruebas:** ✅ Todo ok.
+- **Pruebas:** ✅ Todo ok. 100% Performance
 - **Pruebas:** ✅ Cuando aparezca el Modal, se debe borrar el email de los formularios para que, cuando vuelva el usuario, los vea vacíos.
 - **optTrigger.ts:** Hacer reset al `form` para que el email desaparezca del formulario.
 - **OTPModal.astro:** Aumentar el z-index a `z-120` para que el modal esté por encima del stickyForm que estaba a `z-100`

@@ -91,9 +91,61 @@ export function initOTPModal() {
         }
     });
 
+    ////////////////////////////////////////////////////////////////////////
+    // Lógica para VERIFICAR CÓDIGO
+    ////////////////////////////////////////////////////////////////////////
 
+    verifyBtn?.addEventListener("click", async () => {
+        // Unir los valores de los 6 inputs
+        const code = Array.from(inputs).map(i => (i as HTMLInputElement).value).join('');
 
+        if (code.length !== 6) {
+            alert("Introduce los 6 dígitos");
+            return;
+        }
 
+        try {
+            verifyBtn.disabled = true;
+            verifyBtn.innerText = "Verificando...";
+
+            // Llamada a la API de VERIFICAR
+            const response = await fetch("/api/verify-otp", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: currentEmail, code }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log("Verificación CORRECTA:", data);
+                alert("¡Código correcto! Ahora empezará la descarga.");
+
+                
+                
+                // Aquí IRÁ LA LÓGICA PARA LA DESCARGA DEL PDF
+                
+                
+                
+                // CERRAR el modal
+                otpModal.classList.add("hidden");
+                otpModal.classList.remove("flex");
+
+            } else {
+                // Si el código no es correcto, saldrá este error
+                alert("Error: " + data.message);
+                // Limpiar inputs para volver a intentar
+                inputs.forEach(input => (input as HTMLInputElement).value = "");
+                inputs[0].focus();
+            }
+        } catch (error) {
+            console.error("Error al verificar:", error);
+            alert("Hubo un fallo en la conexión");
+        } finally {
+            verifyBtn.disabled = false;
+            verifyBtn.innerText = "Verificar y descargar";
+        }
+    });
 
     ////////////////////////////////////////////////////////////////////////
     // Lógica Cerrar el Modal si se hace click fuera
