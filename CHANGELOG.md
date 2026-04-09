@@ -1,5 +1,11 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.5.6] Anular Mailtrap para pruebas en Desarrollo - 2026-4-09
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Evitar el uso de Mailtrap en modo DEV (desarrollo) ya que estamos llegando al límite de Mailtrap.
+- **send-otp.ts:** Crear variable `isDev` para que si estamos en modo desarrollo `npm run dev`, no utilizará Mailtrap y solo mostrará la info del email y código por consola.
+
+
 ### [V0.5.5] Descarga del PDF - 2026-4-08
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Se descarga correctamente el pdf asignado. Hay un pdf asignado por defecto , solo se ha puesto una ruta, para probar.

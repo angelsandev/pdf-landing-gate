@@ -20,6 +20,9 @@ export const POST: APIRoute = async ({ request }) => {
         const body = await request.json(); // request=> objeto con email y locale
         const { email, locale } = body;
 
+        // Detectar si estamos en modo desarrollo (npm run dev)
+        const isDev = import.meta.env.DEV;
+
         // Validación básica
         // new Response=> forma de devolver respuesta personalizada en endpoint de Astro
         if (!email) {
@@ -44,35 +47,49 @@ export const POST: APIRoute = async ({ request }) => {
             ex: 300
         });
 
+        // LÓGICA DE ENVÍO DE EMAIL
+        if (isDev) {
+            // EN DESARROLLO: No gastamos Mailtrap, lo vemos por consola
+            console.log("-----------------------------------------");
+            console.log("🚀 MODO DESARROLLO ACTIVADO");
+            console.log(`📩 Email destino: ${email}`);
+            console.log(`🔑 CÓDIGO OTP: ${otpCode}`);
+            console.log("-----------------------------------------");
+        } else {
+            // EN PRODUCCIÓN (VERCEL): Usamos Mailtrap real
 
-        // Configurar Mailtrap 
-        const transporter = nodemailer.createTransport({
-            host: "sandbox.smtp.mailtrap.io",
-            port: 2525,
-            auth: {
-                user: import.meta.env.MAILTRAP_USER as string,
-                pass: import.meta.env.MAILTRAP_PASS as string
-            }
-        });
+            // Configurar Mailtrap 
+            const transporter = nodemailer.createTransport({
+                host: "sandbox.smtp.mailtrap.io",
+                port: 2525,
+                auth: {
+                    user: import.meta.env.MAILTRAP_USER as string,
+                    pass: import.meta.env.MAILTRAP_PASS as string
+                }
+            });
 
-        // Enviar el Email
-        await transporter.sendMail({
-            from: '"EAN" <noreply@ean.com>',
-            to: email,
-            subject: content.subject,
-            text: `${content.body} ${otpCode}`,
-            html: `<div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee;">
+            // Enviar el Email
+            await transporter.sendMail({
+                from: '"EAN" <noreply@ean.com>',
+                to: email,
+                subject: content.subject,
+                text: `${content.body} ${otpCode}`,
+                html: `<div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee;">
               <h2 style="color: #3370a5;">${content.subject}</h2>
               <p style="font-size: 16px;">${content.body}</p>
               <div style="font-size: 32px; font-weight: bold; letter-spacing: 5px; color: #1f2937;">
                 ${otpCode}
               </div>
             </div>`,
-        });
+            });
 
 
-        // Ver el código en la consola de npm run dev o en logs de Vercel
-        console.log(`[OTP] Email: ${email} | Code: ${otpCode} | Lang: ${lang}`);
+            // Ver el código en la consola de npm run dev o en logs de Vercel
+            console.log(`[OTP] Email: ${email} | Code: ${otpCode} | Lang: ${lang}`);
+
+
+        }
+
 
         return new Response(JSON.stringify({
             success: true,

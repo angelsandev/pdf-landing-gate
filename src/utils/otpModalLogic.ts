@@ -134,7 +134,7 @@ export function initOTPModal() {
                 const pdfUrl = "/pdfs/guia-tecnica.pdf";    // ruta 
                 const link = document.createElement("a");
                 link.href = pdfUrl;
-                link.download = "Guia_Tecnica_EAN.pdf";     // Nombre con el que se guardará el archivo
+                link.download = "PDF.pdf";     // Nombre con el que se guardará el archivo
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
