@@ -3,6 +3,7 @@ import type { APIRoute } from 'astro';
 import { record } from 'astro:schema';
 import nodemailer from 'nodemailer';
 import redis from '../../lib/redis';
+import { useTranslations } from '../../utils/i18n';
 
 // Diccionario rápido de mensajes (luego moverlo a i18n)
 const messages: Record<string, { subject: string; body: string }> = {
@@ -15,10 +16,22 @@ const messages: Record<string, { subject: string; body: string }> = {
 } as const;
 
 export const POST: APIRoute = async ({ request }) => {
-    try {
 
-        const body = await request.json(); // request=> objeto con email y locale
-        const { email, locale } = body;
+    let body;
+    try {
+        body = await request.json(); // request=> objeto con email y locale
+    } catch {
+        body = {};
+    }
+
+    const { email, locale } = body;
+
+    // Elegir el idioma (por defecto español si no viene o no existe)
+    const lang = messages[locale] ? locale : 'es';
+    const content = messages[lang];
+    const t = useTranslations(lang);
+
+    try {
 
         // Detectar si estamos en modo desarrollo (npm run dev)
         const isDev = import.meta.env.DEV;
@@ -27,16 +40,14 @@ export const POST: APIRoute = async ({ request }) => {
         // new Response=> forma de devolver respuesta personalizada en endpoint de Astro
         if (!email) {
             return new Response(JSON.stringify({
-                message: "Email missing"
+                message: t("email.send.missing")
             }), {
                 status: 400,
                 headers: { "Content-Type": "application/json" }
             });
         }
 
-        // Elegir el idioma (por defecto español si no viene o no existe)
-        const lang = messages[locale] ? locale : 'es';
-        const content = messages[lang];
+
 
         // Generar el OTP (6 dígitos aleatorios)
         const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
@@ -93,7 +104,7 @@ export const POST: APIRoute = async ({ request }) => {
 
         return new Response(JSON.stringify({
             success: true,
-            message: "OTP sent successfully"
+            message: t("email.send.success"),
             // debug_otp: otpCode
         }), {
             status: 200,
@@ -102,7 +113,9 @@ export const POST: APIRoute = async ({ request }) => {
 
     } catch (error) {
         console.error("Error en send-otp:", error);
-        return new Response(JSON.stringify({ message: "Server error" }), {
+        return new Response(JSON.stringify({
+            message: t("email.send.error")
+        }), {
             status: 500,
             headers: { "Content-Type": "application/json" }
         });

@@ -1,4 +1,5 @@
 // src/utils/otpTrigger.ts
+import { useTranslations } from "./i18n";
 import { isValidEmail } from "./validators";
 
 interface ApiResponse {
@@ -13,7 +14,8 @@ interface ApiResponse {
 
 let isInit = false;                                         // Evitar llamar 2 veces desde Hero y StickyForm
 
-export function initOTPTriggers() {
+export function initOTPTriggers(lang: string = 'es') {
+    const t = useTranslations(lang as any);
 
     if (isInit) return;                                     // Si ya se ha llamado a la función, se sale
 
@@ -48,7 +50,7 @@ export function initOTPTriggers() {
             // VALIDACIÓN
             if (!isValidEmail(email)) {
                 emailInput.value = ""; // Vaciar el input para que se vea el placeholder
-                emailInput.placeholder = "Email no válido (ej: usuario@servidor.com)"; // Cambia placeholder
+                emailInput.placeholder = t("email.input"); // Cambia placeholder
 
                 emailInput.classList.remove('focus:ring-ean-blue', 'border-gray-300');
                 emailInput.classList.add('border-red-500', 'focus:ring-red-500', 'placeholder-red-500', 'animate-shake');
@@ -82,7 +84,7 @@ export function initOTPTriggers() {
                     const emailSent = email;                // Guardar el email para usarlo en el Modal para reenviar
                     form.reset();                           // Limpiar los form después de enviar
                     const EVENT_NAME = "open-otp-modal";
-                    const openEvent = new CustomEvent(EVENT_NAME, {detail: {email: emailSent}}); // Crear evento personalizado, le enviamos el email tb
+                    const openEvent = new CustomEvent(EVENT_NAME, { detail: { email: emailSent } }); // Crear evento personalizado, le enviamos el email tb
                     window.dispatchEvent(openEvent);
                 } else {
                     alert("Error: " + data.message);

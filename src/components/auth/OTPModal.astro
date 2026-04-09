@@ -10,13 +10,9 @@ const { lang = "es" } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-
-
-
-<!-----------------------Imagen del sobre con código de contraseña----------------------------> 
+<!-----------------------Imagen del sobre con código de contraseña---------------------------->
 <div id="otp-modal" class="fixed inset-0 z-120 items-center justify-center bg-black/50 backdrop-blur-sm hidden">
   <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-sm w-full text-center">
-    
     <div class="relative mx-auto flex items-center justify-center h-32 mb-6 w-fit">
       <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-lg">
         <rect width="120" height="80" rx="10" fill="#FFB038"></rect>
@@ -29,8 +25,6 @@ const t = useTranslations(lang);
         <circle cx="100" cy="56" r="1.5" fill="#555"></circle>
         <circle cx="106" cy="56" r="1.5" fill="#555"></circle>
       </svg>
-
-      
     </div>
 
     <!-- Icono de una llave
@@ -45,8 +39,8 @@ const t = useTranslations(lang);
     </div>
     -->
 
-    <h2 class="text-2xl font-bold text-gray-800 mb-2">Verifica tu correo electrónico</h2>
-    <p class="text-gray-500 mb-8">Hemos enviado un código de 6 dígitos a tu bandeja de entrada. Introduce los números debajo para continuar.</p>
+    <h2 class="text-2xl font-bold text-gray-800 mb-2">{t("email.modal.title")}</h2>
+    <p class="text-gray-500 mb-8">{t("email.modal.description")}</p>
 
     <div class="flex justify-between gap-2 mb-8" id="otp-inputs">
       <input
@@ -81,17 +75,20 @@ const t = useTranslations(lang);
       />
     </div>
 
-    <button id="verify-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors mb-4 cursor-pointer">
-      Verificar y descargar
+    <button
+      id="verify-btn"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-colors mb-4 cursor-pointer"
+    >
+      {t("email.modal.button")}
     </button>
 
-    <button id="resend-link" class="text-blue-600 hover:underline text-sm font-medium cursor-pointer"> ¿No has recibido el código? Reenviar </button>
+    <button id="resend-link" class="text-blue-600 hover:underline text-sm font-medium cursor-pointer"> {t("email.modal.resend")} </button>
   </div>
 </div>
 
 <script>
   import { initOTPModal } from "../../utils/otpModalLogic";
-
-  initOTPModal(); // Llamar al Modal
-  
+  const currentLang = document.documentElement.lang || "es";
+  console.log("Idioma actual para OTP Modal:", currentLang);
+  initOTPModal(currentLang); // Llamar al Modal
 </script>

@@ -101,5 +101,7 @@ const t = useTranslations(lang);
   //initDownloadEmail(); // Se ejecuta 1 sola vez al cargar el componente
 
   import { initOTPTriggers } from "../../utils/otpTrigger";
-  initOTPTriggers();
+
+  const currentLang = document.documentElement.lang || "es";
+  initOTPTriggers(currentLang);
 </script>

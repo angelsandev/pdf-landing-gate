@@ -1,15 +1,31 @@
 import type { APIRoute } from 'astro';
 import redis from '../../lib/redis';
+import { useTranslations } from '../../utils/i18n';
 
 export const POST: APIRoute = async ({ request }) => {
+    
+    let body;
+        try {
+            body = await request.json(); // request=> objeto con email y locale
+        } catch {
+            body = {};
+        }
+    
+        const { email, code, locale } = body;
+    
+        // Elegir el idioma (por defecto español si no viene o no existe)
+        const lang = locale ? locale : 'es';
+        const t = useTranslations(lang);
+    
+    
+    
     try {
-        const body = await request.json();
-        const { email, code } = body;
+        
 
         if (!email || !code) {
             return new Response(JSON.stringify({
                 success: false,
-                message: "Faltan datos obligatorios"
+                message: t("email.verify.data")
             }), { status: 400 });
         }
 
@@ -21,7 +37,7 @@ export const POST: APIRoute = async ({ request }) => {
         if (!savedCode) {
             return new Response(JSON.stringify({
                 success: false,
-                message: "El código ha expirado o no existe. Solicita uno nuevo."
+                message: t("email.verify.expired")
             }), { status: 400 });
         }
 
@@ -38,7 +54,7 @@ export const POST: APIRoute = async ({ request }) => {
 
             return new Response(JSON.stringify({
                 success: true,
-                message: "Código verificado correctamente"
+                message: t("email.verify.codeok")
             }), {
                 status: 200,
                 headers: { "Content-Type": "application/json" }
@@ -47,7 +63,7 @@ export const POST: APIRoute = async ({ request }) => {
             // ERROR: El código no coincide
             return new Response(JSON.stringify({
                 success: false,
-                message: "El código introducido es incorrecto"
+                message: t("email.verify.codeNook")
             }), {
                 status: 400,
                 headers: { "Content-Type": "application/json" }
@@ -57,7 +73,7 @@ export const POST: APIRoute = async ({ request }) => {
         console.error("Error en verify-otp:", error);
         return new Response(JSON.stringify({
             success: false,
-            message: "Error interno del servidor"
+            message: t("email.verify.error")
         }), { status: 500 });
     }
 };

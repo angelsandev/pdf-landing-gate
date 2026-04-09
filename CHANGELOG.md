@@ -1,5 +1,15 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.5.7] Añadir idiomas y traducciones - 2026-4-09
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Probado el cambio de idioma con todos los textos modificados en Modal, en Input, en Alerts...
+- **optModalLogic.ts:** Lógica para utilizar traducciones. Se mete parámetro de entrada en la función con el `lang`. utilizando de `i18n.ts`.
+- **OTPModal.astro:** Lógica para utilizar traducciones, con props en script lado servidor. En la llamada a la función `initOTPModal` meterle como parámetro el `lang` actual. utilizando de `i18n.ts`.
+- **send-otp.ts:** Lógica para utilizar traducciones, utilizando de `i18n.ts`.
+- **verify-otp.ts:** Lógica para utilizar traducciones, utilizando de `i18n.ts`.
+- **optTrigger.ts:** Lógica para utilizar traducciones, utilizando de `i18n.ts`.
+- **index.astro:** Añadir la props de `lang` en la llamada al componente `OTPModal`. 
+
 ### [V0.5.6] Anular Mailtrap para pruebas en Desarrollo - 2026-4-09
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Evitar el uso de Mailtrap en modo DEV (desarrollo) ya que estamos llegando al límite de Mailtrap.

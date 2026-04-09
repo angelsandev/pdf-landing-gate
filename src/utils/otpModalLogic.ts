@@ -1,6 +1,8 @@
 // src/utils/otpModalLogic.ts
+import { useTranslations } from "./i18n";
 
-export function initOTPModal() {
+export function initOTPModal(lang: string = 'es') {
+    const t = useTranslations(lang as any);
 
     const inputs = document.querySelectorAll<HTMLInputElement>("#otp-inputs input");
     const otpModal = document.getElementById("otp-modal") as HTMLDivElement | null;
@@ -63,12 +65,12 @@ export function initOTPModal() {
 
         const timer = setInterval(() => {
             seconds--;
-            resendBtn.innerText = `Próximo reenvío de código en ${seconds}s`;
+            resendBtn.innerText = t("email.modal.resendNext") + `${seconds}s`;
 
             if (seconds <= 0) {
                 clearInterval(timer);
                 resendBtn.disabled = false;
-                resendBtn.innerText = "¿No has recibido el código? Reenviar";
+                resendBtn.innerText = t("email.modal.resend");
                 resendBtn.classList.remove("opacity-50", "cursor-not-allowed");
             }
         }, 1000);
@@ -79,7 +81,10 @@ export function initOTPModal() {
             const response = await fetch("/api/send-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: currentEmail, locale }),
+                body: JSON.stringify({
+                    email: currentEmail,
+                    locale: locale
+                }),
             });
 
             const data = await response.json();
@@ -104,21 +109,22 @@ export function initOTPModal() {
         const code = Array.from(inputs).map(i => (i as HTMLInputElement).value).join('');
 
         if (code.length !== 6) {
-            alert("Introduce los 6 dígitos");
+            alert(t("email.alert.digit"));
             return;
         }
 
         try {
             verifyBtn.disabled = true;
-            verifyBtn.innerText = "Verificando...";
-
+            verifyBtn.innerText = t("email.alert.verify");
+            const locale = document.documentElement.lang || "es";
             // Llamada a la API de VERIFICAR
             const response = await fetch("/api/verify-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     email: currentEmail,
-                    code: code
+                    code: code,
+                    locale: locale
                 }),
             });
 
@@ -126,7 +132,7 @@ export function initOTPModal() {
 
             if (response.ok) {
                 console.log("Verificación CORRECTA:", data);
-                alert("¡Código correcto! Ahora empezará la descarga.");
+                alert(t("email.alert.ok"));
 
 
 
@@ -153,10 +159,10 @@ export function initOTPModal() {
             }
         } catch (error) {
             console.error("Error al verificar:", error);
-            alert("Hubo un fallo en la conexión");
+            alert(t("email.alert.fail"));
         } finally {
             verifyBtn.disabled = false;
-            verifyBtn.innerText = "Verificar y descargar";
+            verifyBtn.innerText = t("email.modal.button");
         }
     });
 
