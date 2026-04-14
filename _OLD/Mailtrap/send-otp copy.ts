@@ -4,10 +4,6 @@ import { record } from 'astro:schema';
 import nodemailer from 'nodemailer';
 import redis from '../../lib/redis';
 import { useTranslations } from '../../utils/i18n';
-import { Resend } from 'resend'; // Importar el SDK de Resend
-
-// Inicializar Resend con la API Key
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
 // Diccionario rápido de mensajes (luego moverlo a i18n)
 const messages: Record<string, { subject: string; body: string }> = {
@@ -70,54 +66,33 @@ export const POST: APIRoute = async ({ request }) => {
             console.log(`📩 Email destino: ${email}`);
             console.log(`🔑 CÓDIGO OTP: ${otpCode}`);
             console.log("-----------------------------------------");
-
-
-
-            const { data, error } = await resend.emails.send({
-                from: 'EAN <onboarding@resend.dev>', // Si no existe un dominio, usa este por defecto
-                to: [email],
-                subject: content.subject,
-                html: `
-                    <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee;">
-                        <h2 style="color: #3370a5;">${content.subject}</h2>
-                        <p style="font-size: 16px;">${content.body}</p>
-                        <div style="font-size: 32px; font-weight: bold; letter-spacing: 5px; color: #1f2937;">
-                            ${otpCode}
-                        </div>
-                    </div>
-                `,
-            });
-
-            if (error) {
-                console.error("Error de Resend:", error);
-                throw new Error("Fallo en el envío de email");
-            }
-
-
-            // Ver el código en la consola de npm run dev o en logs de Vercel
-            console.log(`[OTP] Email: ${email} | Code: ${otpCode} | Lang: ${lang}`);
         } else {
-            // EN PRODUCCIÓN (VERCEL): Usamos RESEND real
+            // EN PRODUCCIÓN (VERCEL): Usamos Mailtrap real
 
-            const { data, error } = await resend.emails.send({
-                from: 'EAN <onboarding@resend.dev>', // Si no existe un dominio, usa este por defecto
-                to: [email],
-                subject: content.subject,
-                html: `
-                    <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee;">
-                        <h2 style="color: #3370a5;">${content.subject}</h2>
-                        <p style="font-size: 16px;">${content.body}</p>
-                        <div style="font-size: 32px; font-weight: bold; letter-spacing: 5px; color: #1f2937;">
-                            ${otpCode}
-                        </div>
-                    </div>
-                `,
+            // Configurar Mailtrap 
+            const transporter = nodemailer.createTransport({
+                host: "sandbox.smtp.mailtrap.io",
+                port: 2525,
+                auth: {
+                    user: import.meta.env.MAILTRAP_USER as string,
+                    pass: import.meta.env.MAILTRAP_PASS as string
+                }
             });
 
-            if (error) {
-                console.error("Error de Resend:", error);
-                throw new Error("Fallo en el envío de email");
-            }
+            // Enviar el Email
+            await transporter.sendMail({
+                from: '"EAN" <noreply@ean.com>',
+                to: email,
+                subject: content.subject,
+                text: `${content.body} ${otpCode}`,
+                html: `<div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee;">
+              <h2 style="color: #3370a5;">${content.subject}</h2>
+              <p style="font-size: 16px;">${content.body}</p>
+              <div style="font-size: 32px; font-weight: bold; letter-spacing: 5px; color: #1f2937;">
+                ${otpCode}
+              </div>
+            </div>`,
+            });
 
 
             // Ver el código en la consola de npm run dev o en logs de Vercel

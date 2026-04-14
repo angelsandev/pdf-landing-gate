@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.5.8] Añadir RESEND como platform envío emails - 2026-4-14
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ✅ Prueba de ebvío de email con plataforma RESEND. Envía email a la dirección cofigurada ( mi geletesan@hotmail.com)
+- **Pruebas:** ✅ Probado ok. Sólo envía el email a mo outlook. Con otro email no funciona.
+- **Estructura:** Instalar librería de RESEND `npm install resend`
+- **send-otp.ts:** Modificar lógica, eliminando las opciones de Mailtrap y añadiendo la utilización del SDK de RESEND.
+
 ### [V0.5.7] Añadir idiomas y traducciones - 2026-4-09
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Probado el cambio de idioma con todos los textos modificados en Modal, en Input, en Alerts...
