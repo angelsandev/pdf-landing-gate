@@ -78,7 +78,7 @@ export function initOTPModal(lang: string = 'es') {
         // Llamada a la API para reenvío del código al email guardado
         try {
             const locale = document.documentElement.lang || "es";
-            const response = await fetch("/api/send-otp", {
+            const response = await fetch(`/${locale}/api/send-otp`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
