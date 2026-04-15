@@ -1,9 +1,16 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
-### [V0.6.1] Fallo DEV-VERCEL - 2026-4-14
+### [V0.6.2] Fallo DEV-VERCEL - 2026-4-14
 - **Pruebas:** ✅ Todo ok.  100% Performance
-- **Pruebas:** ✅ En modo DEV no funcionaba y en Vercel tampoco.
-- **Pruebas:** ✅ Añadir lógica: si está en DEV elimina el `locale`. Si no está en DEV, añade el `locale`.
+- **Pruebas:** ✅ Seguía fallando en VERCEL. La carpeta `api` estaba mal situada en la estructura.
+- **Estructura:** Cambiar la carpeta `api` dentro de la carpeta `[locale]`.
+- **optModalLogic.ts:** Modificar el `fetch` para que apunte a la URL correcta con el idioma incorporado: `/${locale}/api/send-otp,`
+- **optTrigger.ts:** Modificar el `fetch` para que apunte a la URL correcta con el idioma incorporado: `/${locale}/api/send-otp,` 
+
+### [V0.6.1] Fallo DEV-VERCEL - 2026-4-14
+- **Pruebas:** ❌ No funciona.  100% Performance
+- **Pruebas:** ❌ En modo DEV no funcionaba y en Vercel tampoco.
+- **Pruebas:** ❌ Añadir lógica: si está en DEV elimina el `locale`. Si no está en DEV, añade el `locale`.
 - **otpTrigger.ts:** Modificar el `fetch` para que apunte a la URL dependiendo si está en modo DEV o no.
 - **otpModalLogic.ts:** Modificar el `fetch` para que apunte a la URL dependiendo si está en modo DEV o no.
 

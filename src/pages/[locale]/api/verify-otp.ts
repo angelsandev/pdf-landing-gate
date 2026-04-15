@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
-import redis from '../../lib/redis';
-import { useTranslations } from '../../utils/i18n';
+import redis from '../../../lib/redis';
+import { useTranslations } from '../../../utils/i18n';
 
 export const POST: APIRoute = async ({ request }) => {
     

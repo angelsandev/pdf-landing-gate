@@ -78,10 +78,8 @@ export function initOTPModal(lang: string = 'es') {
         // Llamada a la API para reenvío del código al email guardado
         try {
             const locale = document.documentElement.lang || "es";
-            const apiPath = import.meta.env.DEV
-                ? '/api/send-otp'  // En local suele estar en la raíz
-                : `/${locale}/api/send-otp`; // En Vercel con mi config suele pedir el locale
-            const response = await fetch(apiPath, {
+            
+            const response = await fetch(`/${locale}/api/send-otp`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -121,11 +119,8 @@ export function initOTPModal(lang: string = 'es') {
             verifyBtn.innerText = t("email.alert.verify");
             const locale = document.documentElement.lang || "es";
 
-            const apiPath = import.meta.env.DEV
-                ? '/api/send-otp'  // En local suele estar en la raíz
-                : `/${locale}/api/verify-otp`; // En Vercel con mi config suele pedir el locale
             // Llamada a la API de VERIFICAR
-            const response = await fetch(apiPath, {
+            const response = await fetch(`/${locale}/api/verify-otp`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

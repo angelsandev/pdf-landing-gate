@@ -71,11 +71,8 @@ export function initOTPTriggers(lang: string = 'es') {
                 isSubmit = true;
                 submitBtn.disabled = true;                  // Deshabilitar botón para evitar hacer varios clics
 
-                const apiPath = import.meta.env.DEV
-                    ? '/api/send-otp'  // En local suele estar en la raíz
-                    : `/${locale}/api/send-otp`; // En Vercel con mi config suele pedir el locale
 
-                const response = await fetch(apiPath, {
+                const response = await fetch(`/${locale}/api/send-otp`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email, locale }),

@@ -2,8 +2,8 @@ export const prerender = false; // Forzamos a que se ejecute en el servidor (SSR
 import type { APIRoute } from 'astro';
 import { record } from 'astro:schema';
 import nodemailer from 'nodemailer';
-import redis from '../../lib/redis';
-import { useTranslations } from '../../utils/i18n';
+import redis from '../../../lib/redis';
+import { useTranslations } from '../../../utils/i18n';
 import { Resend } from 'resend'; // Importar el SDK de Resend
 
 // Inicializar Resend con la API Key
