@@ -252,7 +252,44 @@ Para garantizar la robustez del lado del cliente y facilitar el mantenimiento de
 ---
 
 
+### Diagrama de Flujo (OTP)
 
-## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+```mermaid
+
+sequenceDiagram
+    autonumber
+    actor U as Usuario
+    participant FE as Frontend (Astro)
+    participant API as API Astro
+    participant R as Redis (Upstash)
+    participant M as Mail (Mailtrap)
+
+    Note over U, FE: 1. Captura de Lead
+    U->>FE: Introduce Email
+    FE->>API: POST /api/send-otp
+    
+    Note over API, R: 2. Generación y Envío
+    API->>API: Genera OTP (6 dígitos)
+    API->>R: SET email (TTL 5 min)
+    API->>M: Enviar Email con código
+    M-->>U: Recibe código
+    API-->>FE: 200 OK (Enviado)
+    
+    Note over FE, U: 3. Verificación
+    FE->>FE: Abre Modal OTP
+    U->>FE: Introduce código
+    FE->>API: POST /api/verify-otp
+    
+    alt Código Correcto
+        API->>R: GET & DEL email
+        R-->>API: Coincide
+        API-->>FE: 200 OK
+        FE->>FE: Crear <a> download
+        FE-->>U: Descarga PDF
+    else Código Incorrecto
+        API-->>FE: 400 Bad Request
+        FE-->>U: Error en pantalla
+    end
+```

@@ -1,5 +1,11 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.5.9] Añadir nuevo email para pruebas de envío con RESEND - 2026-4-14
+- **Pruebas:** ✅ Todo ok. 
+- **Pruebas:** ❌ Prueba de envío email a otro diferente al mío pero no funciona. Solo funciona con el mío, que soy el admin en RESEND.
+- **README:** Se añade Diagrama de flujo en `Mermaid`.
+
+
 ### [V0.5.8] Añadir RESEND como platform envío emails - 2026-4-14
 - **Pruebas:** ✅ Todo ok. 
 - **Pruebas:** ✅ Prueba de ebvío de email con plataforma RESEND. Envía email a la dirección cofigurada ( mi geletesan@hotmail.com)
