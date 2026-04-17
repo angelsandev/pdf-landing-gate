@@ -200,6 +200,9 @@ UPSTASH_REDIS_REST_TOKEN=tu_token_aqui
 # Mailtrap (Envío de Emails)
 MAILTRAP_USER=tu_usuario
 MAILTRAP_PASS=tu_password
+
+# RESEND
+RESEND_API_KEY=tu_password
 ```
 
 ---
@@ -293,3 +296,56 @@ sequenceDiagram
         FE-->>U: Error en pantalla
     end
 ```
+
+---
+
+# 🎭 Playwright Testing Cheat Sheet
+
+Guía rápida de comandos para la ejecución y depuración de tests de extremo a extremo (E2E) en este proyecto.
+
+## 🚀 Comandos de Ejecución
+
+| Comando | Descripción |
+| :--- | :--- |
+| `npx playwright test` | Ejecuta todos los tests en todos los navegadores (headless). |
+| `npx playwright test --headed` | Ejecuta los tests viendo el navegador. |
+| `npx playwright test tests/e2e/otp-flow.spec.ts` | Ejecuta solo un archivo específico. |
+| `npx playwright test --project=chromium` | Ejecuta los tests solo en Chrome/Chromium. |
+| `npx playwright test -g "debe mostrar el modal"` | Ejecuta tests que coincidan con un título específico. |
+
+---
+
+## 🛠️ Depuración y UI (Debug)
+
+| Comando | Descripción |
+| :--- | :--- |
+| `npx playwright test --ui` | **(Recomendado)** Abre la interfaz interactiva para viajar en el tiempo por los tests. |
+| `npx playwright test --debug` | Abre el Inspector paso a paso y el navegador al mismo tiempo. |
+| `npx playwright show-report` | Abre el último informe HTML generado tras un fallo. |
+
+---
+
+## 🏗️ Utilidades de Creación
+
+| Comando | Descripción |
+| :--- | :--- |
+| `npx playwright codegen` | Abre una ventana que genera código automáticamente mientras navegas por la web. |
+| `npx playwright install` | Instala/Actualiza los navegadores necesarios (Chromium, Firefox, WebKit). |
+
+---
+
+## 💡 Tips de Oro
+
+### 1. Pausa Manual
+Si quieres que el test se detenga en un punto exacto para inspeccionar el HTML, añade esto en tu código `.spec.ts`:
+```typescript
+await page.pause();
+```
+
+## Ver Traces (Rastros)
+Si un test falla en la terminal (CI), puedes descargar el archivo .zip del rastro y abrirlo con:
+Explorador de Traces de Playwright: `https://trace.playwright.dev/`
+
+
+
+

@@ -1,26 +1,33 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
-### [V0.6.2] Fallo DEV-VERCEL - 2026-4-14
+### [V0.6.3] Tests E2E - 2026-4-16
+- **Pruebas:** ✅ Todo ok.  100% Performance
+- **Pruebas:** ✅ Probado automaticamente la introduccion de email y aparición del Modal.
+- **Estructura:** Crear carpeta `/tests/e2e` para hacer pruebas de funcionamiento con `Playwright`.
+- **otp-flow.spec.ts:** Lógica de `Playwright` para llamar y probar los elementos: input, submit, modal, etc...
+
+### [V0.6.2] Fallo DEV-VERCEL - 2026-4-15
 - **Pruebas:** ✅ Todo ok.  100% Performance
 - **Pruebas:** ✅ Seguía fallando en VERCEL. La carpeta `api` estaba mal situada en la estructura.
 - **Estructura:** Cambiar la carpeta `api` dentro de la carpeta `[locale]`.
 - **optModalLogic.ts:** Modificar el `fetch` para que apunte a la URL correcta con el idioma incorporado: `/${locale}/api/send-otp,`
 - **optTrigger.ts:** Modificar el `fetch` para que apunte a la URL correcta con el idioma incorporado: `/${locale}/api/send-otp,` 
+- **VERCEL:** Se corrigen las variables de Entorno en el panel de VERCEL: se eliminan las `" "`.
 
-### [V0.6.1] Fallo DEV-VERCEL - 2026-4-14
+### [V0.6.1] Fallo DEV-VERCEL - 2026-4-15
 - **Pruebas:** ❌ No funciona.  100% Performance
 - **Pruebas:** ❌ En modo DEV no funcionaba y en Vercel tampoco.
 - **Pruebas:** ❌ Añadir lógica: si está en DEV elimina el `locale`. Si no está en DEV, añade el `locale`.
 - **otpTrigger.ts:** Modificar el `fetch` para que apunte a la URL dependiendo si está en modo DEV o no.
 - **otpModalLogic.ts:** Modificar el `fetch` para que apunte a la URL dependiendo si está en modo DEV o no.
 
-### [V0.6.0] Fallo al probar en VERCEL - 2026-4-14
+### [V0.6.0] Fallo al probar en VERCEL - 2026-4-15
 - **Pruebas:** ❌ Todo ok.  100% Performance
 - **Pruebas:** ❌ Al desplegar en Vercel había problema de envío de email. No conectaba con el servidor.
 - **Pruebas:** Se añaden las variables de Entorno en el panel de VERCEL.
 - **optModalLogic.ts:** Modificar el `fetch` para que apunte a la URL correcta con el idioma incorporado: `/${locale}/api/send-otp,`
 
-### [V0.5.9] Añadir nuevo email para pruebas de envío con RESEND - 2026-4-14
+### [V0.5.9] Añadir nuevo email para pruebas de envío con RESEND - 2026-4-15
 - **Pruebas:** ❌ No funciona en Vercel.  100% Performance
 - **Pruebas:** ❌ Prueba de envío email a otro diferente al mío pero no funciona. Solo funciona con el mío, que soy el admin en RESEND.
 - **README:** Se añade Diagrama de flujo en `Mermaid`.
