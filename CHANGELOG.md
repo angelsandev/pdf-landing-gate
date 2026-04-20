@@ -1,5 +1,12 @@
 # Landing page con Astro PDF GATE: Descarga de PDFs con validación por email
 
+### [V0.6.4] Tests Unit Pytest - 2026-4-20
+- **Pruebas:** ✅ Todo ok.  100% Performance
+- **Pruebas:** ✅ Pruebas con Pytest, simulando funciones en Python y comprobando la ejecución.
+- **Estructura:** Crear carpeta `/tests/backend` para hacer pruebas de funcionamiento con `Pytest`.
+- **auth_logic.py:** Crear las funciones de validación, en Python.
+- **test_otp_logic.py:** LLamar a las funciones de validación con datos por defecto para ejecutar el test.
+
 ### [V0.6.3] Tests E2E - 2026-4-16
 - **Pruebas:** ✅ Todo ok.  100% Performance
 - **Pruebas:** ✅ Probado automaticamente la introduccion de email y aparición del Modal.
